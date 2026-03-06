@@ -7,12 +7,8 @@ export default hopeTheme({
     themeColor: "#1565c0",
 
     // 网站 Logo
+    // 网站 Logo
     logo: "/logo.png",
-    
-    // 右侧图标链接（使用 repo 及 repoIcon 模拟）
-    repo: "http://t.me/JIAN6688",
-    repoLabel: "Telegram",
-    repoDisplay: true,
     
     docsDir: "docs",
 
@@ -31,6 +27,11 @@ export default hopeTheme({
                 { text: "标签", link: "/tag/" },
                 { text: "统计", link: "/stats" },
             ],
+        },
+        {
+            text: "",
+            icon: "/tg-plane.svg",
+            link: "http://t.me/JIAN6688"
         }
     ],
 
