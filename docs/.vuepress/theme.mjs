@@ -8,8 +8,12 @@ export default hopeTheme({
 
     // 网站 Logo
     logo: "/logo.png",
-    repo: "https://github.com/vuepress-theme-hope/vuepress-theme-hope",
-    repoDisplay: false,
+    
+    // 右侧图标链接（使用 repo 及 repoIcon 模拟）
+    repo: "http://t.me/JIAN6688",
+    repoLabel: "Telegram",
+    repoDisplay: true,
+    
     docsDir: "docs",
 
     // 导航栏 (机场推荐突出放前面)
@@ -27,11 +31,6 @@ export default hopeTheme({
                 { text: "标签", link: "/tag/" },
                 { text: "统计", link: "/stats" },
             ],
-        },
-        {
-            text: "",
-            icon: "/telegram-icon.png",
-            link: "http://t.me/JIAN6688"
         }
     ],
 
