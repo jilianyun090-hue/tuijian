@@ -28,6 +28,11 @@ export default hopeTheme({
                 { text: "统计", link: "/stats" },
             ],
         },
+        {
+            text: "",
+            icon: "telegram",
+            link: "http://t.me/JIAN6688"
+        }
     ],
 
     // 侧边栏 (移除小图标, 以纯净大方的文字目录为主)
@@ -104,7 +109,7 @@ export default hopeTheme({
         ],
     },
 
-    footer: "优质资源共享 | 助你畅享全球互联网自由 <br/> <a href=\"http://t.me/JIAN6688\" target=\"_blank\" style=\"display:inline-block; margin-top:8px; padding:4px 12px; background-color:#1565c0; color:#fff; border-radius:4px; text-decoration:none; font-size:14px;\">商务合作</a>",
+    footer: "优质资源共享 | 助你畅享全球互联网自由",
     displayFooter: true,
 
     // 关闭不必要的图标插件
