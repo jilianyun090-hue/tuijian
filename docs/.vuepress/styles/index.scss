@@ -1,0 +1,862 @@
+/* ============================================
+   全站样式 — 科学上网机场推荐 极简专业风格
+   色系：深蓝色 (#1565c0)
+   ============================================ */
+
+/* --- 全局颜色变量 --- */
+:root {
+  --brand-color: #1565c0;
+  --brand-hover: #0d47a1;
+  --brand-light: rgba(21, 101, 192, 0.07);
+  --text-main: #1e2433;
+  --text-muted: #596580;
+  --border-color: #e4e8f0;
+  --bg-soft: #f0f4fa;
+
+  /* VuePress Hope 原生主题色变量 — 全量覆盖（彻底消除默认绿色 #3eaf7c）*/
+  --vp-c-brand: #1565c0 !important;
+  --vp-c-brand-light: #1976d2 !important;
+  --vp-c-brand-lighter: #42a5f5 !important;
+  --vp-c-brand-dark: #0d47a1 !important;
+  --vp-c-brand-darker: #0a3880 !important;
+  --theme-color: #1565c0 !important;
+  --vp-theme-color: #1565c0 !important;
+  --c-brand: #1565c0 !important;
+  --c-brand-light: #1976d2 !important;
+  --color-1: #1565c0 !important;
+  --vp-c-accent: #1565c0 !important;
+
+  /* VuePress Hope 补充变量 */
+  --hope-theme-color: #1565c0 !important;
+  --hope-theme-color-light: #1976d2 !important;
+  --hope-theme-color-lighten: #42a5f5 !important;
+  --hope-theme-color-dark: #0d47a1 !important;
+  --hope-theme-color-pale: rgba(21, 101, 192, 0.15) !important;
+
+  /* VuePress 2.x 变量 */
+  --vp-c-indigo: #1565c0 !important;
+  --vp-c-indigo-light: #1976d2 !important;
+  --vp-c-indigo-lighter: #42a5f5 !important;
+  --vp-c-indigo-dark: #0d47a1 !important;
+  --vp-c-indigo-darker: #0a3880 !important;
+
+  /* 导航栏链接 hover/active 下划线相关 */
+  --navbar-line-color: #1565c0 !important;
+  --active-color: #1565c0 !important;
+}
+
+/* 暗黑模式覆盖 */
+[data-theme="dark"] {
+  --vp-c-brand: #42a5f5 !important;
+  --vp-c-brand-light: #64b5f6 !important;
+  --vp-c-brand-dark: #1976d2 !important;
+  --theme-color: #42a5f5 !important;
+  --c-brand: #42a5f5 !important;
+  --brand-color: #42a5f5;
+  --brand-hover: #64b5f6;
+}
+
+
+/* --- 全局排版 --- */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+/* --- 导航栏 --- */
+.vp-navbar {
+  border-bottom: 1px solid var(--border-color) !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05) !important;
+  background: #fff !important;
+}
+
+/* 导航栏激活项颜色强制覆盖 (route-link-active 是 VuePress Hope 的正确类名) */
+.vp-navbar .vp-nav-item.active,
+.vp-navbar .vp-nav-link.active,
+.vp-nav-link.route-link-active,
+.vp-nav-link.router-link-active,
+.vp-navbar a.route-link-active,
+.vp-navbar a.router-link-active {
+  color: #1565c0 !important;
+}
+
+/* 导航激活下划线 — ::after 和 ::before 全量覆盖（阻止绿色 #3eaf7c）*/
+.vp-nav-link::after,
+.vp-nav-link:hover::after,
+.vp-nav-link.route-link-active::after,
+.vp-nav-link.router-link-active::after,
+.vp-nav-link.active::after,
+.vp-nav-link::before,
+.vp-nav-link:hover::before,
+.vp-nav-link.route-link-active::before,
+.route-link-active::after,
+.route-link-active::before,
+nav a:hover::after,
+nav a.route-link-active::after,
+.navbar-link::after,
+.navbar-link:hover::after,
+.nav-link::after,
+.nav-link:hover::after,
+.vp-navbar a::after,
+.vp-navbar a:hover::after,
+.auto-link::after,
+.auto-link:hover::after {
+  background: #1565c0 !important;
+  background-color: #1565c0 !important;
+  border-bottom-color: #1565c0 !important;
+  color: #1565c0 !important;
+}
+
+/* 导航链接 hover 颜色 */
+.vp-navbar .vp-nav-link:hover,
+.vp-navbar a:hover {
+  color: #1565c0 !important;
+  border-bottom-color: #1565c0 !important;
+}
+
+/* 右侧目录 (TOC) 激活项 */
+.vp-toc-link.active,
+.table-of-contents .active,
+.vp-toc .active>a,
+.vp-toc-item.active>a {
+  color: #1565c0 !important;
+  border-left-color: #1565c0 !important;
+}
+
+/* 侧边栏激活项颜色 */
+.vp-sidebar .vp-sidebar-link.active,
+.vp-sidebar .vp-sidebar-link.route-link-active,
+.vp-sidebar .vp-sidebar-link.router-link-active,
+.vp-sidebar a.active,
+.vp-sidebar a.route-link-active {
+  color: #1565c0 !important;
+  border-inline-start-color: #1565c0 !important;
+  border-left-color: #1565c0 !important;
+}
+
+/* 面包屑、tag 颜色 */
+.vp-breadcrumb a,
+.vp-tag {
+  color: #1565c0 !important;
+}
+
+/* 全局链接颜色 */
+.theme-hope-content a:not(.vp-hero-action):not(.vp-button),
+.vp-page a:not(.vp-hero-action) {
+  color: #1565c0 !important;
+}
+
+.theme-hope-content a:hover:not(.vp-hero-action):not(.vp-button),
+.vp-page a:hover:not(.vp-hero-action) {
+  color: #0d47a1 !important;
+  text-decoration-color: #0d47a1 !important;
+}
+
+/* ============================================================
+   强制覆盖所有绿色残留元素
+   ============================================================ */
+
+/* 首页英雄按钮 (科学上网) — 必须用精确的 a.vp-hero-action.primary */
+a.vp-hero-action.primary,
+.vp-hero-action.primary,
+.vp-hero-actions>a.primary,
+.vp-hero-actions .primary {
+  background-color: #1565c0 !important;
+  background: #1565c0 !important;
+  border-color: #1565c0 !important;
+  color: #fff !important;
+}
+
+a.vp-hero-action.primary:hover,
+.vp-hero-action.primary:hover {
+  background-color: #0d47a1 !important;
+  background: #0d47a1 !important;
+  border-color: #0d47a1 !important;
+}
+
+/* 所有其他 primary 按钮 */
+.vp-button.primary,
+a.vp-button.primary,
+button.vp-button.primary {
+  background-color: #1565c0 !important;
+  border-color: #1565c0 !important;
+  color: #fff !important;
+
+  &:hover {
+    background-color: #0d47a1 !important;
+    border-color: #0d47a1 !important;
+  }
+}
+
+/* 悬停时链接下划线颜色 */
+a:hover {
+  text-decoration-color: #1565c0 !important;
+}
+
+/* 导航栏激活文字（所有可能变体）*/
+.nav-item>a.active,
+.navbar-item.active>a,
+.route-link-active,
+a.route-link-active {
+  color: #1565c0 !important;
+}
+
+/* Tab / 分页 激活 */
+.vp-tab-button.active,
+.tabs-component-tab.is-active a {
+  color: #1565c0 !important;
+  border-bottom-color: #1565c0 !important;
+}
+
+/* 搜索高亮 */
+.vp-search-result mark {
+  color: #1565c0 !important;
+}
+
+/* 代码块复制按钮 */
+.vp-copy-code-button:hover {
+  color: #1565c0 !important;
+}
+
+/* 返回顶部按钮 */
+.vp-back-to-top-button {
+  background: #1565c0 !important;
+}
+
+/* 进度条 */
+#nprogress .bar {
+  background: #1565c0 !important;
+}
+
+/* --- 首页 Hero --- */
+.vp-hero-info-wrapper {
+  .vp-hero-info {
+    h1 {
+      font-weight: 800 !important;
+      font-size: 2.6rem !important;
+      color: var(--text-main) !important;
+      letter-spacing: -0.5px;
+      background: none !important;
+      -webkit-background-clip: unset !important;
+      background-clip: unset !important;
+      -webkit-text-fill-color: unset !important;
+    }
+
+    .vp-description {
+      color: var(--text-muted) !important;
+      font-size: 1.1rem !important;
+      line-height: 1.7;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+  }
+}
+
+/* 首页按钮 */
+.vp-hero-actions {
+  .vp-button {
+    border-radius: 6px !important;
+    padding: 0 24px !important;
+    line-height: 42px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s !important;
+
+    &.primary {
+      background-color: var(--brand-color) !important;
+      color: #fff !important;
+      border-color: var(--brand-color) !important;
+
+      &:hover {
+        background-color: var(--brand-hover) !important;
+      }
+    }
+
+    &:not(.primary) {
+      border-color: var(--border-color) !important;
+      color: var(--text-main) !important;
+      background: #fff !important;
+
+      &:hover {
+        border-color: var(--brand-color) !important;
+        color: var(--brand-color) !important;
+      }
+    }
+  }
+}
+
+/* 首页特性卡片 — 隐藏图标 */
+.vp-features {
+  .vp-feature-item {
+    border: 1px solid var(--border-color) !important;
+    border-radius: 10px !important;
+    padding: 28px 24px !important;
+    background: #fff !important;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s !important;
+
+    &:hover {
+      border-color: var(--brand-color) !important;
+      box-shadow: 0 4px 16px rgba(214, 51, 132, 0.12) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    /* 隐藏feature图标 */
+    .vp-feature-icon,
+    [class*="icon"],
+    .icon {
+      display: none !important;
+    }
+
+    h2,
+    .vp-feature-title {
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      color: var(--text-main) !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 0 10px 0 !important;
+    }
+
+    p,
+    .vp-feature-details {
+      font-size: 14px !important;
+      color: var(--text-muted) !important;
+      line-height: 1.7 !important;
+      margin: 0 !important;
+    }
+  }
+}
+
+/* --- 侧边栏 --- */
+.vp-sidebar {
+  border-right: 1px solid var(--border-color);
+
+  .sidebar-link,
+  .vp-sidebar-link {
+    font-size: 14px;
+    line-height: 1.6;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+
+    &.active {
+      color: var(--brand-color) !important;
+      font-weight: 600;
+      border-left: 2px solid var(--brand-color);
+      background: var(--brand-light);
+    }
+  }
+
+  /* 侧边栏每个条目间距加大，解决拥挤问题 */
+  li {
+    margin: 2px 0 !important;
+  }
+
+  .sidebar-group-link,
+  .vp-sidebar-heading {
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 8px !important;
+    padding-bottom: 6px !important;
+  }
+}
+
+/* --- 正文区域 — 增加行间距 --- */
+.theme-hope-content {
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--text-main);
+
+  h1 {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border: none;
+  }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-main);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    color: var(--brand-color);
+    text-decoration: underline;
+    text-decoration-color: rgba(214, 51, 132, 0.3);
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--brand-hover);
+      text-decoration-color: var(--brand-hover);
+    }
+  }
+
+  strong {
+    color: var(--text-main);
+    font-weight: 700;
+  }
+
+  p {
+    margin: 1em 0;
+    line-height: 1.9;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.6rem;
+    margin: 0.8em 0;
+
+    li {
+      margin: 0.5em 0;
+      line-height: 1.85;
+    }
+  }
+
+  blockquote {
+    border-left: 3px solid var(--brand-color);
+    padding: 8px 16px;
+    color: var(--text-muted);
+    margin: 1.5em 0;
+    background: var(--brand-light);
+    border-radius: 0 6px 6px 0;
+    font-style: normal;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 2.5rem 0;
+  }
+}
+
+/* --- 表格 --- */
+table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 14px;
+  line-height: 1.7;
+
+  thead {
+    tr {
+      border-top: 1px solid var(--border-color);
+    }
+
+    th {
+      background: var(--bg-soft);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--text-main);
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+  }
+
+  tbody {
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    tr:hover {
+      background-color: var(--bg-soft);
+    }
+  }
+}
+
+/* 机场推荐彩色行 */
+.airport-row-hot {
+  background: linear-gradient(90deg, rgba(214, 51, 132, 0.06) 0%, #fff 100%);
+  font-weight: 500;
+}
+
+.airport-row-hot td:first-child {
+  border-left: 3px solid var(--brand-color);
+}
+
+/* --- 自定义容器 --- */
+.hint-container {
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 1.5rem 0;
+  font-size: 14px;
+  line-height: 1.75;
+
+  &.info {
+    border: 1px solid #3b82f6;
+    background: #eff6ff;
+
+    .hint-container-title {
+      color: #1d4ed8;
+    }
+  }
+
+  &.tip {
+    border: 1px solid var(--brand-color);
+    background: var(--brand-light);
+
+    .hint-container-title {
+      color: var(--brand-color);
+    }
+  }
+
+  &.warning {
+    border: 1px solid #f59e0b;
+    background: #fffbeb;
+
+    .hint-container-title {
+      color: #92400e;
+    }
+  }
+
+  &.danger,
+  &.caution {
+    border: 1px solid #ef4444;
+    background: #fef2f2;
+
+    .hint-container-title {
+      color: #991b1b;
+    }
+  }
+
+  .hint-container-title {
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+}
+
+/* --- 卡片网格 --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 1.5rem 0;
+}
+
+.card-grid.col-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card-grid .card-item {
+  display: block;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 20px 22px;
+  text-decoration: none !important;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  color: var(--text-main);
+  background: #fff;
+
+  &:hover {
+    border-color: var(--brand-color);
+    box-shadow: 0 4px 16px rgba(214, 51, 132, 0.12);
+    transform: translateY(-2px);
+  }
+
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--brand-color);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .card-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+}
+
+/* 带彩色图标的软件卡片 */
+.software-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 1.5rem 0;
+}
+
+.software-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 18px 20px;
+  text-decoration: none !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  color: var(--text-main);
+  background: #fff;
+
+  &:hover {
+    border-color: var(--brand-color);
+    box-shadow: 0 4px 16px rgba(214, 51, 132, 0.10);
+  }
+
+  .sw-icon {
+    font-size: 28px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .sw-info {
+    .sw-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--brand-color);
+    }
+
+    .sw-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 3px;
+      line-height: 1.5;
+    }
+  }
+}
+
+/* 机场推荐彩色背景卡片 */
+.airport-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 1.5rem 0;
+}
+
+.airport-card {
+  border-radius: 12px;
+  padding: 20px 22px;
+  text-decoration: none !important;
+  color: #fff !important;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: block;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .ac-name {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .ac-price {
+    font-size: 13px;
+    opacity: 0.88;
+    margin-bottom: 8px;
+  }
+
+  .ac-tags {
+    font-size: 12px;
+    opacity: 0.75;
+  }
+}
+
+.ac-pink {
+  background: linear-gradient(135deg, #d63384, #f472b6);
+}
+
+.ac-purple {
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+}
+
+.ac-blue {
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
+}
+
+.ac-teal {
+  background: linear-gradient(135deg, #0d9488, #34d399);
+}
+
+.ac-orange {
+  background: linear-gradient(135deg, #ea580c, #fb923c);
+}
+
+.ac-indigo {
+  background: linear-gradient(135deg, #4338ca, #818cf8);
+}
+
+.ac-rose {
+  background: linear-gradient(135deg, #be123c, #fb7185);
+}
+
+.ac-cyan {
+  background: linear-gradient(135deg, #0e7490, #22d3ee);
+}
+
+/* 平台推荐卡片 */
+.platform-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 1.5rem 0;
+}
+
+.platform-cards .platform-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 16px 20px;
+  text-decoration: none !important;
+  transition: border-color 0.2s;
+  color: var(--text-main);
+
+  &:hover {
+    border-color: var(--brand-color);
+  }
+
+  .platform-info {
+    .platform-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--brand-color);
+    }
+
+    .platform-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+  }
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+
+  .card-grid,
+  .card-grid.col-3,
+  .platform-cards,
+  .software-cards,
+  .airport-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- 页脚 --- */
+.vp-footer-wrapper {
+  border-top: 1px solid var(--border-color);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* --- 暗色模式适配 --- */
+html[data-theme="dark"] {
+  --text-main: rgba(245, 230, 240, 0.92);
+  --text-muted: rgba(190, 155, 175, 0.85);
+  --border-color: rgba(120, 60, 90, 0.4);
+  --bg-soft: #221420;
+  --brand-light: rgba(214, 51, 132, 0.12);
+
+  body {
+    color: var(--text-main);
+  }
+
+  .vp-navbar {
+    background: #1a0f14 !important;
+  }
+
+  .theme-hope-content {
+
+    h1,
+    h2,
+    h3,
+    strong {
+      color: rgba(245, 230, 240, 0.96);
+    }
+
+    color: var(--text-main);
+
+    a {
+      color: #f472b6;
+      text-decoration-color: rgba(244, 114, 182, 0.3);
+    }
+  }
+
+  table {
+    thead th {
+      background: #221420;
+      color: rgba(245, 230, 240, 0.9);
+      border-color: rgba(120, 60, 90, 0.5);
+    }
+
+    tbody td {
+      border-color: rgba(120, 60, 90, 0.35);
+      color: var(--text-main);
+    }
+
+    tbody tr:hover {
+      background: #221420;
+    }
+  }
+
+  .card-grid .card-item {
+    background: #1f1118;
+    border-color: rgba(120, 60, 90, 0.5);
+
+    &:hover {
+      border-color: #f472b6;
+    }
+
+    .card-title {
+      color: #f472b6;
+    }
+  }
+
+  .vp-feature-item {
+    border-color: rgba(120, 60, 90, 0.5) !important;
+    background: #1f1118 !important;
+
+    &:hover {
+      border-color: #f472b6 !important;
+    }
+
+    h2,
+    .vp-feature-title {
+      color: rgba(245, 230, 240, 0.96) !important;
+    }
+
+    p,
+    .vp-feature-details {
+      color: rgba(190, 155, 175, 0.8) !important;
+    }
+  }
+}

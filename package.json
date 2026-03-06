@@ -1,0 +1,20 @@
+{
+  "name": "airport-streaming-ai-blog",
+  "version": "1.0.0",
+  "description": "机场、流媒体及AI资源博客",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vuepress/bundler-vite": "^2.0.0-rc.26",
+    "sass-embedded": "^1.97.3",
+    "vuepress": "^2.0.0-rc.0",
+    "vuepress-theme-hope": "^2.0.0-rc.0"
+  }
+}
