@@ -1,0 +1,471 @@
+/* ============================================
+   全站样式 — 参照 doc.theojs.cn 极简文档风格
+   去掉所有装饰性元素，纯净、专业、高可读性
+   ============================================ */
+
+/* --- 全局排版 --- */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #3c3c43;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* --- 导航栏 --- */
+.vp-navbar {
+  border-bottom: 1px solid #e2e2e3 !important;
+  box-shadow: none !important;
+}
+
+/* --- 首页 --- */
+.vp-hero-info-wrapper {
+  .vp-hero-info {
+    h1 {
+      font-weight: 700 !important;
+      font-size: 2.8rem !important;
+      color: #1a1a1a !important;
+      letter-spacing: -0.5px;
+      background: none !important;
+      -webkit-background-clip: unset !important;
+      -webkit-text-fill-color: unset !important;
+    }
+
+    .vp-description {
+      color: #5c5c66 !important;
+      font-size: 1.15rem !important;
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+  }
+}
+
+/* 首页按钮 */
+.vp-hero-actions {
+  .vp-button {
+    border-radius: 20px !important;
+    padding: 0 20px !important;
+    line-height: 38px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    transition: all 0.25s !important;
+
+    &.primary {
+      background-color: #851c6b !important;
+      color: #fff !important;
+      border-color: #8f1e8f !important;
+
+      &:hover {
+        background-color: #791a81 !important;
+      }
+    }
+  }
+}
+
+/* 首页特性卡片 */
+.vp-features {
+  .vp-feature-item {
+    border: 1px solid #e2e2e3 !important;
+    border-radius: 12px !important;
+    padding: 24px !important;
+    background: #fff !important;
+    transition: border-color 0.25s, box-shadow 0.25s !important;
+
+    &:hover {
+      border-color: #18794e !important;
+      box-shadow: 0 2px 12px rgba(24, 121, 78, 0.08) !important;
+    }
+
+    h2,
+    .vp-feature-title {
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      color: #1a1a1a !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 0 8px 0 !important;
+    }
+
+    p,
+    .vp-feature-details {
+      font-size: 14px !important;
+      color: #5c5c66 !important;
+      line-height: 1.6 !important;
+    }
+  }
+}
+
+/* --- 侧边栏 --- */
+.vp-sidebar {
+  border-right: 1px solid #e2e2e3;
+
+  .sidebar-link,
+  .vp-sidebar-link {
+    font-size: 14px;
+    line-height: 1.5;
+
+    &.active {
+      color: #18794e !important;
+      font-weight: 500;
+      border-left: 2px solid #18794e;
+      background: rgba(24, 121, 78, 0.05);
+    }
+  }
+
+  .sidebar-group-link,
+  .vp-sidebar-heading {
+    font-weight: 600;
+    font-size: 13px;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+}
+
+/* --- 正文区域 --- */
+.theme-hope-content {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #3c3c43;
+
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
+    margin-top: 1.5rem;
+    margin-bottom: 0.6rem;
+    border: none;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -0.01em;
+    border-bottom: 1px solid #e2e2e3;
+    padding-bottom: 8px;
+    margin-top: 1.6rem;
+    margin-bottom: 0.6rem;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c2c34;
+    margin-top: 1.2rem;
+    margin-bottom: 0.4rem;
+  }
+
+  h4 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #2c2c34;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  a {
+    color: #18794e;
+    text-decoration: underline;
+    text-decoration-color: rgba(24, 121, 78, 0.3);
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #15643f;
+      text-decoration-color: #15643f;
+    }
+  }
+
+  strong {
+    color: #1a1a1a;
+    font-weight: 600;
+  }
+
+  p {
+    margin: 0.6em 0;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.5rem;
+
+    li {
+      margin: 0.25em 0;
+      line-height: 1.7;
+    }
+  }
+
+  blockquote {
+    border-left: 3px solid #e2e2e3;
+    padding-left: 16px;
+    color: #5c5c66;
+    margin: 1em 0;
+    font-style: italic;
+  }
+}
+
+/* --- 表格 — VitePress/Theo Docs 风格 --- */
+table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+  line-height: 1.6;
+
+  thead {
+    tr {
+      border-top: 1px solid #e2e2e3;
+    }
+
+    th {
+      background: #f6f6f7;
+      font-weight: 600;
+      font-size: 13px;
+      color: #3c3c43;
+      padding: 10px 16px;
+      text-align: left;
+      border-bottom: 1px solid #e2e2e3;
+    }
+  }
+
+  tbody {
+    td {
+      padding: 10px 16px;
+      border-bottom: 1px solid #e2e2e3;
+      color: #3c3c43;
+    }
+
+    tr:hover {
+      background-color: #f6f6f7;
+    }
+  }
+}
+
+/* --- 自定义容器 (提示/警告等) --- */
+.hint-container {
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.6;
+
+  &.info {
+    border: 1px solid #3b82f6;
+    background: #eff6ff;
+
+    .hint-container-title {
+      color: #1d4ed8;
+    }
+  }
+
+  &.tip {
+    border: 1px solid #18794e;
+    background: #f0fdf4;
+
+    .hint-container-title {
+      color: #18794e;
+    }
+  }
+
+  &.warning {
+    border: 1px solid #f59e0b;
+    background: #fffbeb;
+
+    .hint-container-title {
+      color: #92400e;
+    }
+  }
+
+  &.danger,
+  &.caution {
+    border: 1px solid #ef4444;
+    background: #fef2f2;
+
+    .hint-container-title {
+      color: #991b1b;
+    }
+  }
+
+  .hint-container-title {
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+}
+
+/* --- 卡片网格 (复刻 Theo Docs 风格) --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.card-grid.col-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card-grid .card-item {
+  display: block;
+  border: 1px solid #e2e2e3;
+  border-radius: 8px;
+  padding: 20px;
+  text-decoration: none !important;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  color: #3c3c43;
+
+  &:hover {
+    border-color: #18794e;
+    box-shadow: 0 2px 12px rgba(24, 121, 78, 0.08);
+  }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #18794e;
+    margin-bottom: 8px;
+  }
+
+  .card-desc {
+    font-size: 13px;
+    color: #5c5c66;
+    line-height: 1.5;
+  }
+
+  img.card-icon {
+    height: 28px;
+    width: auto;
+    margin-right: 8px;
+    vertical-align: middle;
+    border: none;
+    border-radius: 0;
+  }
+}
+
+/* 平台推荐卡片 (三列带图标) */
+.platform-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.platform-cards .platform-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #e2e2e3;
+  border-radius: 8px;
+  padding: 16px 20px;
+  text-decoration: none !important;
+  transition: border-color 0.25s;
+  color: #3c3c43;
+
+  &:hover {
+    border-color: #18794e;
+  }
+
+  .platform-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: none;
+  }
+
+  .platform-info {
+    .platform-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #18794e;
+    }
+
+    .platform-desc {
+      font-size: 12px;
+      color: #8e8e93;
+      margin-top: 2px;
+    }
+  }
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+
+  .card-grid,
+  .card-grid.col-3,
+  .platform-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- 页脚 --- */
+.vp-footer-wrapper {
+  border-top: 1px solid #e2e2e3;
+  font-size: 13px;
+  color: #8e8e93;
+}
+
+/* --- 暗色模式适配 --- */
+html[data-theme="dark"] {
+  body {
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  .theme-hope-content {
+
+    h1,
+    h2,
+    h3,
+    strong {
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    color: rgba(255, 255, 255, 0.78);
+
+    a {
+      color: #3dd68c;
+      text-decoration-color: rgba(61, 214, 140, 0.3);
+    }
+  }
+
+  table {
+    thead th {
+      background: #2f2f35;
+      color: rgba(255, 255, 255, 0.86);
+      border-color: rgba(82, 82, 89, 0.68);
+    }
+
+    tbody td {
+      border-color: rgba(82, 82, 89, 0.48);
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    tbody tr:hover {
+      background: #2f2f35;
+    }
+  }
+
+  .vp-feature-item {
+    border-color: rgba(82, 82, 89, 0.68) !important;
+    background: #1b1b1f !important;
+
+    &:hover {
+      border-color: #3dd68c !important;
+    }
+
+    h2,
+    .vp-feature-title {
+      color: rgba(255, 255, 255, 0.95) !important;
+    }
+
+    p,
+    .vp-feature-details {
+      color: rgba(255, 255, 255, 0.6) !important;
+    }
+  }
+}
