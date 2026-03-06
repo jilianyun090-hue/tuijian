@@ -30,7 +30,7 @@ export default hopeTheme({
         },
         {
             text: "",
-            icon: "telegram",
+            icon: "/telegram-icon.png",
             link: "http://t.me/JIAN6688"
         }
     ],
