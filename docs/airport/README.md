@@ -1,10 +1,10 @@
 ---
 title: 2026年便宜好用的翻墙机场推荐评测(科学上网长期更新)
-description: 2026年精选12家高性价比翻墙机场评测，含极连云、奈云、山海机场、光速云、飞鸟机场等，最低6元/月，支持Netflix、ChatGPT解锁。
+description: 2026年精选13家高性价比翻墙机场评测，含极连云、奈云、山海机场、LiZione、光速云、飞鸟机场等，最低6元/月，支持Netflix、ChatGPT解锁。
 head:
   - - meta
     - name: keywords
-      content: 机场推荐,翻墙机场,科学上网,VPN推荐,极连云,奈云,山海机场,光速云,飞鸟机场,隐云,光年梯,全球云,星岛梦,花云,大哥云,龙猫云,IEPL专线,2026机场
+      content: 机场推荐,翻墙机场,科学上网,VPN推荐,极连云,奈云,山海机场,LiZione,光速云,飞鸟机场,隐云,光年梯,全球云,星岛梦,花云,大哥云,龙猫云,IEPL专线,2026机场
 tag:
   - 机场推荐
   - 科学上网
@@ -12,6 +12,7 @@ tag:
   - 极连云
   - 奈云
   - 山海机场
+  - LiZione
   - 光速云
   - 飞鸟机场
   - 隐云机场
@@ -75,6 +76,7 @@ A: Windows、macOS、iOS、Android 及路由器等主流设备均可支持。
 | **隐云** | [直达官网](https://wkacc.xyz/?code=711d7afb) | 无 | 25元 150GB/月 | ❌ | 暂无 | [前往](#隐云) |
 | **山海机场** | [直达官网](https://shanhai.me/#/register?code=qVTbPfWP) | 无 | 6元 45GB/月 | ✅ | [TG](https://t.me/shanhai_me) | [前往](#山海机场) |
 | **光年梯** | [直达官网](https://gnt001.gntvipaff.cc/#/?code=j1ufpE44) | 无 | 18元 110GB/月 | ✅ | [TG](https://t.me/guangnianti) | [前往](#光年梯) |
+| **LiZione** | [直达官网](https://lizione.com/#/register?code=Wmf3jYMy) | 无 | 10元 100GB/月 | ❌ | [TG](https://t.me/LiZione_Chat) | [前往](#LiZione) |
 | **光速云** | [直达官网](https://kjlq01.gsyvipaff.cc/#/?code=b1OTkTeL) | 无 | 8.25元 59GB/月 | ✅ | [TG](https://t.me/LightspeedCloud) | [前往](#光速云) |
 | **全球云** | [直达官网](https://zhutui01.gcvipaff.cc/#/?code=dAcec5xa) | 无 | 20元 120GB/月 | ✅ | [TG](https://t.me/quanqiuyun001) | [前往](#全球云) |
 | **星岛梦** | [直达官网](https://wuyou202001.xdmvipaff.cc/#/?code=olWCiAhj) | 无 | 16元 100GB/月 | ✅ | [TG](https://t.me/XDM6666666) | [前往](#星岛梦) |
@@ -187,7 +189,24 @@ A: Windows、macOS、iOS、Android 及路由器等主流设备均可支持。
 
 ---
 
-### 6. 光速云
+### 6. LiZione
+
+LiZione 官网地址：[lizione.com](https://lizione.com/#/register?code=Wmf3jYMy)
+
+最便宜的订阅有 **10元 100G/月**。
+
+LiZione 致力于提供极高性价比的中转与专线服务。全节点支持流媒体解锁（Netflix、Disney+、YouTube）以及 ChatGPT 等 AI 工具。提供购买日自动重置流量机制，确保用户使用体验的连贯性。拥有活跃的 Telegram 社区，售后响应及时，是追求低预算、高稳定性的不二之选。
+
+| 套餐名称 | 流量/月 | 价格 | 购买链接 |
+| :--- | :--- | :--- | :--- |
+| ●青铜 | 100G/月 | ¥10.00 | [购买链接](https://lizione.com/#/register?code=Wmf3jYMy) |
+| ●白银 | 200G/月 | ¥20.00 | [购买链接](https://lizione.com/#/register?code=Wmf3jYMy) |
+| ●黄金 | 300G/月 | ¥30.00 | [购买链接](https://lizione.com/#/register?code=Wmf3jYMy) |
+| ●钻石 | 500G/月 | ¥50.00 | [购买链接](https://lizione.com/#/register?code=Wmf3jYMy) |
+
+---
+
+### 7. 光速云
 
 光速云官网地址：[gsyvipaff.cc](https://kjlq01.gsyvipaff.cc/#/?code=b1OTkTeL)
 
@@ -206,7 +225,7 @@ A: Windows、macOS、iOS、Android 及路由器等主流设备均可支持。
 
 ---
 
-### 7. 全球云
+### 8. 全球云
 
 全球云官网地址：[gcvipaff.cc](https://zhutui01.gcvipaff.cc/#/?code=dAcec5xa)
 
@@ -224,7 +243,7 @@ A: Windows、macOS、iOS、Android 及路由器等主流设备均可支持。
 
 ---
 
-### 8. 星岛梦
+### 9. 星岛梦
 
 星岛梦官网地址：[xdmvipaff.cc](https://wuyou202001.xdmvipaff.cc/#/?code=olWCiAhj)
 
@@ -242,7 +261,7 @@ A: Windows、macOS、iOS、Android 及路由器等主流设备均可支持。
 
 ---
 
-### 9. 花云
+### 10. 花云
 
 花云官网地址：[flowercloud.net](https://api-flowercloud.com/aff.php?aff=16018)
 
@@ -257,7 +276,7 @@ A: Windows、macOS、iOS、Android 及路由器等主流设备均可支持。
 
 ---
 
-### 10. 大哥云
+### 11. 大哥云
 
 大哥云官网地址：[dgywzc.com](https://aff02.dgy02.com/#/register?code=T0q7hXMH)
 
@@ -277,7 +296,7 @@ A: Windows、macOS、iOS、Android 及路由器等主流设备均可支持。
 
 ---
 
-### 11. 龙猫云
+### 12. 龙猫云
 
 龙猫云官网地址：[lmspeed.co](https://inv05.lmaff01.cc/register?aff=fQgKL9YC)
 
@@ -292,7 +311,7 @@ A: Windows、macOS、iOS、Android 及路由器等主流设备均可支持。
 
 ---
 
-### 12. 飞鸟机场
+### 13. 飞鸟机场
 
 飞鸟机场官网地址：[feiniaocloud.com](https://fbinv02.fbaff.cc/auth/register?code=tKfsJoVl)
 
