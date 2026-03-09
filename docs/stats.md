@@ -7,10 +7,6 @@ head:
       content: 网站统计,流量数据,访问统计,站点数据
 ---
 
-<script setup>
-import UmamiStats from './.vuepress/components/UmamiStats.vue'
-</script>
-
 # 网站数据统计
 
 本站使用 [Umami](https://umami.is/) 进行实时访客统计，数据公开透明。
