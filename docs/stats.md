@@ -16,7 +16,7 @@ head:
   注册 <a href="https://cloud.umami.is/" target="_blank">Umami Cloud</a>（免费），添加网站 设置 开启分享链接，复制链接填入下方代码。
 </div>
 
-<iframe style="width:100%;height:800px;border:0;border-radius:8px;overflow:hidden;" src="https://cloud.umami.is/share/your-share-id/your-domain" loading="lazy"></iframe>
+<iframe style="width:100%;height:800px;border:0;border-radius:8px;overflow:hidden;" src="https://cloud.umami.is/share/uP64pEjWUtGCCMS3" loading="lazy"></iframe>
 
 <style>
 .stats-grid {
