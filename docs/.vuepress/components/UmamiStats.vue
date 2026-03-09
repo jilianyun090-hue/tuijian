@@ -2,7 +2,9 @@
 import { ref, onMounted, computed, watch } from 'vue'
 
 const shareId = 'uP64pEjWUtGCCMS3'
-const baseUrl = 'https://cloud.umami.is/api/share'
+// Use local Cloudflare Functions proxies to bypass CORS and handle tokens
+const statsApi = '/api/stats'
+const pageviewsApi = '/api/pageviews'
 
 const period = ref('24h')
 const loading = ref(true)
@@ -32,13 +34,13 @@ const fetchData = async () => {
   const unit = periods.find(it => it.val === period.value).unit
 
   try {
-    // Fetch summary stats
-    const statsRes = await fetch(`${baseUrl}/${shareId}/stats?startAt=${startAt}&endAt=${endAt}`)
+    // Fetch summary stats from local proxy
+    const statsRes = await fetch(`${statsApi}?startAt=${startAt}&endAt=${endAt}`)
     if (!statsRes.ok) throw new Error('Stats fetch failed')
-    stats.value = await statsRes.ok ? await statsRes.json() : null
+    stats.value = await statsRes.json()
 
-    // Fetch pageviews for chart
-    const pvRes = await fetch(`${baseUrl}/${shareId}/pageviews?startAt=${startAt}&endAt=${endAt}&unit=${unit}&timezone=Asia/Shanghai`)
+    // Fetch pageviews from local proxy
+    const pvRes = await fetch(`${pageviewsApi}?startAt=${startAt}&endAt=${endAt}&unit=${unit}`)
     if (!pvRes.ok) throw new Error('Pageviews fetch failed')
     const pvData = await pvRes.json()
     pageviews.value = pvData.pageviews || []
