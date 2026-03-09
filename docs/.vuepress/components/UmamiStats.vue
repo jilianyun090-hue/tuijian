@@ -34,15 +34,20 @@ const fetchData = async () => {
   const unit = periods.find(it => it.val === period.value).unit
 
   try {
-    // Fetch summary stats from local proxy
-    const statsRes = await fetch(`${statsApi}?startAt=${startAt}&endAt=${endAt}`)
-    if (!statsRes.ok) throw new Error('Stats fetch failed')
-    stats.value = await statsRes.json()
+    // Parallel fetching to reduce wait time
+    const [statsRes, pvRes] = await Promise.all([
+      fetch(`${statsApi}?startAt=${startAt}&endAt=${endAt}`),
+      fetch(`${pageviewsApi}?startAt=${startAt}&endAt=${endAt}&unit=${unit}`)
+    ])
 
-    // Fetch pageviews from local proxy
-    const pvRes = await fetch(`${pageviewsApi}?startAt=${startAt}&endAt=${endAt}&unit=${unit}`)
-    if (!pvRes.ok) throw new Error('Pageviews fetch failed')
-    const pvData = await pvRes.json()
+    if (!statsRes.ok || !pvRes.ok) throw new Error('API fetch failed')
+
+    const [statsData, pvData] = await Promise.all([
+      statsRes.json(),
+      pvRes.json()
+    ])
+
+    stats.value = statsData
     pageviews.value = pvData.pageviews || []
   } catch (err) {
     console.error(err)
@@ -119,9 +124,19 @@ const endTimeLabel = computed(() => {
       </button>
     </div>
 
-    <div v-if="loading" class="state-msg">数据加载中...</div>
+    <div v-if="loading" class="grid skeleton-grid">
+      <div class="card skeleton" v-for="i in 4" :key="i">
+        <div class="skeleton-text short"></div>
+        <div class="skeleton-text large"></div>
+        <div class="skeleton-text mini"></div>
+      </div>
+      <div class="chart card skeleton full-width">
+        <div class="skeleton-text medium"></div>
+        <div class="skeleton-rect"></div>
+      </div>
+    </div>
     <div v-else-if="error" class="state-msg error">仪表盘加载失败 (CORS 或网络问题)</div>
-    <div v-else>
+    <div v-else class="fade-in">
       <div class="grid">
         <div class="card" v-for="item in summaryItems" :key="item.label">
           <div class="card-label">{{ item.label }}</div>
@@ -181,7 +196,54 @@ const endTimeLabel = computed(() => {
 }
 .state-msg.error {
   color: #e53e3e;
+  padding: 3rem;
+  background: #fff5f5;
+  border-radius: 12px;
+  text-align: center;
 }
+.fade-in {
+  animation: fadeIn 0.4s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Skeleton Styles */
+.skeleton {
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.skeleton-text {
+  background: #f0f0f0;
+  height: 12px;
+  margin: 10px auto;
+  border-radius: 4px;
+}
+.skeleton-text.short { width: 40%; }
+.skeleton-text.medium { width: 100%; height: 16px; margin-bottom: 20px; }
+.skeleton-text.large { width: 70%; height: 24px; margin: 15px auto; }
+.skeleton-text.mini { width: 30%; height: 10px; }
+.skeleton-rect {
+  background: #f0f0f0;
+  width: 100%;
+  height: 120px;
+  border-radius: 8px;
+}
+.full-width { grid-column: 1 / -1; }
+.skeleton-grid { gap: 1rem; }
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

@@ -19,7 +19,8 @@ export async function onRequest(context) {
     return new Response(JSON.stringify(data), {
       headers: { 
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*' 
+        'Access-Control-Allow-Origin': '*',
+        'Cache-Control': 's-maxage=60, stale-while-revalidate=30'
       }
     });
   } catch (e) {
