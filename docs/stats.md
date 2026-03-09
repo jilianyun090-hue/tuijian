@@ -7,124 +7,15 @@ head:
       content: 网站统计,流量数据,访问统计,站点数据
 ---
 
+<script setup>
+import UmamiStats from './.vuepress/components/UmamiStats.vue'
+</script>
+
 # 网站数据统计
 
 本站使用 [Umami](https://umami.is/) 进行实时访客统计，数据公开透明。
 
-
-
-<iframe style="width:100%;height:800px;border:0;border-radius:8px;overflow:hidden;" src="https://cloud.umami.is/share/uP64pEjWUtGCCMS3?language=zh-CN" loading="lazy"></iframe>
-
-<style>
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin: 24px 0;
-}
-@media (max-width: 768px) {
-  .stats-grid { grid-template-columns: 1fr; }
-}
-.stats-card {
-  background: #fff;
-  border: 1px solid #e8e8e8;
-  border-radius: 8px;
-  padding: 24px;
-}
-.stats-card h3 {
-  margin: 0 0 20px 0;
-  font-size: 18px;
-  font-weight: 600;
-  color: #333;
-  border-bottom: 2px solid #f0f0f0;
-  padding-bottom: 12px;
-}
-.bar-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  font-size: 13px;
-  line-height: 1;
-}
-.bar-label {
-  width: 180px;
-  min-width: 180px;
-  color: #555;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: right;
-  padding-right: 12px;
-}
-.bar-track {
-  flex: 1;
-  height: 20px;
-  background: #f5f5f5;
-  border-radius: 3px;
-  position: relative;
-}
-.bar-fill-green {
-  height: 100%;
-  background: linear-gradient(90deg, #7ec87e, #5cb85c);
-  border-radius: 3px;
-  min-width: 2px;
-}
-.bar-fill-blue {
-  height: 100%;
-  background: linear-gradient(90deg, #7ec8e3, #5b9bd5);
-  border-radius: 3px;
-  min-width: 2px;
-}
-.bar-value {
-  min-width: 40px;
-  text-align: right;
-  color: #888;
-  font-size: 12px;
-  padding-left: 8px;
-}
-.counter-box {
-  text-align: center;
-  padding: 24px;
-  margin: 24px 0;
-  background: #f9f9f9;
-  border-radius: 8px;
-}
-.counter-num {
-  font-size: 48px;
-  font-weight: 700;
-  color: #5cb85c;
-  line-height: 1.2;
-}
-.counter-label {
-  font-size: 14px;
-  color: #999;
-  margin-top: 4px;
-}
-.stats-summary {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin: 24px 0;
-}
-.summary-item {
-  background: #f9f9f9;
-  border-radius: 8px;
-  padding: 20px;
-  text-align: center;
-}
-.summary-num {
-  font-size: 28px;
-  font-weight: 700;
-  color: #333;
-}
-.summary-label {
-  font-size: 13px;
-  color: #999;
-  margin-top: 4px;
-}
-</style>
-
-
+<UmamiStats />
 
 ---
 
