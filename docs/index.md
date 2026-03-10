@@ -10,17 +10,17 @@ heroImage: /globe.png
 heroText: 2026 精选科学上网机场推荐
 tagline: 为小白、学生党及 AI 使用者量身打造。从 3 元高性价比机场到极速 IEPL 专线，涵盖流媒体账号、 AI 工具使用教程及合租平台推荐，助您畅享稳定、低延迟的全球网络体验。
 actions:
-  - text: 机场推荐
+  - text: 优质机场汇总
     link: /airport/
     type: primary
-  - text: 科学上网
-    link: /proxy/
+  - text: AI使用指南
+    link: /ai/
 features:
   - title: 机场推荐
     details: 精选优质翻墙机场，IEPL/IPLC专线，全速解锁流媒体，极致冲浪体验。
     link: /airport/
     icon: plane
-  - title: AI 使用汇总
+  - title: AI 使用指南
     details: ChatGPT、Gemini、Claude 等主流 AI 工具从入门到精通，含国内镜像站推荐。
     link: /ai/
     icon: robot

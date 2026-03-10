@@ -34,6 +34,10 @@ description: AI工具大全，涵盖ChatGPT、Claude、Gemini、Grok、Midjourne
     <div class="card-title">💻 Cursor AI 编程</div>
     <div class="card-desc">AI辅助编程神器，让代码效率提升10倍的使用方法。</div>
   </a>
+  <a class="card-item" href="./openclaw-guide.html">
+    <div class="card-title">🦞 OpenClaw (小龙虾) 教程</div>
+    <div class="card-desc">史上最全手把手安装配置教程，支持接入飞书、Telegram 机器人。</div>
+  </a>
 </div>
 
 ## 🌐 国内 AI 镜像站推荐
