@@ -90,6 +90,7 @@ export default hopeTheme({
                     "grok-guide",
                     "midjourney-guide",
                     "cursor-guide",
+                    "openclaw-guide",
                 ],
             },
         ],
