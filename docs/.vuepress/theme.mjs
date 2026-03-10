@@ -8,7 +8,7 @@ export default hopeTheme({
 
     // 网站 Logo
     // 网站 Logo
-    logo: "/logo.png",
+    logo: "/globe.png",
     
     docsDir: "docs",
 

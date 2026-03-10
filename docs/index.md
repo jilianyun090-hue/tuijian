@@ -15,6 +15,10 @@ features:
     details: 精选优质翻墙机场，IEPL/IPLC专线，全速解锁流媒体，极致冲浪体验。
     link: /airport/
     icon: plane
+  - title: AI 使用汇总
+    details: ChatGPT、Gemini、Claude 等主流 AI 工具从入门到精通，含国内镜像站推荐。
+    link: /ai/
+    icon: robot
   - title: 流媒体账号
     details: Netflix、Disney+ 等全球流媒体账号设置与订阅全攻略。
     link: /streaming/
@@ -23,10 +27,6 @@ features:
     details: 严选银河录像局、账号星球等口碑大厂，安全上车，低价享受高端账号。
     link: /account/platforms.html
     icon: handshake
-  - title: AI 使用汇总
-    details: ChatGPT、Gemini、Claude 等主流 AI 工具从入门到精通，含国内镜像站推荐。
-    link: /ai/
-    icon: robot
   - title: 科学上网知识库
     details: 翻墙基础知识、Clash使用指南、GFW科普，助你安全高效科学上网。
     link: /proxy/
@@ -36,14 +36,20 @@ footer: 优质资源分享，助你畅享全球互联网
 ---
 
 <style>
-/* 突出显示第一个功能卡片（机场推荐） */
-.vp-feature-item:first-child {
+/* 全局卡片美化（仿机场推荐样式） */
+.vp-feature-item {
   background: rgba(21, 101, 192, 0.08) !important;
-  border: 1px solid rgba(21, 101, 192, 0.2) !important;
-  transform: scale(1.02);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border: 1px solid rgba(21, 101, 192, 0.15) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
 }
-.vp-feature-item:first-child .vp-feature-title {
+.vp-feature-item:hover {
+  transform: translateY(-5px);
+  background: rgba(21, 101, 192, 0.12) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.vp-feature-title {
   color: #1565c0 !important;
   font-weight: bold;
 }
