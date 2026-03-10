@@ -51,7 +51,7 @@ description: AI工具大全，涵盖ChatGPT、Claude、Gemini、Grok、Midjourne
 
 ## 🔗 相关资源
 
-- [接码平台推荐（注册海外账号必备）](./sms-guide.html)
+- [接码平台推荐（注册海外账号必备）](/streaming/sms-guide.md)
 - [科学上网知识库](/proxy/)
 - [机场推荐](/airport/)
 - [回到首页](../index.md)
