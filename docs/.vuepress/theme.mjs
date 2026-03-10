@@ -16,7 +16,7 @@ export default hopeTheme({
     navbar: [
         { text: "首页", link: "/" },
         { text: "机场推荐", link: "/airport/" },
-        { text: "流媒体观影", link: "/streaming/" },
+        { text: "流媒体账号", link: "/streaming/" },
         { text: "合租平台", link: "/account/platforms.html" },
         { text: "AI使用指南", link: "/ai/" },
         { text: "科学上网知识库", link: "/proxy/" },
@@ -39,9 +39,11 @@ export default hopeTheme({
     sidebar: {
         "/streaming/": [
             {
-                text: "流媒体观影全指南",
+                text: "流媒体账号全指南",
                 children: [
                     "",
+                    "registration",
+                    "sms-guide",
                     "netflix-guide",
                     "disney-guide",
                     "spotify-guide",
@@ -103,7 +105,7 @@ export default hopeTheme({
                     "gfw-websites",
                     "telegram-guide",
                     "telegram-bot",
-                    { text: "接码平台推荐", link: "/ai/sms-guide.html" },
+                    { text: "接码平台推荐", link: "/streaming/sms-guide.html" },
                 ],
             },
         ],

@@ -80,7 +80,6 @@ Hero SMS SMS-Activate 注册账号，充$2-5 (支付。
 
 ---
 
-- [回到 AI 导航](./README.md)
-- [ChatGPT 注册指南](./chatgpt.md)
-- [Claude 注册攻略](./claude-guide.md)
+- [回到流媒体账号主页](./README.md)
+- [账号注册指南](./registration.md)
 - [回到首页](../index.md)
