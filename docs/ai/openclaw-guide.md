@@ -5,7 +5,7 @@ description: 2026年最新 OpenClaw 安装教程，涵盖 Windows、macOS 与 Li
 
 # OpenClaw (小龙虾) 史上最全手把手保姆级教程
 
-![OpenClaw Banner](https://eastondev.com/_astro/20260205-openclaw-installation-guide.AjhZs2Jn_ZFX5E2.webp)
+![OpenClaw Banner](/assets/img/guide/openclaw/banner.webp)
 
 **发布日期：2026年3月10日 (最新版)**
 
@@ -64,7 +64,7 @@ npm install -g openclaw@latest
 pnpm add -g openclaw@latest
 ```
 
-![安装过程示意图](https://ucc.alicdn.com/pic/developer-ecology/764yxdoofamo4_77db9a0358b84604a82e4acd885cd451.png?x-oss-process=image/resize,w_1400/format,webp)
+![安装过程示意图](/assets/img/guide/openclaw/install.png)
 
 ---
 
@@ -107,12 +107,12 @@ openclaw plugins install @m1heng-clawd/feishu
 5. **事件订阅**：选择“长连接”接收事件，并添加 `im.message.receive_v1` 事件。
 6. **版本发布**：创建版本并申请上线。
 
-![飞书配置示意图](https://ucc.alicdn.com/pic/developer-ecology/764yxdoofamo4_e2a71fc3c8ea4d09aa4c0b46db0deb36.png?x-oss-process=image/resize,w_1400/format,webp)
+![飞书配置示意图](/assets/img/guide/openclaw/feishu_config.png)
 
 ### 3. 开始对话
 在飞书里找到你的机器人，尝试发送一条消息。它会引导你完成最后的配对。
 
-![成功对话截图](https://ucc.alicdn.com/pic/developer-ecology/764yxdoofamo4_0d849b410b94422b86f5f9280fe82dd8.png?x-oss-process=image/resize,w_1400/format,webp)
+![成功对话截图](/assets/img/guide/openclaw/success_reply.png)
 
 ---
 
