@@ -44,7 +44,7 @@ head:
 2.  搜索一个**免费应用**（例如 TikTok），点击“获取”。
 3.  在弹出的登录框中选择 **“创建新 Apple ID”**。
 
-![注册入口示意图](file:///C:/Users/Administrator/.gemini/antigravity/brain/abd94d0d-ff71-4e4e-bdb4-f9a08b23366c/apple_id_registration_step_1_1773148359829.png)
+![注册入口示意图](/assets/img/guide/apple_id_registration_step_1_1773148359829.png)
 
 ### 第四步：填写账号信息
 1.  输入准备好的邮箱和设置密码。
@@ -60,7 +60,7 @@ head:
 | Zip Code | 97205 |
 | Phone | 503-xxx-xxxx |
 
-![地址填写示例](file:///C:/Users/Administrator/.gemini/antigravity/brain/abd94d0d-ff71-4e4e-bdb4-f9a08b23366c/apple_id_us_address_example_1773148378755.png)
+![地址填写示例](/assets/img/guide/apple_id_us_address_example_1773148378755.png)
 
 ### 第五步：验证账户
 1.  分别输入邮箱收到的验证码和手机收到的验证码。
