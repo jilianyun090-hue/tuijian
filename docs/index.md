@@ -11,7 +11,11 @@ actions:
   - text: 科学上网
     link: /proxy/
 features:
-  - title: 流媒体观影
+  - title: 机场推荐
+    details: 精选优质翻墙机场，IEPL/IPLC专线，全速解锁流媒体，极致冲浪体验。
+    link: /airport/
+    icon: plane
+  - title: 流媒体账号
     details: Netflix、Disney+ 等全球流媒体账号设置与订阅全攻略。
     link: /streaming/
     icon: video
@@ -23,10 +27,6 @@ features:
     details: ChatGPT、Gemini、Claude 等主流 AI 工具从入门到精通，含国内镜像站推荐。
     link: /ai/
     icon: robot
-  - title: 机场推荐
-    details: 精选优质翻墙机场，IEPL/IPLC专线，全速解锁流媒体，极致冲浪体验。
-    link: /airport/
-    icon: plane
   - title: 科学上网知识库
     details: 翻墙基础知识、Clash使用指南、GFW科普，助你安全高效科学上网。
     link: /proxy/
@@ -34,3 +34,17 @@ features:
 copyright: MIT Licensed | Copyright © 2026-present
 footer: 优质资源分享，助你畅享全球互联网
 ---
+
+<style>
+/* 突出显示第一个功能卡片（机场推荐） */
+.vp-feature-item:first-child {
+  background: rgba(21, 101, 192, 0.08) !important;
+  border: 1px solid rgba(21, 101, 192, 0.2) !important;
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.vp-feature-item:first-child .vp-feature-title {
+  color: #1565c0 !important;
+  font-weight: bold;
+}
+</style>
