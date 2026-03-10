@@ -105,7 +105,6 @@ export default hopeTheme({
                     "gfw-websites",
                     "telegram-guide",
                     "telegram-bot",
-                    { text: "接码平台推荐", link: "/streaming/sms-guide.html" },
                 ],
             },
         ],
