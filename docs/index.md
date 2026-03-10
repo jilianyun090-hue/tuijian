@@ -36,21 +36,31 @@ footer: 优质资源分享，助你畅享全球互联网
 ---
 
 <style>
-/* 全局卡片美化（仿机场推荐样式） */
-.vp-feature-item {
+/* 全局卡片美化（兼容不同版本的 Hope Theme 选择器） */
+.vp-features .vp-feature-item, 
+.vp-feature-card,
+.feature-item {
   background: rgba(21, 101, 192, 0.08) !important;
   border: 1px solid rgba(21, 101, 192, 0.15) !important;
   border-radius: 12px !important;
   transition: all 0.3s ease !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03) !important;
+  padding: 1.5rem !important;
+  margin-bottom: 1rem;
 }
-.vp-feature-item:hover {
-  transform: translateY(-5px);
+
+.vp-features .vp-feature-item:hover,
+.vp-feature-card:hover,
+.feature-item:hover {
+  transform: translateY(-5px) !important;
   background: rgba(21, 101, 192, 0.12) !important;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important;
 }
-.vp-feature-title {
+
+.vp-feature-title, 
+.feature-header {
   color: #1565c0 !important;
-  font-weight: bold;
+  font-weight: bold !important;
+  margin-bottom: 0.5rem !important;
 }
 </style>
