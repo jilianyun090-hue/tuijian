@@ -42,7 +42,6 @@ export default hopeTheme({
                 text: "流媒体账号全指南",
                 children: [
                     "",
-                    "registration",
                     "sms-guide",
                     "netflix-guide",
                     "disney-guide",
@@ -102,6 +101,7 @@ export default hopeTheme({
                     "vpn-guide",
                     "fanqiang-guide",
                     "line-type-guide",
+                    "apple-id-guide",
                     "gfw-websites",
                     "telegram-guide",
                     "telegram-bot",
