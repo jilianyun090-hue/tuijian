@@ -106,6 +106,7 @@ export default hopeTheme({
                     "gfw-websites",
                     "telegram-guide",
                     "telegram-bot",
+                    "clients",
                 ],
             },
         ],

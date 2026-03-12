@@ -869,3 +869,84 @@ html[data-theme="dark"] {
     }
   }
 }
+/* ============================================
+   三方客户端列表样式 (Ported from original)
+   ============================================ */
+
+.client-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.client-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.client-card {
+    background: var(--card-bg, #ffffff);
+    border: 1px solid var(--border-color, #e2e8f0);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    text-decoration: none !important;
+    color: var(--text-main, #1e293b);
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        border-color: var(--brand-color, #1565c0);
+        color: var(--brand-color, #1565c0) !important;
+    }
+}
+
+.client-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    white-space: nowrap;
+    margin-left: 0.5rem;
+}
+
+.client-badge.maintenance {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.client-badge.stopped {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* 暗色模式适配 */
+[data-theme="dark"] {
+    .client-card {
+        background: #1f1118;
+        border-color: rgba(120, 60, 90, 0.5);
+        color: rgba(245, 230, 240, 0.9);
+
+        &:hover {
+            border-color: #f472b6;
+            color: #f472b6 !important;
+        }
+    }
+    
+    .client-badge.maintenance {
+        background-color: rgba(22, 101, 52, 0.2);
+        color: #4ade80;
+    }
+
+    .client-badge.stopped {
+        background-color: rgba(153, 27, 27, 0.2);
+        color: #f87171;
+    }
+}    
