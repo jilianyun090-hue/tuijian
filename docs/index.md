@@ -36,6 +36,6 @@ features:
     details: 翻墙基础知识、Clash使用指南、GFW科普，助你安全高效科学上网。
     link: /proxy/
     icon: book
-copyright: MIT Licensed | Copyright © 2026-present
-footer: 优质资源分享，助你畅享全球互联网
+copyright: Copyright © 2026 clash-jichang.com · All Rights Reserved
+footer: '<a href="/airport/">机场推荐</a> | <a href="/ai/">AI指南</a> | <a href="/streaming/">流媒体</a> | <a href="/proxy/">知识库</a> | <a href="/links">友链</a><br/>📧 联系我们：clashjichang@proton.me<br/>优质资源共享 · 助你畅享全球互联网自由'
 ---

@@ -12,6 +12,10 @@ export default hopeTheme({
     
     docsDir: "docs",
 
+    footer: '<a href="/airport/">机场推荐</a> | <a href="/ai/">AI指南</a> | <a href="/streaming/">流媒体</a> | <a href="/proxy/">知识库</a> | <a href="/links">友链</a><br/>📧 联系我们：clashjichang@proton.me<br/>优质资源共享 · 助你畅享全球互联网自由',
+    displayFooter: true,
+    copyright: "Copyright © 2026 clash-jichang.com · All Rights Reserved",
+
     // 导航栏 (机场推荐突出放前面)
     navbar: [
         { text: "首页", link: "/" },
