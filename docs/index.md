@@ -37,5 +37,5 @@ features:
     link: /proxy/
     icon: book
 copyright: Copyright © 2026 clash-jichang.com · All Rights Reserved
-footer: '<a href="/airport/">机场推荐</a> | <a href="/ai/">AI指南</a> | <a href="/streaming/">流媒体</a> | <a href="/proxy/">知识库</a> | <a href="/links">友链</a><br/>📧 联系我们：clashjichang@proton.me<br/>优质资源共享 · 助你畅享全球互联网自由'
+footer: '<a href="/airport/">机场推荐</a> | <a href="/ai/">AI指南</a> | <a href="/streaming/">流媒体</a> | <a href="/proxy/">知识库</a> | <a href="/links">友链</a><br/>📧 联系我们：haozevpn@gmail.com<br/>优质资源共享 · 助你畅享全球互联网自由'
 ---

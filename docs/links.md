@@ -47,7 +47,7 @@ tag:
 
 请将您的 **站点名称、链接、描述** 发送至邮箱：
 
-📧 **[clashjichang@proton.me](mailto:clashjichang@proton.me)**
+📧 **[haozevpn@gmail.com](mailto:haozevpn@gmail.com)**
 
 收到后我们会在 3 个工作日内审核并添加。
 
