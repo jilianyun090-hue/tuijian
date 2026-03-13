@@ -1,10 +1,13 @@
 ---
 title: 友情链接
-description: 2026科学上网机场推荐友情链接，收录优质的科学上网、流媒体、AI工具相关站点。
+description: 2026科学上网机场推荐友情链接，收录优质的科学上网、翻墙工具、流媒体、AI工具相关站点。欢迎优质站点交换友链。
 head:
   - - meta
     - name: keywords
-      content: 友情链接,友链,合作站点,科学上网
+      content: 友情链接, 友链交换, 合作站点, 科学上网, 翻墙工具, 机场推荐, 流媒体解锁, AI工具, VPN推荐
+tag:
+  - 友情链接
+  - 合作站点
 ---
 
 # 友情链接
@@ -15,6 +18,8 @@ head:
 
 | 站点名称 | 链接 | 说明 |
 | :--- | :--- | :--- |
+| 科学上网知识库 | [clashmac.cn.com](https://clashmac.cn.com) | Clash 教程与科学上网知识 |
+| 墙外有网 | [outsideweb.net](https://outsideweb.net) | 翻墙资讯与工具推荐 |
 
 ## 流媒体 & AI 工具
 

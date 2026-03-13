@@ -1,21 +1,24 @@
 ---
-title: 为大家整理了目前MetaCubeX 核心及兼容客户端列表代理软件客户端维护状态及GIThub地址
+title: 2026最全 MetaCubeX 核心及兼容客户端列表｜代理软件维护状态与 GitHub 下载地址
 shortTitle: 客户端维护清单
-description: 最全的 MetaCubeX 核心及兼容客户端列表，包含 Windows、macOS、Android、iOS 及路由器等各平台代理软件的最新维护状态和 GitHub 下载地址。
+description: 2026年最全的 MetaCubeX 核心及兼容客户端列表，包含 Windows、macOS、Android、iOS、路由器及鸿蒙等各平台代理软件的最新维护状态和 GitHub 下载地址。
 head:
   - - meta
     - name: keywords
-      content: MetaCubeX, Clash 核心, 代理客户端, 科学上网工具, Clash Verge, v2rayN, OpenClash, 客户端维护状态
-icon: list
+      content: MetaCubeX, Clash核心, 代理客户端, 科学上网工具, Clash Verge, Clash Verge Rev, v2rayN, OpenClash, FlClash, ShellCrash, 客户端维护状态, 翻墙软件, 代理工具下载, Windows翻墙, macOS翻墙, Android翻墙, iOS翻墙, 路由器翻墙, 2026最新
+tag:
+  - MetaCubeX
+  - Clash客户端
+  - 代理软件
+  - 科学上网工具
+  - 翻墙软件下载
+  - 客户端维护状态
+  - 2026最新
 ---
 
-# 为大家整理了目前MetaCubeX 核心及兼容客户端列表代理软件客户端维护状态及GIThub地址
+# 2026最全 MetaCubeX 核心及兼容客户端列表｜代理软件维护状态与 GitHub 下载地址
 
-MetaCubeX 核心及兼容客户端列表与维护状态。
-
-::: tip 说明
-内容来自 [wiki.metacubex.one](https://wiki.metacubex.one/startup/client/client/)
-:::
+MetaCubeX 核心及兼容客户端列表与维护状态，涵盖 Windows、macOS、Linux、Android、iOS、路由器、鸿蒙等全平台。
 
 <div class="client-container">
 

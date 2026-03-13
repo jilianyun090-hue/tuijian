@@ -102,6 +102,8 @@ export default hopeTheme({
                     "vpn-guide",
                     "fanqiang-guide",
                     "line-type-guide",
+                    "streaming-unlock-guide",
+                    "router-vpn-guide",
                     "apple-id-guide",
                     "gfw-websites",
                     "telegram-guide",

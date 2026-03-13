@@ -950,3 +950,23 @@ html[data-theme="dark"] {
         color: #f87171;
     }
 }    
+
+/* Typography Softening - added for better CJK readability */
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.theme-hope-content {
+  letter-spacing: 0.02em;
+
+  p, li, td, th {
+    line-height: 1.85;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+}

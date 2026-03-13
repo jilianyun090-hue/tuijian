@@ -1,11 +1,22 @@
 ---
 title: OpenClaw（小龙虾）史上最全手把手的保姆级安装配置教程（2026年3月10日最新版）
 description: 2026年最新 OpenClaw 安装教程，涵盖 Windows、macOS 与 Linux 平台，手把手教你配置 API Key、接入飞书/Telegram 机器人，打造你的个人 AI 智能体。
+head:
+  - - meta
+    - name: keywords
+      content: OpenClaw, 小龙虾, AI智能体, OpenClaw安装教程, 飞书机器人, Telegram机器人, ChatGPT接入, Claude接入, AI助理, Node.js, 2026最新教程, 大模型部署, AI工具
+tag:
+  - OpenClaw
+  - AI智能体
+  - 飞书机器人
+  - Telegram机器人
+  - AI工具教程
+  - 2026最新
 ---
 
 # OpenClaw (小龙虾) 史上最全手把手保姆级教程
 
-![OpenClaw Banner](/assets/img/guide/openclaw/banner.webp)
+![OpenClaw Banner](/assets/img/guide/openclaw/banner.png)
 
 **发布日期：2026年3月10日 (最新版)**
 
