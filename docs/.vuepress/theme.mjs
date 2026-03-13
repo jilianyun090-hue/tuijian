@@ -118,8 +118,7 @@ export default hopeTheme({
         ],
     },
 
-    footer: "优质资源共享 | 助你畅享全球互联网自由",
-    displayFooter: true,
+
 
     // 关闭不必要的图标插件
     plugins: {
