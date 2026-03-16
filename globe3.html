@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style> body { margin: 0; background: #ffffff; overflow: hidden; } </style>
+  <script src="https://unpkg.com/three"></script>
+  <script src="https://unpkg.com/globe.gl"></script>
+</head>
+<body>
+  <div id="globeViz"></div>
+  <script>
+    const GlobeObj = Globe()
+      (document.getElementById('globeViz'))
+      .backgroundColor('#ffffff')
+      .showGlobe(true)
+      .globeColor('#1a8f4c')
+      .atmosphereColor('#00ffff')
+      .atmosphereAltitude(0.2)
+      .hexBinPointWeight(1)
+      .hexAltitude(0.05)
+      .hexBinResolution(4)
+      .hexMargin(0.2)
+      .hexColor(() => '#00ffcc');
+      
+    // Add random data for hex bins
+    const gData = [...Array(300).keys()].map(() => ({
+      lat: (Math.random() - 0.5) * 180,
+      lng: (Math.random() - 0.5) * 360
+    }));
+    GlobeObj.hexBinPointsData(gData);
+
+    const N = 20;
+    const arcsData = [...Array(N).keys()].map(() => ({
+      startLat: (Math.random() - 0.5) * 180,
+      startLng: (Math.random() - 0.5) * 360,
+      endLat: (Math.random() - 0.5) * 180,
+      endLng: (Math.random() - 0.5) * 360,
+      color: '#00ffff'
+    }));
+    GlobeObj.arcsData(arcsData)
+      .arcColor('color')
+      .arcDashLength(0.4)
+      .arcDashGap(0.2)
+      .arcDashAnimateTime(1500)
+      .arcStroke(1);
+    
+    GlobeObj.controls().autoRotate = true;
+    GlobeObj.controls().autoRotateSpeed = 2;
+  </script>
+</body>
+</html>

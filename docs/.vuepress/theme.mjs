@@ -7,7 +7,6 @@ export default hopeTheme({
     themeColor: "#1565c0",
 
     // 网站 Logo
-    // 网站 Logo
     logo: "/globe.png",
     
     docsDir: "docs",
