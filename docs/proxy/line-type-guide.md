@@ -1,5 +1,5 @@
 ---
-title: 如何判断机场线路类型
+title: 如何准确判断机场节点线路类型：专线、中转与直连深度全方位评测
 description: 详细教程：如何判断一个机场使用的线路类型（IPLC/IEPL 专线、CN2 GIA、BGP 中转等），涵盖 Traceroute 路由追踪、IP 归属分析、ASN 验证、性能测试与 AI 辅助判断。
 head:
   - - meta

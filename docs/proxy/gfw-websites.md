@@ -1,5 +1,5 @@
 ---
-title: 翻墙后必备国外网站清单
+title: 2026 翻墙后必看的优质国外网站清单与各类别访问详细指南
 description: 翻墙后能访问的网站完整指南：按类别深度介绍 ChatGPT、YouTube、Google、Netflix、GitHub 等国外主流网站，包含官网链接、核心功能、使用技巧与内链推荐。
 head:
   - - meta

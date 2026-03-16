@@ -1,6 +1,6 @@
 ---
-title: Midjourney AI 绘画指南
-description: 2026年Midjourney AI绘画完整教程，包含注册方法、Prompt提示词技巧、参数设置、风格调整与实用案例，适合设计师和创意工作者。
+title: 2026 Midjourney AI 绘画完整教程：注册、参数与实战案例
+description: 2026年Midjourney AI绘画完整教程，包含注册方法、Prompt提示词技巧、参数设置、风格调整与实用案例，适合设计师和创意工作者。为您量身定制的2026最新评测与实战教程方案，涵盖详细平台配置指导与实用有效避坑建议，助您全面优化安全数字生活体验。
 head:
   - - meta
     - name: keywords

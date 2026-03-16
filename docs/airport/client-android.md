@@ -1,6 +1,6 @@
 ---
-title: Android客户端下载
-description: Clash Meta for Android下载与配置教程，附国内加速APK下载链接、订阅导入步骤、代理模式说明与常见问题解答。
+title: 2026 Android 安卓手机端 Clash Meta 科学上网客户端下载与配置教程
+description: Clash Meta for Android下载与配置教程，附国内加速APK下载链接、订阅导入步骤、代理模式说明与常见问题解答。为您量身定制的2026最新评测与实战教程方案，涵盖详细平台配置指导与实用有效避坑建议，助您全面优化安全数字生活体验。
 head:
   - - meta
     - name: keywords

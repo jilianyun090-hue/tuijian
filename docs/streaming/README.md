@@ -1,5 +1,5 @@
 ---
-title: 流媒体账号与注册全指南
+title: 流媒体账号与注册全指南（2026最新完整版）
 description: 2026年全球热门流媒体账号（Netflix, Disney+, YouTube）注册与合租指南，包含美区 Apple ID 注册、海外接码平台、礼品卡及实体手机卡购买方案。
 head:
   - - meta

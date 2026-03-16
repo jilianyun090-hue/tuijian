@@ -1,5 +1,5 @@
 ---
-title: 账号合租中心
+title: 2026 流媒体与 AI 账号合租中心：Netflix、ChatGPT 等超低价拼车推荐
 description: 精选Netflix、ChatGPT Plus、Disney+、YouTube Premium、Spotify等流媒体与AI工具合租攻略，价格低至¥5/月，附认证平台推荐与避坑指南。
 head:
   - - meta

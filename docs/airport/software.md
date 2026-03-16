@@ -1,5 +1,5 @@
 ---
-title: 客户端下载指南
+title: 2026 全平台科学上网客户端下载指南：Clash、Shadowrocket 等代理软件
 description: 2026年全平台科学上网客户端推荐与下载指南。涵盖 Windows, Android, iOS, macOS 及 Linux 主流代理工具，提供详细对比与下载建议。
 ---
 

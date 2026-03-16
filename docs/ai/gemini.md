@@ -1,6 +1,6 @@
 ---
-title: Google Gemini 教程
-description: Google 最强多模态 AI 模型 Gemini 使用全攻略。包含国内直连镜像版与海外官网版对比及使用建议。
+title: Google Gemini 最强多模态 AI 模型国内直连使用全攻略
+description: Google 最强多模态 AI 模型 Gemini 使用全攻略。包含国内直连镜像版与海外官网版对比及使用建议。为您量身定制的2026最新评测与实战教程方案，涵盖详细平台配置指导与实用有效避坑建议，助您全面优化安全数字生活体验。
 head:
   - - meta
     - name: keywords

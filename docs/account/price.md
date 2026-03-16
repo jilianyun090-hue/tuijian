@@ -1,5 +1,5 @@
 ---
-title: 账号合租价格行情
+title: 2026 年最新流媒体与 AI 账号合租价格行情参考表
 description: 2026年最新账号合租价格行情表，涵盖Netflix、ChatGPT Plus、Claude、Disney+、Spotify等主流流媒体与AI工具合租价格参考。
 ---
 
