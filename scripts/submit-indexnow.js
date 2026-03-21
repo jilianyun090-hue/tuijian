@@ -4,7 +4,7 @@ import path from 'path';
 import { parseStringPromise } from 'xml2js';
 
 const SITE_URL = 'https://clash-jichang.com';
-const INDEXNOW_KEY = '35CCAB205AEAD2FDC8BEB03EB1519F89'; // Using the Bing verification code as key is common or use a random uuid
+const INDEXNOW_KEY = '8ede82819b424e96bd0aa83679469cae'; 
 const SITEMAP_PATH = path.resolve('docs/.vuepress/dist/sitemap.xml');
 
 async function submitIndexNow() {
