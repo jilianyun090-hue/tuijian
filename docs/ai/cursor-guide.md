@@ -12,8 +12,6 @@ tag:
   - 开发效率
 ---
 
-# Cursor AI 智能编程指南
-
 Cursor 是一款基于 VS Code 的 AI 驱动代码编辑器，内置 GPT-4 和 Claude 等顶级 AI 模型，让你直接在编辑器中与 AI 对话编程。它正在改变开发者的工作方式，被誉为"程序员的 AI 副驾驶"。
 
 ## Cursor 是什么
@@ -166,4 +164,4 @@ Cursor 承诺不会使用用户代码进行训练。Pro 用户可以开启隐私
 - [AI 工具导航](/ai/)
 - [合租平台推荐](/account/platforms.html)
 - [机场推荐](/airport/)
-- [回到首页](../index.md)
+- [回到首页](/)

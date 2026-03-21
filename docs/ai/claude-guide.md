@@ -12,8 +12,6 @@ tag:
   - 注册教程
 ---
 
-# Claude 3.5 (Anthropic) 注册与使用攻
-
 Claude 3.5 Sonnet Anthropic 开发，在代码生成和长文写作方面被广泛认为是当前最强的 AI 模型之一。其 Artifacts 功能可以在对话中实时预览和交互式修改前端代码，对开发者和设计师尤为实用。
 
 ## 核心优势

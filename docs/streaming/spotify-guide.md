@@ -14,8 +14,6 @@ tag:
   - 订阅
 ---
 
-# Spotify Premium 账号合租终极指南
-
 ## Spotify Premium 会员权益：解锁极致音乐体验
 
 Spotify 本身拥有海量音乐资源和出色的推荐算法，而 Spotify Premium 则是解锁其全部潜能的钥匙：

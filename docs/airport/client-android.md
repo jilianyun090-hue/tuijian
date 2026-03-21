@@ -11,8 +11,6 @@ tag:
   - 翻墙教程
 ---
 
-# Android 手机客户端下载与配置
-
 本教程以 **Clash Meta for Android** 为例，手把手教您在安卓手机上完成科学上网配置。Clash Meta for Android 是目前安卓端最主流的代理客户端，操作简单，适合新手。
 
 ## 下载安装
@@ -116,4 +114,4 @@ tag:
 - [机场选购避坑指南](./choose-guide.md)
 - [Windows/Mac 客户端下载](./client-windows.md)
 - [iOS 客户端下载](./client-ios.md)
-- [回到首页](../index.md)
+- [回到首页](/)

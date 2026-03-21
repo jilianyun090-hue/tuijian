@@ -14,8 +14,6 @@ tag:
   - 2026最新
 ---
 
-# OpenClaw (小龙虾) 史上最全手把手保姆级教程
-
 ![OpenClaw Banner](/assets/img/guide/openclaw/banner.png)
 
 **发布日期：2026年3月10日 (最新版)**
@@ -142,6 +140,6 @@ openclaw plugins install @m1heng-clawd/feishu
 
 ---
 
-- [回到首页](../index.md)
+- [回到首页](/)
 - [查看更多 AI 工具指南](./README.md)
 - [获取科学上网支持](/proxy/)

@@ -16,8 +16,6 @@ tag:
   - Gemini中文网
 ---
 
-# Google Gemini 使用教程
-
 Google Gemini (原名 Bard) 是 Google 最强大的多模态 AI 模型，深度集成于整个 Google 生态链，并在逻辑分析、多媒体理解方面处于行业顶尖。
 
 ---

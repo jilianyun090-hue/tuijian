@@ -16,8 +16,6 @@ tag:
   - 2026最新
 ---
 
-# 2026最全 MetaCubeX 核心及兼容客户端列表｜代理软件维护状态与 GitHub 下载地址
-
 MetaCubeX 核心及兼容客户端列表与维护状态，涵盖 Windows、macOS、Linux、Android、iOS、路由器、鸿蒙等全平台。
 
 <div class="client-container">

@@ -12,8 +12,6 @@ tag:
   - 翻墙教程
 ---
 
-# Windows / Mac / Linux 客户端下载与配置
-
 本教程以 **Clash Verge Rev** 为例，手把手教您完成从下载安装到成功科学上网的全过程。Clash Verge Rev 是目PC 端最推荐的代理客户端，界面清晰、内TUN 模式、支持规则分流。
 
 ## 下载安装
@@ -125,4 +123,4 @@ Clash for Windows (CfW) 原作者已2023 年停止维护。推荐迁移至 Clash
 - [机场选购避坑指南](./choose-guide.md)
 - [Android 客户端下载](./client-android.md)
 - [iOS 客户端下载](./client-ios.md)
-- [回到首页](../index.md)
+- [回到首页](/)

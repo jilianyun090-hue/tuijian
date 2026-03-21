@@ -12,8 +12,6 @@ tag:
   - 设计工具
 ---
 
-# Midjourney AI 绘画使用指南
-
 Midjourney 是目前最强大的 AI 图像生成工具之一，通过文字描述（Prompt）即可生成高质量、风格多样的图像。无论你是设计师、插画师还是普通用户，都能用它创作令人惊叹的视觉作品。
 
 ## Midjourney 是什么
@@ -134,4 +132,4 @@ Midjourney 目前主要通过 Discord 使用，你需要先注册一个 Discord 
 - [AI 工具导航](/ai/)
 - [合租平台推荐](/account/platforms.html)
 - [机场推荐](/airport/)
-- [回到首页](../index.md)
+- [回到首页](/)

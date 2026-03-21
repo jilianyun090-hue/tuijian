@@ -12,8 +12,6 @@ tag:
   - 翻墙教程
 ---
 
-# iOS (iPhone/iPad) 客户端下载与配置
-
 本教程以 **Shadowrocket (小火箭)** 为例，手把手教您在 iPhone / iPad 上完成科学上网配置。Shadowrocket 是 iOS 端最普及、最易用的代理客户端。
 
 <br/>
@@ -204,4 +202,4 @@ App Store 中有山寨应用冒充 Shadowrocket，请认准正版图标（火箭
 - [机场选购避坑指南](./choose-guide.md)
 - [Windows/Mac 客户端下载](./client-windows.md)
 - [Android 客户端下载](./client-android.md)
-- [回到首页](../index.md)
+- [回到首页](/)
