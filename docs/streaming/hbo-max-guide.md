@@ -99,4 +99,4 @@ tag:
 - [查看机场推荐](/airport/)
 - [Hulu / HBO Max 观看指南](./hulu-hbo-guide.md)
 - [流媒体观影导航](./README.md)
-- [合租账号中心](../account/README.md)
+- [合租账号中心](/account/)

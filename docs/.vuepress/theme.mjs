@@ -50,6 +50,7 @@ export default hopeTheme({
                     "disney-guide",
                     "spotify-guide",
                     "youtube-guide",
+                    "hbo-max-guide",
                     "hulu-hbo-guide",
                 ],
             },
@@ -115,6 +116,22 @@ export default hopeTheme({
                 ],
             },
         ],
+        "/tools/": [
+            {
+                text: "账号合租中心",
+                children: [
+                    "",
+                ],
+            },
+        ],
+        // 博客自动生成页面，不需要侧边栏
+        "/tag/": false,
+        "/category/": false,
+        "/article/": false,
+        "/star/": false,
+        "/timeline/": false,
+        "/links.html": false,
+        "/stats.html": false,
     },
 
 
@@ -123,18 +140,16 @@ export default hopeTheme({
     plugins: {
         blog: true,
         mdEnhance: {
-            align: true,
-            attrs: true,
             container: true,
-            tabs: true,
-            tasklist: true,
+        },
+        icon: {
+            assets: null,
         },
     },
 
     markdown: {
         align: true,
         attrs: true,
-        container: true,
         tabs: true,
         tasklist: true,
     },
@@ -148,5 +163,4 @@ export default hopeTheme({
     fullscreen: false,
     backToTop: true,
     pure: true,
-    iconAssets: null, // 禁用图标库
 });

@@ -34,7 +34,7 @@ head:
 | 类别 | 推荐内容 | 核心优势 | 详情 |
 | :--- | :--- | :--- | :--- |
 | **礼品卡** | iTunes / Google | 解决美区支付痛点 | [购买链接](/account/platforms.html) |
-| **海外手机卡** | **英国 giffgaff** | 零月租、国内漫游收码 | [申请指南](./registration.md) |
+| **海外手机卡** | **英国 giffgaff** | 零月租、国内漫游收码 | [穷鬼指南](/streaming/sms-guide.html#长期方案) |
 | **临时接码** | [SMS 平台](./sms-guide.md) | 快速低成本注册账号 | [前往评测](./sms-guide.md) |
 
 ---

@@ -4,7 +4,7 @@ import path from 'path';
 import { parseStringPromise } from 'xml2js';
 
 const SITE_URL = 'https://clash-jichang.com';
-const INDEXNOW_KEY = '8ede82819b424e96bd0aa83679469cae'; 
+const INDEXNOW_KEY = '88c84cc09eb9474b917333238a285c60';
 const SITEMAP_PATH = path.resolve('docs/.vuepress/dist/sitemap.xml');
 
 async function submitIndexNow() {
@@ -20,20 +20,58 @@ async function submitIndexNow() {
 
     console.log(`Found ${urls.length} URLs in sitemap. Submitting to IndexNow...`);
 
-    const response = await axios.post('https://www.bing.com/indexnow', {
+    const payload = {
       host: 'clash-jichang.com',
       key: INDEXNOW_KEY,
       keyLocation: `${SITE_URL}/${INDEXNOW_KEY}.txt`,
       urlList: urls
-    });
+    };
 
-    if (response.status === 200 || response.status === 202) {
-      console.log('✅ IndexNow submission successful!');
-    } else {
-      console.error('❌ IndexNow submission failed:', response.status, response.data);
+    // Submit to Bing
+    try {
+      const bingResponse = await axios.post('https://www.bing.com/indexnow', payload, {
+        headers: { 'Content-Type': 'application/json; charset=utf-8' }
+      });
+      if (bingResponse.status === 200 || bingResponse.status === 202) {
+        console.log('✅ Bing IndexNow submission successful!');
+      } else {
+        console.warn('⚠️ Bing IndexNow response:', bingResponse.status);
+      }
+    } catch (bingError) {
+      const errData = bingError.response?.data;
+      if (errData?.errorCode === 'UserForbiddedToAccessSite') {
+        console.warn('⚠️ Bing IndexNow 403: Domain NOT verified in Bing Webmaster Tools.');
+        console.warn('   → Go to https://www.bing.com/webmasters and add/verify clash-jichang.com first.');
+      } else if (bingError.response?.status === 403) {
+        console.warn('⚠️ Bing IndexNow 403:', JSON.stringify(errData));
+      } else {
+        console.error('❌ Bing IndexNow error:', bingError.message);
+      }
     }
+
+    // Submit to IndexNow API (also works for Yandex, Seznam etc)
+    try {
+      const apiResponse = await axios.post('https://api.indexnow.org/IndexNow', payload, {
+        headers: { 'Content-Type': 'application/json; charset=utf-8' }
+      });
+      if (apiResponse.status === 200 || apiResponse.status === 202) {
+        console.log('✅ IndexNow API submission successful!');
+      } else {
+        console.warn('⚠️ IndexNow API response:', apiResponse.status);
+      }
+    } catch (apiError) {
+      const errData = apiError.response?.data;
+      if (errData?.errorCode === 'UserForbiddedToAccessSite') {
+        console.warn('⚠️ IndexNow API 403: Verify your site at https://www.bing.com/webmasters first.');
+      } else if (apiError.response?.status === 403) {
+        console.warn('⚠️ IndexNow API 403:', JSON.stringify(errData));
+      } else {
+        console.error('❌ IndexNow API error:', apiError.message);
+      }
+    }
+
   } catch (error) {
-    console.error('❌ Error submitting to IndexNow:', error.message);
+    console.error('❌ Error in IndexNow submission:', error.message);
   }
 }
 

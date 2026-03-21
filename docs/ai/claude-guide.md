@@ -104,6 +104,6 @@ Anthropic 的风控在所AI 平台中最严格。
 ---
 
 - [回到 AI 导航](./README.md)
-- [接码平台评测](./sms-guide.md)
-- [机场推荐](../airport/)
-- [回到首页](../index.md)
+- [接码平台评测](/streaming/sms-guide.html)
+- [机场推荐](/airport/)
+- [回到首页](/)

@@ -84,5 +84,4 @@ Hero SMS SMS-Activate 注册账号，充$2-5 (支付。
 ---
 
 - [回到账号导航](./README.md)
-- [账号注册指南](./registration.md)
-- [回到首页](../index.md)
+- [回到首页](/)
