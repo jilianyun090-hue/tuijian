@@ -42,7 +42,7 @@ export default hopeTheme({
     sidebar: {
         "/streaming/": [
             {
-                text: "流媒体账号全指南",
+                text: "流媒体指南",
                 children: [
                     "",
                     "sms-guide",
@@ -57,7 +57,7 @@ export default hopeTheme({
         ],
         "/account/": [
             {
-                text: "账号合租与市场行情",
+                text: "账号合租",
                 children: [
                     "platforms",
                     "price",
@@ -74,18 +74,18 @@ export default hopeTheme({
                 ],
             },
             {
-                text: "客户端软件指南",
+                text: "客户端下载",
                 children: [
-                    { text: "客户端下载指南", link: "software" },
-                    { text: "Windows客户端下载", link: "client-windows" },
-                    { text: "Android客户端下载", link: "client-android" },
-                    { text: "IOS客户端下载", link: "client-ios" },
+                    { text: "全平台下载", link: "software" },
+                    { text: "Windows", link: "client-windows" },
+                    { text: "Android", link: "client-android" },
+                    { text: "iOS", link: "client-ios" },
                 ],
             },
         ],
         "/ai/": [
             {
-                text: "AI 工具与应用实战",
+                text: "AI 工具实战",
                 children: [
                     "",
                     "chatgpt",
@@ -100,7 +100,7 @@ export default hopeTheme({
         ],
         "/proxy/": [
             {
-                text: "科学上网知识库",
+                text: "知识库",
                 children: [
                     "",
                     "vpn-guide",
@@ -118,7 +118,7 @@ export default hopeTheme({
         ],
         "/tools/": [
             {
-                text: "账号合租中心",
+                text: "合租中心",
                 children: [
                     "",
                 ],
