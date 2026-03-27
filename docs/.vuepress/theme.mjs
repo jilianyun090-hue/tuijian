@@ -69,8 +69,8 @@ export default hopeTheme({
             {
                 text: "机场推荐",
                 children: [
-                    "",
-                    "choose-guide",
+                    { text: "2026：机场推荐清单（3月更新）", link: "" },
+                    { text: "2026 机场避坑指南：购买前必须看的 3 个硬指标", link: "choose-guide" },
                 ],
             },
             {
@@ -112,7 +112,10 @@ export default hopeTheme({
                     "gfw-websites",
                     "telegram-guide",
                     "telegram-bot",
-                    "clients",
+                    { text: "2026最全 MetaCubeX 核心客户端维护清单", link: "clients" },
+                    { text: "SSR、VLESS 与 Trojan 协议速度对比", link: "protocol-comparison" },
+                    { text: "Hysteria 协议全面解析", link: "hysteria-guide" },
+                    { text: "翻墙后必逛的海外热门网站", link: "after-fanqiang-guide" },
                 ],
             },
         ],
