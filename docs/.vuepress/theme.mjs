@@ -76,10 +76,10 @@ export default hopeTheme({
             {
                 text: "客户端下载",
                 children: [
-                    { text: "全平台下载", link: "software" },
-                    { text: "Windows", link: "client-windows" },
-                    { text: "Android", link: "client-android" },
-                    { text: "iOS", link: "client-ios" },
+                    { text: "2026 全平台科学上网客户端下载指南：Clash、Shadowrocket 等代理软件", link: "software" },
+                    { text: "2026 Windows电脑端 Clash Verge Rev 科学上网客户端下载与配置教程", link: "client-windows" },
+                    { text: "2026 Android安卓手机端 Clash Meta 科学上网客户端下载与配置教程", link: "client-android" },
+                    { text: "2026 iOS苹果手机端 Shadowrocket 小火箭科学上网客户端下载与配置教程", link: "client-ios" },
                 ],
             },
         ],
