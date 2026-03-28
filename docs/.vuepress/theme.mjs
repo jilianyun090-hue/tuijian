@@ -69,7 +69,7 @@ export default hopeTheme({
             {
                 text: "机场推荐",
                 children: [
-                    { text: "2026：机场推荐清单（3月更新）", link: "" },
+                    { text: "2026 最新翻墙机场推荐评测：便宜好用、稳定高速梯子与科学上网VPN指南 (长期更新)", link: "" },
                     { text: "2026 机场避坑指南：购买前必须看的 3 个硬指标", link: "choose-guide" },
                 ],
             },
