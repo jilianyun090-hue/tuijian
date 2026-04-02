@@ -4,7 +4,7 @@ import path from 'path';
 import { parseStringPromise } from 'xml2js';
 
 const SITE_URL = 'https://clash-jichang.com';
-const INDEXNOW_KEY = '88c84cc09eb9474b917333238a285c60';
+const INDEXNOW_KEY = '7ed17addd6714c9bb9398a7251d90866';
 const SITEMAP_PATH = path.resolve('docs/.vuepress/dist/sitemap.xml');
 
 async function submitIndexNow() {
