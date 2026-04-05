@@ -66,11 +66,11 @@ onMounted(fetchData)
 
 const summaryItems = computed(() => {
   if (!stats.value) return []
-  const { pageviews, visitors, bounces, totaltime } = stats.value
+  const { pageviews, visitors, bounces, totaltime, comparison } = stats.value
   
-  const calcTrend = (obj) => {
-    if (!obj || !obj.prev) return 0
-    return Math.round(((obj.value - obj.prev) / obj.prev) * 100)
+  const calcTrend = (current, prev) => {
+    if (!prev || prev === 0) return 0
+    return Math.round(((current - prev) / prev) * 100)
   }
 
   const formatTime = (seconds) => {
@@ -82,10 +82,10 @@ const summaryItems = computed(() => {
   }
 
   return [
-    { label: '浏览量 (PV)', value: pageviews?.value || 0, trend: calcTrend(pageviews) },
-    { label: '访客数 (UV)', value: visitors?.value || 0, trend: calcTrend(visitors) },
-    { label: '跳出率', value: `${bounces?.value || 0}%`, trend: calcTrend(bounces) },
-    { label: '平均访问时长', value: formatTime(totaltime?.value / 1000), trend: calcTrend(totaltime) }
+    { label: '浏览量 (PV)', value: pageviews || 0, trend: calcTrend(pageviews, comparison?.pageviews) },
+    { label: '访客数 (UV)', value: visitors || 0, trend: calcTrend(visitors, comparison?.visitors) },
+    { label: '跳出率', value: `${bounces || 0}%`, trend: calcTrend(bounces, comparison?.bounces) },
+    { label: '平均访问时长', value: formatTime((totaltime || 0) / 1000), trend: calcTrend(totaltime, comparison?.totaltime) }
   ]
 })
 
