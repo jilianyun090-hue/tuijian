@@ -116,6 +116,7 @@ export default hopeTheme({
                     { text: "SSR、VLESS 与 Trojan 协议速度对比", link: "protocol-comparison" },
                     { text: "Hysteria 协议全面解析", link: "hysteria-guide" },
                     { text: "翻墙后必逛的海外热门网站", link: "after-fanqiang-guide" },
+                    { text: "2026年4月中转拔线潮：机场行业进入无IP时代", link: "relay-crackdown-2026" },
                 ],
             },
         ],
