@@ -1,31 +1,40 @@
 export async function onRequest(context) {
   const { searchParams } = new URL(context.request.url);
-  const shareId = 'uP64pEjWUtGCCMS3';
-  const startAt = searchParams.get('startAt');
-  const endAt = searchParams.get('endAt');
-  const unit = searchParams.get('unit') || 'hour';
+  const websiteId = context.env.UMAMI_WEBSITE_ID;
+  const apiKey    = context.env.UMAMI_API_KEY;
+  const startAt   = searchParams.get('startAt');
+  const endAt     = searchParams.get('endAt');
+  const unit      = searchParams.get('unit') || 'hour';
+
+  if (!websiteId || !apiKey) {
+    return new Response(JSON.stringify({ error: 'Missing env: UMAMI_WEBSITE_ID or UMAMI_API_KEY' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
 
   try {
-    // 1. Get token and websiteId
-    const shareRes = await fetch(`https://cloud.umami.is/analytics/us/api/share/${shareId}`);
-    if (!shareRes.ok) throw new Error('Failed to fetch share token');
-    const { token, websiteId } = await shareRes.json();
+    const res = await fetch(
+      `https://api.umami.is/v1/websites/${websiteId}/pageviews?startAt=${startAt}&endAt=${endAt}&unit=${unit}&timezone=Asia/Shanghai`,
+      { headers: { 'Authorization': `Bearer ${apiKey}` } }
+    );
 
-    // 2. Fetch pageviews
-    const pvRes = await fetch(`https://cloud.umami.is/analytics/us/api/websites/${websiteId}/pageviews?startAt=${startAt}&endAt=${endAt}&unit=${unit}&timezone=Asia/Shanghai`, {
-      headers: { 'x-umami-share-token': token }
-    });
-    const data = await pvRes.json();
+    if (!res.ok) {
+      const errText = await res.text();
+      throw new Error(`Umami API ${res.status}: ${errText}`);
+    }
+
+    const data = await res.json();
 
     return new Response(JSON.stringify(data), {
-      headers: { 
+      headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
         'Cache-Control': 's-maxage=60, stale-while-revalidate=30'
       }
     });
   } catch (e) {
-    return new Response(JSON.stringify({ error: e.message }), { 
+    return new Response(JSON.stringify({ error: e.message }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });

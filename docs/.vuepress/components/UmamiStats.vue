@@ -81,15 +81,15 @@ const summaryItems = computed(() => {
     return `${mins}m ${secs}s`
   }
 
-  // Umami API returns nested { value, prev } objects for each metric
-  const pv  = typeof pageviews === 'object' ? pageviews.value  : (pageviews  || 0)
-  const pvP = typeof pageviews === 'object' ? pageviews.prev   : (comparison?.pageviews || 0)
-  const uv  = typeof visitors  === 'object' ? visitors.value   : (visitors   || 0)
-  const uvP = typeof visitors  === 'object' ? visitors.prev    : (comparison?.visitors  || 0)
-  const bo  = typeof bounces   === 'object' ? bounces.value    : (bounces    || 0)
-  const boP = typeof bounces   === 'object' ? bounces.prev     : (comparison?.bounces   || 0)
-  const tt  = typeof totaltime === 'object' ? totaltime.value  : (totaltime  || 0)
-  const ttP = typeof totaltime === 'object' ? totaltime.prev   : (comparison?.totaltime || 0)
+  // Umami /stats returns flat numbers: { pageviews, visitors, bounces, totaltime, comparison:{...} }
+  const pv  = pageviews  || 0
+  const pvP = comparison?.pageviews  || 0
+  const uv  = visitors   || 0
+  const uvP = comparison?.visitors   || 0
+  const bo  = bounces    || 0
+  const boP = comparison?.bounces    || 0
+  const tt  = totaltime  || 0
+  const ttP = comparison?.totaltime  || 0
 
   return [
     { label: '浏览量 (PV)', value: pv, trend: calcTrend(pv, pvP) },
