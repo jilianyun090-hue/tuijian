@@ -1,17 +1,10 @@
 export async function onRequest(context) {
   const { searchParams } = new URL(context.request.url);
-  const websiteId = context.env.UMAMI_WEBSITE_ID;
-  const apiKey    = context.env.UMAMI_API_KEY;
+  const websiteId = '8f79ee64-6e73-47d2-b7f6-25cbe82aae0f';
+  const apiKey    = 'api_aPuIk5kPilvvlBNh6CgIDbN3sevpbhqT';
   const startAt   = searchParams.get('startAt');
   const endAt     = searchParams.get('endAt');
   const unit      = searchParams.get('unit') || 'hour';
-
-  if (!websiteId || !apiKey) {
-    return new Response(JSON.stringify({ error: 'Missing env: UMAMI_WEBSITE_ID or UMAMI_API_KEY' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' }
-    });
-  }
 
   try {
     const res = await fetch(
