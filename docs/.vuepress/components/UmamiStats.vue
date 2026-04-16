@@ -81,11 +81,21 @@ const summaryItems = computed(() => {
     return `${mins}m ${secs}s`
   }
 
+  // Umami API returns nested { value, prev } objects for each metric
+  const pv  = typeof pageviews === 'object' ? pageviews.value  : (pageviews  || 0)
+  const pvP = typeof pageviews === 'object' ? pageviews.prev   : (comparison?.pageviews || 0)
+  const uv  = typeof visitors  === 'object' ? visitors.value   : (visitors   || 0)
+  const uvP = typeof visitors  === 'object' ? visitors.prev    : (comparison?.visitors  || 0)
+  const bo  = typeof bounces   === 'object' ? bounces.value    : (bounces    || 0)
+  const boP = typeof bounces   === 'object' ? bounces.prev     : (comparison?.bounces   || 0)
+  const tt  = typeof totaltime === 'object' ? totaltime.value  : (totaltime  || 0)
+  const ttP = typeof totaltime === 'object' ? totaltime.prev   : (comparison?.totaltime || 0)
+
   return [
-    { label: '浏览量 (PV)', value: pageviews || 0, trend: calcTrend(pageviews, comparison?.pageviews) },
-    { label: '访客数 (UV)', value: visitors || 0, trend: calcTrend(visitors, comparison?.visitors) },
-    { label: '跳出率', value: `${bounces || 0}%`, trend: calcTrend(bounces, comparison?.bounces) },
-    { label: '平均访问时长', value: formatTime((totaltime || 0) / 1000), trend: calcTrend(totaltime, comparison?.totaltime) }
+    { label: '浏览量 (PV)', value: pv, trend: calcTrend(pv, pvP) },
+    { label: '访客数 (UV)', value: uv, trend: calcTrend(uv, uvP) },
+    { label: '跳出率', value: `${bo}%`, trend: calcTrend(bo, boP) },
+    { label: '平均访问时长', value: formatTime(tt / 1000), trend: calcTrend(tt, ttP) }
   ]
 })
 
