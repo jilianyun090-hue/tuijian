@@ -1,54 +1,77 @@
 <script setup>
 import { ref, onMounted, computed, watch } from 'vue'
 
-const shareId = 'uP64pEjWUtGCCMS3'
-// Use local Cloudflare Functions proxies to bypass CORS and handle tokens
-const statsApi = '/api/stats'
+const websiteId = '8f79ee64-6e73-47d2-b7f6-25cbe82aae0f'
+const statsApi     = '/api/stats'
 const pageviewsApi = '/api/pageviews'
+const metricsApi   = '/api/metrics'
 
-const period = ref('24h')
+const period  = ref('24h')
 const loading = ref(true)
-const error = ref(false)
-const stats = ref(null)
+const error   = ref(false)
+const stats     = ref(null)
 const pageviews = ref([])
+const topPages  = ref([])
+const referrers = ref([])
+const browsers  = ref([])
+const os        = ref([])
+const countries = ref([])
+
+// Sub-tab state
+const pageTab    = ref('路径')   // 路径 | 入口页面 | 退出页面
+const sourceTab  = ref('引用来源') // 引用来源 | 预渠道
+const envTab     = ref('浏览器')  // 浏览器 | 操作系统 | 设备
+const regionTab  = ref('国家')   // 国家 | 地区 | 城市
 
 const periods = [
   { label: '24 小时', val: '24h', unit: 'hour' },
-  { label: '7 天', val: '7d', unit: 'day' },
-  { label: '30 天', val: '30d', unit: 'day' }
+  { label: '7 天',   val: '7d',  unit: 'day'  },
+  { label: '30 天',  val: '30d', unit: 'day'  }
 ]
 
 const getTimeRange = (p) => {
   const now = Date.now()
   let startAt = now
   if (p === '24h') startAt = now - 24 * 60 * 60 * 1000
-  else if (p === '7d') startAt = now - 7 * 24 * 60 * 60 * 1000
+  else if (p === '7d')  startAt = now - 7  * 24 * 60 * 60 * 1000
   else if (p === '30d') startAt = now - 30 * 24 * 60 * 60 * 1000
   return { startAt, endAt: now }
 }
 
+const fetchMetrics = (startAt, endAt, type, limit = 10) =>
+  fetch(`${metricsApi}?startAt=${startAt}&endAt=${endAt}&type=${type}&limit=${limit}`)
+    .then(r => r.ok ? r.json() : [])
+    .catch(() => [])
+
 const fetchData = async () => {
   loading.value = true
-  error.value = false
+  error.value   = false
   const { startAt, endAt } = getTimeRange(period.value)
   const unit = periods.find(it => it.val === period.value).unit
 
   try {
-    // Parallel fetching to reduce wait time
     const [statsRes, pvRes] = await Promise.all([
       fetch(`${statsApi}?startAt=${startAt}&endAt=${endAt}`),
       fetch(`${pageviewsApi}?startAt=${startAt}&endAt=${endAt}&unit=${unit}`)
     ])
-
-    if (!statsRes.ok || !pvRes.ok) throw new Error('API fetch failed')
-
-    const [statsData, pvData] = await Promise.all([
-      statsRes.json(),
-      pvRes.json()
-    ])
-
-    stats.value = statsData
+    if (!statsRes.ok || !pvRes.ok) throw new Error('API error')
+    const [statsData, pvData] = await Promise.all([statsRes.json(), pvRes.json()])
+    stats.value     = statsData
     pageviews.value = pvData.pageviews || []
+
+    // Fetch all metric types in parallel
+    const [pages, refs, brs, oss, ctrs] = await Promise.all([
+      fetchMetrics(startAt, endAt, 'url', 10),
+      fetchMetrics(startAt, endAt, 'referrer', 10),
+      fetchMetrics(startAt, endAt, 'browser', 10),
+      fetchMetrics(startAt, endAt, 'os', 10),
+      fetchMetrics(startAt, endAt, 'country', 10),
+    ])
+    topPages.value  = pages
+    referrers.value = refs
+    browsers.value  = brs
+    os.value        = oss
+    countries.value = ctrs
   } catch (err) {
     console.error(err)
     error.value = true
@@ -57,256 +80,334 @@ const fetchData = async () => {
   }
 }
 
-const setPeriod = (p) => {
-  period.value = p
-}
-
 watch(period, fetchData)
 onMounted(fetchData)
 
-const summaryItems = computed(() => {
+// ---- computed helpers ----
+const calcTrend = (cur, prev) => (!prev || prev === 0) ? 0 : Math.round(((cur - prev) / prev) * 100)
+const formatTime = (s) => {
+  if (!s) return '0s'
+  if (s < 60) return `${Math.floor(s)}s`
+  return `${Math.floor(s / 60)}m ${Math.floor(s % 60)}s`
+}
+const fmtNum = (n) => n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n || 0)
+
+const summaryCards = computed(() => {
   if (!stats.value) return []
-  const { pageviews, visitors, bounces, totaltime, comparison } = stats.value
-  
-  const calcTrend = (current, prev) => {
-    if (!prev || prev === 0) return 0
-    return Math.round(((current - prev) / prev) * 100)
-  }
-
-  const formatTime = (seconds) => {
-    if (!seconds) return '0s'
-    if (seconds < 60) return `${Math.floor(seconds)}s`
-    const mins = Math.floor(seconds / 60)
-    const secs = Math.floor(seconds % 60)
-    return `${mins}m ${secs}s`
-  }
-
-  // Umami /stats returns flat numbers: { pageviews, visitors, bounces, totaltime, comparison:{...} }
-  const pv  = pageviews  || 0
-  const pvP = comparison?.pageviews  || 0
-  const uv  = visitors   || 0
-  const uvP = comparison?.visitors   || 0
-  const bo  = bounces    || 0
-  const boP = comparison?.bounces    || 0
-  const tt  = totaltime  || 0
-  const ttP = comparison?.totaltime  || 0
-
+  const { pageviews: pv, visitors, visits, bounces, totaltime, comparison } = stats.value
   return [
-    { label: '浏览量 (PV)', value: pv, trend: calcTrend(pv, pvP) },
-    { label: '访客数 (UV)', value: uv, trend: calcTrend(uv, uvP) },
-    { label: '跳出率', value: `${bo}%`, trend: calcTrend(bo, boP) },
-    { label: '平均访问时长', value: formatTime(tt / 1000), trend: calcTrend(tt, ttP) }
+    { label: '访客',  value: fmtNum(visitors),              raw: visitors,  trend: calcTrend(visitors, comparison?.visitors), pos: true },
+    { label: '参观',  value: fmtNum(visits || 0),           raw: visits,    trend: calcTrend(visits, comparison?.visits), pos: true },
+    { label: '观点',  value: fmtNum(pv),                    raw: pv,        trend: calcTrend(pv, comparison?.pageviews), pos: true },
+    { label: '跳出率',value: `${bounces || 0}%`,            raw: bounces,   trend: calcTrend(bounces, comparison?.bounces), pos: false },
+    { label: '参观时间', value: formatTime((totaltime||0)/1000), raw: totaltime, trend: calcTrend(totaltime, comparison?.totaltime), pos: true },
   ]
 })
 
-const chartPath = computed(() => {
-  if (!pageviews.value.length) return ''
-  const data = pageviews.value.map(d => d.y)
-  const max = Math.max(...data, 10)
-  const width = 800
-  const height = 150
-  const points = data.map((y, i) => {
-    const x = (i / (data.length - 1)) * width
-    const ry = height - (y / max) * height
-    return `${x},${ry}`
-  })
-  
-  if (points.length === 0) return ''
-  return `M 0,${height} L ${points.join(' L ')} L ${width},${height} Z`
+// Bar chart
+const chartData = computed(() => {
+  if (!pageviews.value.length) return { bars: [], max: 1 }
+  const max = Math.max(...pageviews.value.map(d => d.y), 1)
+  return { bars: pageviews.value, max }
 })
 
-const startTimeLabel = computed(() => {
-    if (!pageviews.value.length) return ''
-    return new Date(pageviews.value[0].x).toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric', hour: 'numeric' })
-})
+// Metrics tables – compute bar width % relative to list max
+const withPct = (arr) => {
+  if (!arr || !arr.length) return []
+  const max = Math.max(...arr.map(d => d.y || 0), 1)
+  const total = arr.reduce((s, d) => s + (d.y || 0), 0)
+  return arr.map(d => ({ ...d, pct: Math.round(((d.y||0)/max)*100), share: total ? Math.round(((d.y||0)/total)*100) : 0 }))
+}
 
-const endTimeLabel = computed(() => {
-    if (!pageviews.value.length) return ''
-    return new Date(pageviews.value[pageviews.value.length - 1].x).toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric', hour: 'numeric' })
-})
+const pageRows    = computed(() => withPct(topPages.value))
+const refRows     = computed(() => withPct(referrers.value))
+const browserRows = computed(() => withPct(browsers.value))
+const osRows      = computed(() => withPct(os.value))
+const countryRows = computed(() => withPct(countries.value))
+
+const chartPeriodLabel = computed(() => ({ '24h': '24小时趋势', '7d': '7天趋势', '30d': '30天趋势' }[period.value]))
 </script>
 
 <template>
-  <div class="umami-stats">
+  <div class="us">
+    <!-- Period Tabs -->
     <div class="tabs">
-      <button v-for="t in periods" :key="t.val" :class="{ active: period === t.val }" @click="setPeriod(t.val)">
+      <button v-for="t in periods" :key="t.val" :class="{ active: period === t.val }" @click="period = t.val">
         {{ t.label }}
       </button>
     </div>
 
-    <div v-if="loading" class="grid skeleton-grid">
-      <div class="card skeleton" v-for="i in 4" :key="i">
-        <div class="skeleton-text short"></div>
-        <div class="skeleton-text large"></div>
-        <div class="skeleton-text mini"></div>
+    <!-- Loading skeleton -->
+    <div v-if="loading" class="skeleton-wrap">
+      <div class="sk-row">
+        <div class="sk-card" v-for="i in 5" :key="i"></div>
       </div>
-      <div class="chart card skeleton full-width">
-        <div class="skeleton-text medium"></div>
-        <div class="skeleton-rect"></div>
+      <div class="sk-chart"></div>
+      <div class="sk-grid">
+        <div class="sk-block" v-for="i in 4" :key="i"></div>
       </div>
     </div>
-    <div v-else-if="error" class="state-msg error">仪表盘加载失败 (CORS 或网络问题)</div>
+
+    <!-- Error -->
+    <div v-else-if="error" class="err-msg">数据加载失败，请稍后刷新重试。</div>
+
+    <!-- Full Dashboard -->
     <div v-else class="fade-in">
-      <div class="grid">
-        <div class="card" v-for="item in summaryItems" :key="item.label">
-          <div class="card-label">{{ item.label }}</div>
-          <div class="card-value">{{ item.value }}</div>
-          <div :class="['card-trend', item.trend >= 0 ? 'up' : 'down']">
-            {{ item.trend >= 0 ? '↑' : '↓' }} {{ Math.abs(item.trend) }}%
+
+      <!-- Summary Cards -->
+      <div class="summary-row">
+        <div class="s-card" v-for="c in summaryCards" :key="c.label">
+          <div class="s-label">{{ c.label }}</div>
+          <div class="s-value">{{ c.value }}</div>
+          <div :class="['s-trend', (c.pos ? c.trend >= 0 : c.trend <= 0) ? 'up' : 'down']">
+            {{ c.trend >= 0 ? '↑' : '↓' }} {{ Math.abs(c.trend) }}%
           </div>
         </div>
       </div>
 
-      <div class="chart">
-        <div class="chart-header">24小时趋势</div>
-        <div class="svg-container">
-          <svg width="100%" height="150" viewBox="0 0 800 150" preserveAspectRatio="none">
-            <path :d="chartPath" fill="rgba(66, 184, 131, 0.1)" stroke="#42b883" stroke-width="2" />
-          </svg>
+      <!-- Bar Chart -->
+      <div class="chart-card">
+        <div class="chart-title">{{ chartPeriodLabel }}</div>
+        <div class="bar-wrap">
+          <div class="bar-col" v-for="(d, i) in chartData.bars" :key="i">
+            <div class="bar-inner" :style="{ height: Math.max(2, Math.round((d.y / chartData.max) * 120)) + 'px' }" :title="`${d.y} 次浏览`"></div>
+          </div>
         </div>
-        <div class="chart-footer">
-          <span>{{ startTimeLabel }}</span>
-          <span>{{ endTimeLabel }}</span>
+      </div>
+
+      <!-- 4-block Metrics Grid -->
+      <div class="metrics-grid">
+
+        <!-- 页面 -->
+        <div class="m-card">
+          <div class="m-head">
+            <span class="m-title">页面</span>
+            <div class="m-tabs">
+              <span v-for="t in ['路径','入口页面','退出页面']" :key="t"
+                :class="['m-tab', { active: pageTab === t }]" @click="pageTab = t">{{ t }}</span>
+            </div>
+          </div>
+          <div class="m-table-head">
+            <span>路径</span><span>访客</span>
+          </div>
+          <div class="m-row" v-for="r in pageRows" :key="r.x">
+            <div class="m-bar-wrap">
+              <div class="m-bar" :style="{ width: r.pct + '%' }"></div>
+              <span class="m-name" :title="r.x">{{ r.x }}</span>
+            </div>
+            <span class="m-num">{{ r.y }}</span>
+            <span class="m-share">{{ r.share }}%</span>
+          </div>
+          <div v-if="!pageRows.length" class="m-empty">暂无数据</div>
         </div>
+
+        <!-- 资料来源 -->
+        <div class="m-card">
+          <div class="m-head">
+            <span class="m-title">资料来源</span>
+            <div class="m-tabs">
+              <span v-for="t in ['引用来源','预渠道']" :key="t"
+                :class="['m-tab', { active: sourceTab === t }]" @click="sourceTab = t">{{ t }}</span>
+            </div>
+          </div>
+          <div class="m-table-head">
+            <span>指标</span><span>访客</span>
+          </div>
+          <div class="m-row" v-for="r in refRows" :key="r.x">
+            <div class="m-bar-wrap">
+              <div class="m-bar" :style="{ width: r.pct + '%' }"></div>
+              <span class="m-name" :title="r.x">{{ r.x || '(直接访问)' }}</span>
+            </div>
+            <span class="m-num">{{ r.y }}</span>
+            <span class="m-share">{{ r.share }}%</span>
+          </div>
+          <div v-if="!refRows.length" class="m-empty">暂无数据</div>
+        </div>
+
+        <!-- 环境 -->
+        <div class="m-card">
+          <div class="m-head">
+            <span class="m-title">环境</span>
+            <div class="m-tabs">
+              <span v-for="t in ['浏览器','操作系统']" :key="t"
+                :class="['m-tab', { active: envTab === t }]" @click="envTab = t">{{ t }}</span>
+            </div>
+          </div>
+          <div class="m-table-head">
+            <span>{{ envTab }}</span><span>访客</span>
+          </div>
+          <template v-if="envTab === '浏览器'">
+            <div class="m-row" v-for="r in browserRows" :key="r.x">
+              <div class="m-bar-wrap">
+                <div class="m-bar" :style="{ width: r.pct + '%' }"></div>
+                <span class="m-name">{{ r.x || '未知' }}</span>
+              </div>
+              <span class="m-num">{{ r.y }}</span>
+              <span class="m-share">{{ r.share }}%</span>
+            </div>
+            <div v-if="!browserRows.length" class="m-empty">暂无数据</div>
+          </template>
+          <template v-else>
+            <div class="m-row" v-for="r in osRows" :key="r.x">
+              <div class="m-bar-wrap">
+                <div class="m-bar" :style="{ width: r.pct + '%' }"></div>
+                <span class="m-name">{{ r.x || '未知' }}</span>
+              </div>
+              <span class="m-num">{{ r.y }}</span>
+              <span class="m-share">{{ r.share }}%</span>
+            </div>
+            <div v-if="!osRows.length" class="m-empty">暂无数据</div>
+          </template>
+        </div>
+
+        <!-- 位置 -->
+        <div class="m-card">
+          <div class="m-head">
+            <span class="m-title">位置</span>
+            <div class="m-tabs">
+              <span :class="['m-tab', { active: true }]">国家</span>
+            </div>
+          </div>
+          <div class="m-table-head">
+            <span>国家</span><span>访客</span>
+          </div>
+          <div class="m-row" v-for="r in countryRows" :key="r.x">
+            <div class="m-bar-wrap">
+              <div class="m-bar" :style="{ width: r.pct + '%' }"></div>
+              <span class="m-name">{{ r.x || '未知' }}</span>
+            </div>
+            <span class="m-num">{{ r.y }}</span>
+            <span class="m-share">{{ r.share }}%</span>
+          </div>
+          <div v-if="!countryRows.length" class="m-empty">暂无数据</div>
+        </div>
+
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.umami-stats {
-  margin: 2rem 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+/* ========== Base ========== */
+.us {
+  margin: 1.5rem 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  color: #1a1a2e;
 }
-.tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-}
+
+/* ========== Period Tabs ========== */
+.tabs { display: flex; gap: .5rem; margin-bottom: 1.5rem; }
 .tabs button {
-  padding: 0.4rem 1rem;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  background: #fff;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: all 0.2s;
+  padding: .35rem 1rem; border-radius: 6px;
+  border: 1px solid #ddd; background: #fff;
+  cursor: pointer; font-size: .875rem; transition: all .18s;
 }
-.tabs button.active {
-  background: #42b883;
-  color: #fff;
-  border-color: #42b883;
-}
-.state-msg {
-  text-align: center;
-  padding: 3rem;
-  background: #f8f9fa;
-  border-radius: 12px;
-  color: #666;
-}
-.state-msg.error {
-  color: #e53e3e;
-  padding: 3rem;
-  background: #fff5f5;
-  border-radius: 12px;
-  text-align: center;
-}
-.fade-in {
-  animation: fadeIn 0.4s ease-in-out;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+.tabs button.active { background: #42b883; color: #fff; border-color: #42b883; }
 
-/* Skeleton Styles */
-.skeleton {
-  background: #fff;
-  overflow: hidden;
-  position: relative;
-}
-.skeleton::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
-  animation: shimmer 1.5s infinite;
-}
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-.skeleton-text {
-  background: #f0f0f0;
-  height: 12px;
-  margin: 10px auto;
-  border-radius: 4px;
-}
-.skeleton-text.short { width: 40%; }
-.skeleton-text.medium { width: 100%; height: 16px; margin-bottom: 20px; }
-.skeleton-text.large { width: 70%; height: 24px; margin: 15px auto; }
-.skeleton-text.mini { width: 30%; height: 10px; }
-.skeleton-rect {
-  background: #f0f0f0;
-  width: 100%;
-  height: 120px;
-  border-radius: 8px;
-}
-.full-width { grid-column: 1 / -1; }
-.skeleton-grid { gap: 1rem; }
-.grid {
+/* ========== Skeleton ========== */
+.skeleton-wrap { animation: pulse 1.4s ease infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+.sk-row { display:flex; gap:1rem; margin-bottom:1rem; }
+.sk-card { flex:1; height:90px; background:#f0f0f0; border-radius:10px; }
+.sk-chart { height:160px; background:#f0f0f0; border-radius:10px; margin-bottom:1rem; }
+.sk-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.sk-block { height:220px; background:#f0f0f0; border-radius:10px; }
+
+/* ========== Error ========== */
+.err-msg { text-align:center; padding:3rem; background:#fff5f5;
+  border-radius:12px; color:#e53e3e; }
+
+/* ========== Fade ========== */
+.fade-in { animation: fadeIn .35s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:none} }
+
+/* ========== Summary Cards ========== */
+.summary-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: .75rem;
+  margin-bottom: 1.25rem;
 }
-.card {
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-  text-align: center;
+@media (max-width: 700px) { .summary-row { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 480px) { .summary-row { grid-template-columns: repeat(2, 1fr); } }
+.s-card {
+  background: #fff; border: 1px solid #eee;
+  border-radius: 10px; padding: 1rem .75rem;
+  text-align: left; box-shadow: 0 1px 3px rgba(0,0,0,.04);
 }
-.card-label {
-  font-size: 0.85rem;
-  color: #888;
-  margin-bottom: 0.5rem;
-}
-.card-value {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #2c3e50;
-  margin-bottom: 0.3rem;
-}
-.card-trend {
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-.card-trend.up { color: #42b883; }
-.card-trend.down { color: #e53e3e; }
+.s-label { font-size:.8rem; color:#888; margin-bottom:.3rem; }
+.s-value { font-size:1.6rem; font-weight:700; color:#111; margin-bottom:.25rem; }
+.s-trend { font-size:.78rem; font-weight:600; }
+.s-trend.up   { color: #42b883; }
+.s-trend.down { color: #e53e3e; }
 
-.chart {
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+/* ========== Bar Chart ========== */
+.chart-card {
+  background:#fff; border:1px solid #eee;
+  border-radius:10px; padding:1rem 1.25rem;
+  margin-bottom:1.25rem; box-shadow:0 1px 3px rgba(0,0,0,.04);
 }
-.chart-header {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #2c3e50;
+.chart-title { font-size:.9rem; font-weight:600; color:#333; margin-bottom:.75rem; }
+.bar-wrap {
+  display: flex; align-items: flex-end; gap: 3px;
+  height: 130px; overflow: hidden;
 }
-.chart-footer {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.75rem;
-  color: #999;
-  margin-top: 0.5rem;
+.bar-col { flex: 1; display: flex; align-items: flex-end; }
+.bar-inner {
+  width: 100%; background: rgba(66,184,131,.65);
+  border-radius: 3px 3px 0 0;
+  transition: height .3s ease;
+  min-height: 2px;
 }
-.svg-container {
-  overflow: hidden;
+.bar-col:hover .bar-inner { background: #42b883; }
+
+/* ========== Metrics Grid ========== */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
+@media (max-width: 680px) { .metrics-grid { grid-template-columns: 1fr; } }
+.m-card {
+  background: #fff; border: 1px solid #eee;
+  border-radius: 10px; padding: 1rem 1.1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,.04);
+}
+.m-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:.6rem; }
+.m-title { font-weight:700; font-size:.95rem; }
+.m-tabs { display:flex; gap:.5rem; }
+.m-tab {
+  font-size:.75rem; color:#888; cursor:pointer;
+  padding:.1rem .4rem; border-radius:4px;
+  transition: all .15s;
+}
+.m-tab.active { color:#42b883; background:rgba(66,184,131,.1); }
+.m-table-head {
+  display:flex; justify-content:space-between;
+  font-size:.75rem; color:#aaa; margin-bottom:.4rem;
+  padding-bottom:.3rem; border-bottom:1px solid #f2f2f2;
+}
+.m-row {
+  display: flex; align-items: center;
+  gap: .5rem; padding: .3rem 0;
+  font-size: .82rem;
+  border-bottom: 1px solid #f9f9f9;
+}
+.m-bar-wrap { flex:1; position:relative; overflow:hidden; }
+.m-bar {
+  position:absolute; top:0; left:0; height:100%;
+  background:rgba(66,184,131,.12); border-radius:3px;
+  transition: width .4s ease;
+  z-index:0;
+}
+.m-name {
+  position:relative; z-index:1;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  max-width:calc(100% - 4px); display:block;
+  color:#2c3e50;
+}
+.m-num  { color:#333; font-weight:600; min-width:36px; text-align:right; }
+.m-share{ color:#aaa; min-width:34px; text-align:right; }
+.m-empty{ color:#bbb; font-size:.82rem; text-align:center; padding:.8rem 0; }
 </style>
