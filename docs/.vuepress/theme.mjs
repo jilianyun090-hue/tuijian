@@ -117,6 +117,7 @@ export default hopeTheme({
                     { text: "Hysteria 协议全面解析", link: "hysteria-guide" },
                     { text: "翻墙后必逛的海外热门网站", link: "after-fanqiang-guide" },
                     { text: "2026年4月中转拔线潮：机场行业进入无IP时代", link: "relay-crackdown-2026" },
+                    { text: "国内中转机场的至暗时刻：系统性打击下如何突围", link: "relay-darkest-hour" },
                 ],
             },
         ],
