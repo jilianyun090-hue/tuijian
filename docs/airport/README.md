@@ -77,7 +77,7 @@ A: Windows、macOS、iOS、Android 及路由器等主流设备均可支持。
 | **极连云** | [直达官网](https://xnfer01.jlcvipaff.cc/#/?code=KUKfOY13) | 无 | 8元 60GB/月 | ✅ | [TG](https://t.me/JLYCloud) | [前往](#_1-极连云) |
 | **瞬云机场** | [直达官网](https://aaa.jichang.best/#/register?code=o4I4kToe) | 无 | 8.25元 59GB/月 | ✅ | [TG](https://t.me/VPNfq1) | [前往](#_2-瞬云机场) |
 | **寰宇云** | [直达官网](https://huanyuyunvip.com/#/register?code=Pzo6iwSi) | 无 | 89元/年 60GB/月 | ✅ | [TG](https://t.me/+Ssz3hVgH65o2Yjgx) | [前往](#_3-寰宇云机场) |
-| **光年梯** | [直达官网](https://gnt001.gntvipaff.cc/#/?code=j1ufpE44) | 无 | 18元 110GB/月 | ✅ | [TG](https://t.me/guangnianti) | [前往](#_4-光年梯) |
+| **光年梯** | [直达官网](https://gnt001.gntvipaff.cc/#/?code=j1ufpE44) | 无 | 7.5元 50GB/月（年付） | ✅ | [TG](https://t.me/guangnianti) | [前往](#_4-光年梯) |
 | **奈云** | [直达官网](http://6.vip.v2ny.me?path=register&code=A612DB2z) | 无 | 10.6元 168GB/月 | ✅ | [TG](https://t.me/v2naiun) | [前往](#_5-奈云) |
 | **隐云** | [直达官网](https://wkacc.xyz/?code=711d7afb) | 无 | 25元 150GB/月 | ❌ | 暂无 | [前往](#_6-隐云) |
 | **Edge-X机场** | [直达官网](https://edge-invite.com/#/register?code=73ienU2h) | 无 | 16.8元 100GB/月 | ✅ | 暂无 | [前往](#_7-edge-x机场) |
@@ -173,12 +173,13 @@ A: Windows、macOS、iOS、Android 及路由器等主流设备均可支持。
 
 光年梯官网地址：[gntvipaff.cc](https://gnt001.gntvipaff.cc/#/?code=j1ufpE44)
 
-最便宜的订阅有 **18元 110G/月**。
+最便宜的订阅有 **7.5元 50G/月**（年付）。
 
 光年梯是由资深团队运营的高品质翻墙机场，拥有多年稳定运营历史和丰富技术经验。全线采用 IPLC 专线，高峰期满速不降速。其自有机房和全球节点网络确保用户能够享受到快速、稳定的网络连接。对于需要全天候高质量连接的用户，光年梯是可靠之选。支持支付宝和加密货币支付。
 
 | 套餐名称 | 月费 | 流量 | 特性 | 适用人群 | 购买链接 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| 入门版(年付) | ¥90.00/年（折合¥7.5/月） | 50GB/月 | 全IPLC专线，SS协议，不限速，不限客户端 | 极致省钱用户 | [购买链接](https://gnt001.gntvipaff.cc/#/?code=j1ufpE44) |
 | 入门版 | ¥18.00/月 | 110GB/月 | 全IPLC专线，SS协议，不限速，不限客户端 | 轻度/入门 | [购买链接](https://gnt001.gntvipaff.cc/#/?code=j1ufpE44) |
 | 晋级版 | ¥34.00/月 | 220GB/月 | 全节点 x1 · 高峰满速 | 进阶使用 | [购买链接](https://gnt001.gntvipaff.cc/#/?code=j1ufpE44) |
 | 专业版 | ¥68.00/月 | 450GB/月 | 全节点 x1 · 高峰满速 | 主力使用 | [购买链接](https://gnt001.gntvipaff.cc/#/?code=j1ufpE44) |
