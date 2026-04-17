@@ -11,6 +11,7 @@ const loading = ref(true)
 const error   = ref(false)
 const stats     = ref(null)
 const pageviews = ref([])
+const sessionsData = ref([])
 const topPages  = ref([])
 const referrers = ref([])
 const browsers  = ref([])
@@ -18,6 +19,7 @@ const os        = ref([])
 const countries = ref([])
 
 // Sub-tab state
+const activeSummary = ref('观点')
 const pageTab    = ref('路径')   // 路径 | 入口页面 | 退出页面
 const sourceTab  = ref('引用来源') // 引用来源 | 预渠道
 const envTab     = ref('浏览器')  // 浏览器 | 操作系统 | 设备
@@ -58,6 +60,7 @@ const fetchData = async () => {
     const [statsData, pvData] = await Promise.all([statsRes.json(), pvRes.json()])
     stats.value     = statsData
     pageviews.value = pvData.pageviews || []
+    sessionsData.value = pvData.sessions || []
 
     // Fetch all metric types in parallel
     const [pages, refs, brs, oss, ctrs] = await Promise.all([
@@ -90,7 +93,7 @@ const formatTime = (s) => {
   if (s < 60) return `${Math.floor(s)}s`
   return `${Math.floor(s / 60)}m ${Math.floor(s % 60)}s`
 }
-const fmtNum = (n) => n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n || 0)
+const fmtNum = (n) => String(n || 0)
 
 const summaryCards = computed(() => {
   if (!stats.value) return []
@@ -106,9 +109,15 @@ const summaryCards = computed(() => {
 
 // Bar chart
 const chartData = computed(() => {
-  if (!pageviews.value.length) return { bars: [], max: 1 }
-  const max = Math.max(...pageviews.value.map(d => d.y), 1)
-  return { bars: pageviews.value, max }
+  let source = pageviews.value
+  if (activeSummary.value === '访客' || activeSummary.value === '参观') {
+    source = sessionsData.value || []
+  } else if (activeSummary.value === '跳出率' || activeSummary.value === '参观时间') {
+    source = []
+  }
+  if (!source || !source.length) return { bars: [], max: 1 }
+  const max = Math.max(...source.map(d => d.y), 1)
+  return { bars: source, max }
 })
 
 // Metrics tables – compute bar width % relative to list max
@@ -156,7 +165,7 @@ const chartPeriodLabel = computed(() => ({ '24h': '24小时趋势', '7d': '7天�
 
       <!-- Summary Cards -->
       <div class="summary-row">
-        <div class="s-card" v-for="c in summaryCards" :key="c.label">
+        <div :class="['s-card', { active: activeSummary === c.label }]" v-for="c in summaryCards" :key="c.label" @click="activeSummary = c.label">
           <div class="s-label">{{ c.label }}</div>
           <div class="s-value">{{ c.value }}</div>
           <div :class="['s-trend', (c.pos ? c.trend >= 0 : c.trend <= 0) ? 'up' : 'down']">
@@ -335,7 +344,11 @@ const chartPeriodLabel = computed(() => ({ '24h': '24小时趋势', '7d': '7天�
   background: #fff; border: 1px solid #eee;
   border-radius: 10px; padding: 1rem .75rem;
   text-align: left; box-shadow: 0 1px 3px rgba(0,0,0,.04);
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
+.s-card:hover { border-color: rgba(66,184,131,.5); }
+.s-card.active { border-color: #42b883; background: rgba(66,184,131,.04); }
 .s-label { font-size:.8rem; color:#888; margin-bottom:.3rem; }
 .s-value { font-size:1.6rem; font-weight:700; color:#111; margin-bottom:.25rem; }
 .s-trend { font-size:.78rem; font-weight:600; }
