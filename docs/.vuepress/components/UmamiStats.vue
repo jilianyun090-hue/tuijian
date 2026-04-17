@@ -13,7 +13,10 @@ const stats     = ref(null)
 const pageviews = ref([])
 const sessionsData = ref([])
 const topPages  = ref([])
+const entryPages = ref([])
+const exitPages  = ref([])
 const referrers = ref([])
+const queries   = ref([])
 const browsers  = ref([])
 const os        = ref([])
 const countries = ref([])
@@ -63,15 +66,21 @@ const fetchData = async () => {
     sessionsData.value = pvData.sessions || []
 
     // Fetch all metric types in parallel
-    const [pages, refs, brs, oss, ctrs] = await Promise.all([
+    const [pages, entries, exits, refs, qrys, brs, oss, ctrs] = await Promise.all([
       fetchMetrics(startAt, endAt, 'url', 10),
+      fetchMetrics(startAt, endAt, 'entry', 10),
+      fetchMetrics(startAt, endAt, 'exit', 10),
       fetchMetrics(startAt, endAt, 'referrer', 10),
+      fetchMetrics(startAt, endAt, 'query', 10),
       fetchMetrics(startAt, endAt, 'browser', 10),
       fetchMetrics(startAt, endAt, 'os', 10),
       fetchMetrics(startAt, endAt, 'country', 10),
     ])
     topPages.value  = pages
+    entryPages.value = entries
+    exitPages.value = exits
     referrers.value = refs
+    queries.value   = qrys
     browsers.value  = brs
     os.value        = oss
     countries.value = ctrs
@@ -128,8 +137,15 @@ const withPct = (arr) => {
   return arr.map(d => ({ ...d, pct: Math.round(((d.y||0)/max)*100), share: total ? Math.round(((d.y||0)/total)*100) : 0 }))
 }
 
-const pageRows    = computed(() => withPct(topPages.value))
-const refRows     = computed(() => withPct(referrers.value))
+const pageRows    = computed(() => {
+  if (pageTab.value === '入口页面') return withPct(entryPages.value)
+  if (pageTab.value === '退出页面') return withPct(exitPages.value)
+  return withPct(topPages.value)
+})
+const refRows     = computed(() => {
+  if (sourceTab.value === '预渠道') return withPct(queries.value)
+  return withPct(referrers.value)
+})
 const browserRows = computed(() => withPct(browsers.value))
 const osRows      = computed(() => withPct(os.value))
 const countryRows = computed(() => withPct(countries.value))
@@ -197,7 +213,7 @@ const chartPeriodLabel = computed(() => ({ '24h': '24小时趋势', '7d': '7天�
             </div>
           </div>
           <div class="m-table-head">
-            <span>路径</span><span>访客</span>
+            <span>{{ pageTab }}</span><span>访客</span>
           </div>
           <div class="m-row" v-for="r in pageRows" :key="r.x">
             <div class="m-bar-wrap">
@@ -220,7 +236,7 @@ const chartPeriodLabel = computed(() => ({ '24h': '24小时趋势', '7d': '7天�
             </div>
           </div>
           <div class="m-table-head">
-            <span>指标</span><span>访客</span>
+            <span>{{ sourceTab }}</span><span>访客</span>
           </div>
           <div class="m-row" v-for="r in refRows" :key="r.x">
             <div class="m-bar-wrap">
