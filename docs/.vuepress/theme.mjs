@@ -106,6 +106,7 @@ export default hopeTheme({
                     { text: "知识库首页", link: "" },
                     { text: "科学上网入门", link: "vpn-guide" },
                     { text: "翻墙代理工具指南", link: "fanqiang-guide" },
+                    { text: "备用机场双订阅策略", link: "backup-airport-guide" },
                     { text: "翻墙后必逛网站", link: "after-fanqiang-guide" },
                     { text: "被墙网站大全", link: "gfw-websites" },
                 ],
@@ -126,6 +127,7 @@ export default hopeTheme({
                 collapsible: true,
                 children: [
                     { text: "客户端维护清单（MetaCubeX）", link: "clients" },
+                    { text: "自研客户端 vs 开源软件怎么选", link: "custom-client-guide" },
                     { text: "路由器翻墙配置", link: "router-vpn-guide" },
                     { text: "苹果 Apple ID 注册", link: "apple-id-guide" },
                     { text: "Telegram 使用指南", link: "telegram-guide" },
