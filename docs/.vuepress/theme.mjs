@@ -100,7 +100,7 @@ export default hopeTheme({
         ],
         "/proxy/": [
             {
-                text: "🔰 基础入门",
+                text: "基础入门",
                 collapsible: true,
                 children: [
                     { text: "知识库首页", link: "" },
@@ -111,7 +111,7 @@ export default hopeTheme({
                 ],
             },
             {
-                text: "⚡ 线路与技术",
+                text: "线路与技术",
                 collapsible: true,
                 children: [
                     { text: "机场线路类型详解", link: "line-type-guide" },
@@ -122,7 +122,7 @@ export default hopeTheme({
                 ],
             },
             {
-                text: "🛠️ 工具与平台",
+                text: "工具与平台",
                 collapsible: true,
                 children: [
                     { text: "客户端维护清单（MetaCubeX）", link: "clients" },
@@ -133,7 +133,7 @@ export default hopeTheme({
                 ],
             },
             {
-                text: "🔥 行业动态",
+                text: "行业动态",
                 collapsible: true,
                 children: [
                     { text: "2026年4月中转拔线潮解析", link: "relay-crackdown-2026" },
