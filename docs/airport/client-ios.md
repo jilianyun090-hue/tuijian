@@ -47,9 +47,13 @@ Shadowrocket 未上架中国区 App Store，需要通过 **海外 Apple ID** 下
 <br/>
 
 <div class="card-grid">
-  <a class="card-item" href="https://gososhare.me/" target="_blank">
+  <a class="card-item" href="https://ccbaohe.com/appleID/" target="_blank">
     <div class="card-title">最新免费美区Apple ID共享账号 | Shadowrocket/小火箭下载 | iOS美区账号每日更新</div>
     <div class="card-desc">最新免费共享美区Apple ID 账号，每日更新可用。提供美国、日本、韩国、香港、台湾等地区 iOS 账号，支持下载Shadowrocket（小火箭）、TikTok、ChatGPT 等海外应用。</div>
+  </a>
+  <a class="card-item" href="https://jilian.idid8.me/" target="_blank">
+    <div class="card-title">独享账号购买、租用</div>
+    <div class="card-desc">提供稳定的海外 Apple ID 独享账号购买与租用服务，账号归个人专属使用，安全无风险，适合长期下载或购买付费应用。</div>
   </a>
 </div>
 
@@ -166,7 +170,7 @@ App Store 中有山寨应用冒充 Shadowrocket，请认准正版图标（火箭
 ## 常见问题 (FAQ)
 
 ### Q: 共享账号登录后提示“需要验证手机号”？
-说明该共享账号已被 Apple 检测到异常。请更换另一个共享账号再试。前往 [免费 Apple ID 共享](https://gososhare.me/) 获取最新可用账号。
+说明该共享账号已被 Apple 检测到异常。请更换另一个共享账号再试。前往 [免费 Apple ID 共享](https://ccbaohe.com/appleID/) 获取最新可用账号。
 
 <br/>
 
