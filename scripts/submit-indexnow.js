@@ -1,86 +1,107 @@
-import axios from 'axios';
-import fs from 'fs';
-import path from 'path';
-import { parseStringPromise } from 'xml2js';
+/**
+ * IndexNow 提交脚本（ESM 格式）
+ * 每次 npm run build 后自动执行，将所有 URL 推送到 Bing 加速收录
+ * 手动运行: node scripts/submit-indexnow.js
+ */
+import https from "https";
 
-const SITE_URL = 'https://clash-jichang.com';
-const INDEXNOW_KEY = '7ed17addd6714c9bb9398a7251d90866';
-const SITEMAP_PATH = path.resolve('docs/.vuepress/dist/sitemap.xml');
+const INDEXNOW_KEY = "35CCAB205AEAD2FDC8BEB03EB1519F89";
+const HOST = "clash-jichang.com";
+const KEY_LOCATION = `https://${HOST}/${INDEXNOW_KEY}.txt`;
 
-async function submitIndexNow() {
-  try {
-    if (!fs.existsSync(SITEMAP_PATH)) {
-      console.error('Sitemap not found at:', SITEMAP_PATH);
-      return;
-    }
+// 网站所有页面 URL 列表
+const urlList = [
+  // 首页
+  `https://${HOST}/`,
+  // 机场推荐
+  `https://${HOST}/airport/`,
+  `https://${HOST}/airport/choose-guide.html`,
+  `https://${HOST}/airport/software.html`,
+  `https://${HOST}/airport/client-windows.html`,
+  `https://${HOST}/airport/client-android.html`,
+  `https://${HOST}/airport/client-ios.html`,
+  // 流媒体
+  `https://${HOST}/streaming/`,
+  `https://${HOST}/streaming/netflix-guide.html`,
+  `https://${HOST}/streaming/disney-guide.html`,
+  `https://${HOST}/streaming/youtube-guide.html`,
+  `https://${HOST}/streaming/spotify-guide.html`,
+  `https://${HOST}/streaming/hbo-max-guide.html`,
+  `https://${HOST}/streaming/hulu-hbo-guide.html`,
+  `https://${HOST}/streaming/sms-guide.html`,
+  // 账号合租
+  `https://${HOST}/account/platforms.html`,
+  `https://${HOST}/account/price.html`,
+  `https://${HOST}/account/how-to-share.html`,
+  // AI 指南
+  `https://${HOST}/ai/`,
+  `https://${HOST}/ai/chatgpt.html`,
+  `https://${HOST}/ai/claude-guide.html`,
+  `https://${HOST}/ai/gemini.html`,
+  `https://${HOST}/ai/grok-guide.html`,
+  `https://${HOST}/ai/midjourney-guide.html`,
+  `https://${HOST}/ai/cursor-guide.html`,
+  `https://${HOST}/ai/openclaw-guide.html`,
+  // 科学上网知识库
+  `https://${HOST}/proxy/`,
+  `https://${HOST}/proxy/vpn-guide.html`,
+  `https://${HOST}/proxy/fanqiang-guide.html`,
+  `https://${HOST}/proxy/backup-airport-guide.html`,
+  `https://${HOST}/proxy/after-fanqiang-guide.html`,
+  `https://${HOST}/proxy/gfw-websites.html`,
+  `https://${HOST}/proxy/line-type-guide.html`,
+  `https://${HOST}/proxy/isp-speed-differences.html`,
+  `https://${HOST}/proxy/streaming-unlock-guide.html`,
+  `https://${HOST}/proxy/protocol-comparison.html`,
+  `https://${HOST}/proxy/hysteria-guide.html`,
+  `https://${HOST}/proxy/clients.html`,
+  `https://${HOST}/proxy/custom-client-guide.html`,
+  `https://${HOST}/proxy/router-vpn-guide.html`,
+  `https://${HOST}/proxy/apple-id-guide.html`,
+  `https://${HOST}/proxy/telegram-guide.html`,
+  `https://${HOST}/proxy/telegram-bot.html`,
+  `https://${HOST}/proxy/relay-crackdown-2026.html`,
+  `https://${HOST}/proxy/relay-darkest-hour.html`,
+  `https://${HOST}/proxy/pc-guide.html`,
+  `https://${HOST}/proxy/phone-guide.html`,
+];
 
-    const sitemapXml = fs.readFileSync(SITEMAP_PATH, 'utf-8');
-    const sitemap = await parseStringPromise(sitemapXml);
-    const urls = sitemap.urlset.url.map(u => u.loc[0]);
+const payload = JSON.stringify({
+  host: HOST,
+  key: INDEXNOW_KEY,
+  keyLocation: KEY_LOCATION,
+  urlList,
+});
 
-    console.log(`Found ${urls.length} URLs in sitemap. Submitting to IndexNow...`);
+const options = {
+  hostname: "www.bing.com",
+  path: "/indexnow",
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json; charset=utf-8",
+    "Content-Length": Buffer.byteLength(payload),
+  },
+};
 
-    const payload = {
-      host: 'clash-jichang.com',
-      key: INDEXNOW_KEY,
-      keyLocation: `${SITE_URL}/${INDEXNOW_KEY}.txt`,
-      urlList: urls
-    };
+console.log(`[IndexNow] 正在提交 ${urlList.length} 个 URL 到 Bing...`);
 
-    // Submit to Bing
-    try {
-      const bingResponse = await axios.post('https://www.bing.com/indexnow', payload, {
-        headers: { 'Content-Type': 'application/json; charset=utf-8' }
-      });
-      if (bingResponse.status === 200 || bingResponse.status === 202) {
-        console.log('✅ Bing IndexNow submission successful!');
-      } else {
-        console.warn('⚠️ Bing IndexNow response:', bingResponse.status);
-      }
-    } catch (bingError) {
-      const errData = bingError.response?.data;
-      if (errData?.errorCode === 'UserForbiddedToAccessSite') {
-        console.warn('⚠️ Bing IndexNow 403: Domain NOT verified in Bing Webmaster Tools.');
-        console.warn('   → Go to https://www.bing.com/webmasters and add/verify clash-jichang.com first.');
-      } else if (bingError.response?.status === 403) {
-        console.warn('⚠️ Bing IndexNow 403:', JSON.stringify(errData));
-      } else {
-        console.error('❌ Bing IndexNow error:', bingError.message);
-      }
-    }
-
-    // Submit to IndexNow API (also works for Yandex, Seznam etc)
-    try {
-      const apiResponse = await axios.post('https://api.indexnow.org/IndexNow', payload, {
-        headers: { 'Content-Type': 'application/json; charset=utf-8' }
-      });
-      if (apiResponse.status === 200 || apiResponse.status === 202) {
-        console.log('✅ IndexNow API submission successful!');
-      } else {
-        console.warn('⚠️ IndexNow API response:', apiResponse.status);
-      }
-    } catch (apiError) {
-      const errData = apiError.response?.data;
-      if (errData?.errorCode === 'UserForbiddedToAccessSite') {
-        console.warn('⚠️ IndexNow API 403: Verify your site at https://www.bing.com/webmasters first.');
-      } else if (apiError.response?.status === 403) {
-        console.warn('⚠️ IndexNow API 403:', JSON.stringify(errData));
-      } else {
-        console.error('❌ IndexNow API error:', apiError.message);
-      }
-    }
-
-  } catch (error) {
-    console.error('❌ Error in IndexNow submission:', error.message);
+const req = https.request(options, (res) => {
+  console.log(`[IndexNow] 响应状态: ${res.statusCode}`);
+  if (res.statusCode === 200 || res.statusCode === 202) {
+    console.log("[IndexNow] ✅ 提交成功！Bing 将加快收录以上页面。");
+  } else if (res.statusCode === 422) {
+    console.log("[IndexNow] ⚠️ URL 格式有误，请检查 urlList 中的地址。");
+  } else if (res.statusCode === 429) {
+    console.log("[IndexNow] ⚠️ 请求过于频繁，每天提交一次即可。");
+  } else {
+    console.log(`[IndexNow] ❌ 提交失败，状态码: ${res.statusCode}`);
   }
-}
+  res.on("data", (d) => process.stdout.write(d));
+});
 
-// Create the key file in the public directory if it doesn't exist
-const publicPath = path.resolve('docs/.vuepress/public');
-const keyFilePath = path.join(publicPath, `${INDEXNOW_KEY}.txt`);
-if (!fs.existsSync(keyFilePath)) {
-  fs.writeFileSync(keyFilePath, INDEXNOW_KEY);
-  console.log(`Created IndexNow key file: ${keyFilePath}`);
-}
+req.on("error", (e) => {
+  console.error(`[IndexNow] 请求错误: ${e.message}`);
+});
 
-submitIndexNow();
+req.write(payload);
+req.end();
