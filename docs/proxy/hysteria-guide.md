@@ -1,6 +1,6 @@
 ---
 title: "Hysteria 协议详解：2026年最快的翻墙协议是什么？"
-description: "深度解析 Hysteria 协议的工作原理、核心特点、应用场景与优势。基于 UDP/QUIC 的新一代翻墙协议，专为高延迟和不稳定网络设计，是2026年科学上网速度最快的代理协议之一。"
+description: "深度解析 Hysteria 协议的工作原理、核心特点、应用场景与优势。基于 UDP/QUIC 的新一代翻墙协议，专为高延迟和不稳定网络设计，是2026年科学上网速度最快的代理协议之一。包含 Hysteria2 vs SSR/VLESS/Trojan 全面性能对比表、客户端支持情况及机场使用实用建议。"
 head:
   - - meta
     - name: keywords
