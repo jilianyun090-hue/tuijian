@@ -159,6 +159,7 @@ export default hopeTheme({
                 children: [
                     { text: "2026年4月中转拔线潮解析", link: "relay-crackdown-2026" },
                     { text: "中转机场的至暗时刻", link: "relay-darkest-hour" },
+                    { text: "快连(LetsVPN)停运洗牌内幕", link: "letsvpn-shutdown" },
                 ],
             },
         ],

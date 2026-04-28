@@ -62,6 +62,7 @@ const urlList = [
   `https://${HOST}/proxy/telegram-bot.html`,
   `https://${HOST}/proxy/relay-crackdown-2026.html`,
   `https://${HOST}/proxy/relay-darkest-hour.html`,
+  `https://${HOST}/proxy/letsvpn-shutdown.html`,
   `https://${HOST}/proxy/pc-guide.html`,
   `https://${HOST}/proxy/phone-guide.html`,
 ];
