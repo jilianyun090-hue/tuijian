@@ -10,7 +10,7 @@ export default defineUserConfig({
     head: [
         ["link", { rel: "icon", href: "/favicon.png" }],
         // Umami 实时统计 (自托管或 Umami Cloud)
-        ["script", { defer: true, "data-website-id": "8f79ee64-6e73-47d2-b7f6-25cbe82aae0f", src: "https://cloud.umami.is/script.js" }],
+        ["script", { defer: true, "data-website-id": "8f79ee64-6e73-47d2-b7f6-25cbe82aae0f", "data-host-url": "https://umami.clash-jichang.com", src: "https://umami.clash-jichang.com/script.js" }],
         // Bing site verification
         ["meta", { name: "msvalidate.01", content: "35CCAB205AEAD2FDC8BEB03EB1519F89" }],
         // Google site verification
