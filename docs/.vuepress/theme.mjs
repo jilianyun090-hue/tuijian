@@ -7,15 +7,15 @@ export default hopeTheme({
     locales: {
         "/": {
             blogLocales: {
-                article: "2026 科学上网与机场推荐全部文章列表 - 道一博客",
+                article: "2026 科学上网与机场推荐全部文章列表",
                 articleList: "科学上网机场推荐资讯文章列表",
                 category: "文章分类导航：机场推荐 AI 流媒体",
                 categoryList: "全部文章分类导航 - 翻墙机场知识库",
-                tag: "科学上网与机场推荐标签分类索引 - 道一博客",
-                tagList: "全部文章标签索引 - 道一博客",
-                timeline: "科学上网机场推荐发布时间轴（2026年更新）- 道一博客",
+                tag: "科学上网与机场推荐标签分类索引",
+                tagList: "全部文章标签索引",
+                timeline: "科学上网机场推荐发布时间轴（2026年更新）",
                 timelineList: "2026 最新科学上网文章发布时间线",
-                star: "精选推荐文章合集 - 道一博客科学上网指南",
+                star: "精选推荐文章合集 - 科学上网指南",
                 slides: "幻灯片",
                 encrypt: "加密文章",
             },

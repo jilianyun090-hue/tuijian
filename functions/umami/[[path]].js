@@ -3,9 +3,9 @@
  * 路径: /umami/* → 代理到 Umami Cloud
  *
  * 解决问题：
- * 1. cloud.umami.is 被 GFW 屏蔽 → 通过同域 clash-jichang.com 代理
- * 2. Worker 代理 IP 被 429 限速 → 传递访客真实 IP，Umami 按真实 IP 计数
- * 3. CORS 跨域问题 → 同域请求，无跨域
+ * 1. cloud.umami.is 被部分地区 GFW 屏蔽 → /api/send 通过同域代理
+ * 2. CF Pages 出站 IP 被 429 限速 → 传递访客真实 IP + 完整 UA
+ * 3. 脚本本身从 cloud.umami.is 直接加载（翻墙用户能访问）
  */
 export async function onRequest(context) {
   const { request } = context;
@@ -31,26 +31,36 @@ export async function onRequest(context) {
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, x-client-ip',
+        'Access-Control-Allow-Headers': 'Content-Type',
         'Access-Control-Max-Age': '86400',
       },
     });
   }
 
-  // 获取访客真实 IP（Cloudflare 自动注入 CF-Connecting-IP）
+  // 获取访客真实 IP（CF-Connecting-IP 是 Cloudflare 最可靠的真实 IP 注入头）
   const clientIP =
     request.headers.get('CF-Connecting-IP') ||
     request.headers.get('X-Forwarded-For')?.split(',')[0]?.trim() ||
-    '0.0.0.0';
+    '127.0.0.1';
 
   // 构造转发请求的 Header
   const proxyHeaders = new Headers();
-  proxyHeaders.set('Content-Type', request.headers.get('Content-Type') || 'application/json');
-  proxyHeaders.set('User-Agent', request.headers.get('User-Agent') || 'Mozilla/5.0');
-  // 关键：把真实 IP 告诉 Umami，否则所有请求都来自同一个 Worker IP，触发 429
-  proxyHeaders.set('X-Forwarded-For', clientIP);
-  proxyHeaders.set('X-Real-IP', clientIP);
-  proxyHeaders.set('x-client-ip', clientIP);
+
+  // 对于 /api/send，完整转发 UA 和语言等浏览器特征，让 Umami 正确识别用户环境
+  if (subPath.startsWith('/api/send')) {
+    const ua = request.headers.get('User-Agent');
+    if (ua) proxyHeaders.set('User-Agent', ua);
+
+    const lang = request.headers.get('Accept-Language');
+    if (lang) proxyHeaders.set('Accept-Language', lang);
+
+    const ct = request.headers.get('Content-Type');
+    if (ct) proxyHeaders.set('Content-Type', ct);
+
+    // 关键：传递真实 IP，让 Umami 按访客 IP 去重计数，避免 429
+    proxyHeaders.set('X-Forwarded-For', clientIP);
+    proxyHeaders.set('X-Real-IP', clientIP);
+  }
 
   // 转发请求到 Umami 上游
   let upstreamResponse;
@@ -70,9 +80,10 @@ export async function onRequest(context) {
   // 构造响应，加上 CORS 允许头
   const responseHeaders = new Headers(upstreamResponse.headers);
   responseHeaders.set('Access-Control-Allow-Origin', '*');
-  // 脚本文件缓存 1 小时，发送接口不缓存
+
+  // 脚本文件缓存 24 小时；发送接口不缓存
   if (subPath === '/script.js') {
-    responseHeaders.set('Cache-Control', 'public, max-age=3600');
+    responseHeaders.set('Cache-Control', 'public, max-age=86400');
   } else {
     responseHeaders.set('Cache-Control', 'no-store');
   }
