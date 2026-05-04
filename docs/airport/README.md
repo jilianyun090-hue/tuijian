@@ -86,7 +86,7 @@ A: Windows、macOS、iOS、Android 及路由器等主流设备均可支持。
 | **光速云** | [直达官网](https://kjlq01.gsyvipaff.cc/#/?code=b1OTkTeL) | 无 | 8.25元 59GB/月 | ✅ | [TG](https://t.me/LightspeedCloud) | [前往](#_10-光速云) |
 | **全球云** | [直达官网](https://haozevpn.gcvipaff.cc/#/?code=WRQJc2v4) | 无 | 20元 120GB/月 | ✅ | [TG](https://t.me/quanqiuyun001) | [前往](#_11-全球云) |
 | **星岛梦** | [直达官网](https://wuyou202001.xdmvipaff.cc/#/?code=olWCiAhj) | 无 | 16元 100GB/月 | ✅ | [TG](https://t.me/XDM6666666) | [前往](#_12-星岛梦) |
-| **哆啦A梦** | [直达官网](https://store.yyds2-doraemon.site/login/register?invite_code=5VxQMw0k) | 无 | 10元 100GB/月 | ✅ | 暂无 | [前往](#_13-哆啦A梦) |
+| **哆啦A梦** | [直达官网](https://store.yyds2-doraemon.site/login/register?invite_code=5VxQMw0k) | 无 | 10元 100GB/月 | ✅ | 暂无 | [前往](#_13-哆啦a梦) |
 | **大哥云** | [直达官网](https://airportgo.org/go.php) | 有 | 19.9元 100GB/月 | ❌ | [TG](https://t.me/dageyun) | [前往](#_14-大哥云) |
 | **龙猫云** | [直达官网](https://airportgo.org/go.php) | 无 | 15元 150GB/月 | ❌ | [TG](https://t.me/totoro_clouds) | [前往](#_15-龙猫云) |
 | **飞鸟机场** | [直达官网](https://airportgo.org/go.php) | 无 | 15元 100GB/月 | ✅ | [TG](https://t.me/feiniaocloud) | [前往](#_16-飞鸟机场) |
