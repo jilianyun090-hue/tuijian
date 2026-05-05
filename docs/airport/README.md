@@ -76,7 +76,7 @@ A: Windows、macOS、iOS、Android 及路由器等主流设备均可支持。
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **极连云** | [直达官网](https://haozevpn.jlyvipaff.com/#/?code=KUKfOY13) | 无 | 8元 60GB/月 | ✅ | [TG](https://t.me/JLYCloud) | [前往](#_1-极连云) |
 | **瞬云机场** | [直达官网](https://bbb.jichang.best/#/register?code=o4I4kToe) | 无 | 8.25元 59GB/月 | ✅ | [TG](https://t.me/VPNfq1) | [前往](#_2-瞬云机场) |
-| **寰宇云** | [直达官网](https://huanyuyunvip.com/register?code=K6h5VWw2) | 无 | 89元/年 60GB/月 | ✅ | [TG](https://t.me/+Ssz3hVgH65o2Yjgx) | [前往](#_3-寰宇云机场) |
+| **寰宇云** | [直达官网](https://dashboard.huanyuyunvip.com/#/register?code=K6h5VWw2) | 无 | 89元/年 60GB/月 | ✅ | [TG](https://t.me/+Ssz3hVgH65o2Yjgx) | [前往](#_3-寰宇云机场) |
 | **光年梯** | [直达官网](https://gnt001.gntvipaff.cc/#/?code=j1ufpE44) | 无 | 7.5元 50GB/月（年付） | ✅ | [TG](https://t.me/guangnianti) | [前往](#_4-光年梯) |
 | **奈云** | [直达官网](http://6.vip.v2ny.me?path=register&code=A612DB2z) | 无 | 10.6元 168GB/月 | ✅ | [TG](https://t.me/v2naiun) | [前往](#_5-奈云) |
 | **隐云** | [直达官网](https://wkacc.xyz/?code=711d7afb) | 无 | 25元 150GB/月 | ❌ | 暂无 | [前往](#_6-隐云) |
@@ -144,7 +144,7 @@ A: Windows、macOS、iOS、Android 及路由器等主流设备均可支持。
 
 ### 3. 寰宇云机场
 
-寰宇云机场官网地址：[huanyuyunvip.com](https://huanyuyunvip.com/register?code=K6h5VWw2)
+寰宇云机场官网地址：[dashboard.huanyuyunvip.com](https://dashboard.huanyuyunvip.com/#/register?code=K6h5VWw2)
 
 最便宜的订阅有 **89元/年 60G/月**（折合约¥7.4/月）。
 
@@ -166,7 +166,7 @@ A: Windows、macOS、iOS、Android 及路由器等主流设备均可支持。
 | 巨量不限时 | 2000G | ¥268.00/一次性 | 按量计费，购买即永久有效 |
 | 海量不限时 | 4000G | ¥398.00/一次性 | 超大流量包，购买即永久有效 |
 
-👉 [立即注册寰宇云机场](https://huanyuyunvip.com/register?code=K6h5VWw2)
+👉 [立即注册寰宇云机场](https://dashboard.huanyuyunvip.com/#/register?code=K6h5VWw2)
 
 ---
 
