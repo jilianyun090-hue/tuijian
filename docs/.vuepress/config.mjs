@@ -12,7 +12,8 @@ export default defineUserConfig({
         // Umami 实时统计
         // 脚本从 cloud.umami.is 直接加载（翻墙用户本身开代理可正常访问）
         // data-host-url 指向同域代理，让 /api/send 上报走代理，绕过部分地区屏蔽
-        ["script", { defer: true, "data-website-id": "8f79ee64-6e73-47d2-b7f6-25cbe82aae0f", "data-host-url": "https://clash-jichang.com/umami", src: "https://cloud.umami.is/script.js" }],
+        // data-exclude-search: 排除搜索引擎爬虫（Bing, Google, Baidu 等）
+        ["script", { defer: true, "data-website-id": "8f79ee64-6e73-47d2-b7f6-25cbe82aae0f", "data-host-url": "https://clash-jichang.com/umami", "data-exclude-search": "true", src: "https://cloud.umami.is/script.js" }],
         // Bing site verification
         ["meta", { name: "msvalidate.01", content: "35CCAB205AEAD2FDC8BEB03EB1519F89" }],
         // Google site verification
