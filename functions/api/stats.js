@@ -7,7 +7,7 @@ export async function onRequest(context) {
 
   try {
     const res = await fetch(
-      `https://api.umami.is/v1/websites/${websiteId}/stats?startAt=${startAt}&endAt=${endAt}&compare=true`,
+      `https://api.umami.is/v1/websites/${websiteId}/stats?startAt=${startAt}&endAt=${endAt}&compare=prev`,
       { headers: { 'Authorization': `Bearer ${apiKey}` } }
     );
 
