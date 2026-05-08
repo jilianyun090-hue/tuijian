@@ -106,19 +106,31 @@ const fmtNum = (n) => String(n || 0)
 
 const summaryCards = computed(() => {
   if (!stats.value) return []
-  // Umami v1 API 返回格式：每个字段是 { value: number, prev: number }
-  // 需要从 .value 取当前值，从 .prev 取上期值来计算趋势
+  // Umami v1 API 可能返回两种格式：
+  // 1) 每字段对象 { value, prev }
+  // 2) 顶层数值 + comparison 对象 { pageviews: 123, comparison: { pageviews: 100 } }
+  // 优先从 comparison 中取上期值，其次兼容旧的 { prev } 格式
   const raw = stats.value
-  const pv         = typeof raw.pageviews === 'object' ? (raw.pageviews?.value ?? 0) : (raw.pageviews ?? 0)
-  const pvPrev     = typeof raw.pageviews === 'object' ? (raw.pageviews?.prev  ?? 0) : 0
-  const visitors   = typeof raw.visitors  === 'object' ? (raw.visitors?.value  ?? 0) : (raw.visitors  ?? 0)
-  const visPrev    = typeof raw.visitors  === 'object' ? (raw.visitors?.prev   ?? 0) : 0
-  const visits     = typeof raw.visits    === 'object' ? (raw.visits?.value    ?? 0) : (raw.visits    ?? 0)
-  const vstPrev    = typeof raw.visits    === 'object' ? (raw.visits?.prev     ?? 0) : 0
-  const bounces    = typeof raw.bounces   === 'object' ? (raw.bounces?.value   ?? 0) : (raw.bounces   ?? 0)
-  const bncPrev    = typeof raw.bounces   === 'object' ? (raw.bounces?.prev    ?? 0) : 0
-  const totaltime  = typeof raw.totaltime === 'object' ? (raw.totaltime?.value ?? 0) : (raw.totaltime ?? 0)
-  const timePrev   = typeof raw.totaltime === 'object' ? (raw.totaltime?.prev  ?? 0) : 0
+  const pv = typeof raw.pageviews === 'object' ? (raw.pageviews?.value ?? 0) : (raw.pageviews ?? 0)
+  const pvPrev = (raw.comparison && typeof raw.comparison.pageviews !== 'undefined')
+    ? raw.comparison.pageviews
+    : (typeof raw.pageviews === 'object' ? (raw.pageviews?.prev ?? 0) : 0)
+  const visitors = typeof raw.visitors === 'object' ? (raw.visitors?.value ?? 0) : (raw.visitors ?? 0)
+  const visPrev = (raw.comparison && typeof raw.comparison.visitors !== 'undefined')
+    ? raw.comparison.visitors
+    : (typeof raw.visitors === 'object' ? (raw.visitors?.prev ?? 0) : 0)
+  const visits = typeof raw.visits === 'object' ? (raw.visits?.value ?? 0) : (raw.visits ?? 0)
+  const vstPrev = (raw.comparison && typeof raw.comparison.visits !== 'undefined')
+    ? raw.comparison.visits
+    : (typeof raw.visits === 'object' ? (raw.visits?.prev ?? 0) : 0)
+  const bounces = typeof raw.bounces === 'object' ? (raw.bounces?.value ?? 0) : (raw.bounces ?? 0)
+  const bncPrev = (raw.comparison && typeof raw.comparison.bounces !== 'undefined')
+    ? raw.comparison.bounces
+    : (typeof raw.bounces === 'object' ? (raw.bounces?.prev ?? 0) : 0)
+  const totaltime = typeof raw.totaltime === 'object' ? (raw.totaltime?.value ?? 0) : (raw.totaltime ?? 0)
+  const timePrev = (raw.comparison && typeof raw.comparison.totaltime !== 'undefined')
+    ? raw.comparison.totaltime
+    : (typeof raw.totaltime === 'object' ? (raw.totaltime?.prev ?? 0) : 0)
   return [
     { label: '访客',    value: fmtNum(visitors),              raw: visitors,  trend: calcTrend(visitors,  visPrev),  pos: true  },
     { label: '参观',    value: fmtNum(visits),                raw: visits,    trend: calcTrend(visits,    vstPrev),  pos: true  },
