@@ -11,15 +11,15 @@ echo.
 echo ===== 开始构建和推送 =====
 echo.
 
-echo 第一步: 构建网站（本地验证）...
-call npm run build
-if errorlevel 1 (
-    echo.
-    echo 错误: 构建失败！请先修复构建错误再推送。
-    pause
-    exit /b 1
-)
-echo 构建验证通过
+echo 第一步: 跳过构建（应用户要求直接推送）...
+rem call npm run build
+rem if errorlevel 1 (
+rem     echo.
+rem     echo 错误: 构建失败！请先修复构建错误再推送。
+rem     pause
+rem     exit /b 1
+rem )
+echo 构建已跳过
 echo.
 
 echo 第二步: 检查文件变更并暂存...
@@ -30,9 +30,9 @@ rem 检查是否有已暂存的变更
 set "HAS_STAGED="
 for /f "usebackq delims=" %%i in (`git diff --staged --name-only`) do set "HAS_STAGED=1"
 if not defined HAS_STAGED (
-    echo 没有文件变更，无需推送。
-    pause
-    exit /b 0
+    echo 没有新的本地文件变更，检查是否存在未推送的提交...
+) else (
+    echo 发现新变更，准备提交...
 )
 echo.
 
@@ -45,17 +45,21 @@ if "%~1"=="" (
 )
 
 echo 第三步: 提交更改...
-git commit -m "%COMMIT_MSG%"
-if errorlevel 1 (
-    echo.
-    echo 错误: 提交失败！
-    echo 可能原因: 没有变更、未配置 git user.name/user.email、或 pre-commit 钩子阻止
-    echo 建议: 检查 git status 和 git config --get user.name
-    git status
-    pause
-    exit /b 1
+if defined HAS_STAGED (
+    git commit -m "%COMMIT_MSG%"
+    if errorlevel 1 (
+        echo.
+        echo 错误: 提交失败！
+        echo 可能原因: 未配置 git user.name/user.email、或 pre-commit 钩子阻止
+        echo 建议: 检查 git status 和 git config --get user.name
+        git status
+        pause
+        exit /b 1
+    )
+    echo 提交完成
+) else (
+    echo 没有新变更需要提交，跳过此步。
 )
-echo 提交完成
 echo.
 
 rem 获取当前分支（如果失败则默认 main）
