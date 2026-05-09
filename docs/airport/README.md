@@ -75,25 +75,25 @@ A: Windows、macOS、iOS、Android 及路由器等主流设备均可支持。
 
 | 名称 | 官网地址 | 试用 | 最便宜订阅 | 不限时 | 群 | 详情 |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **极连云** | [直达官网](https://haozevpn.jlyvipaff.com/#/?code=KUKfOY13) | 无 | 8元 60GB/月 | ✅ | [TG](https://t.me/JLYCloud) | [前往](#_1-极连云) |
-| **瞬云机场** | [直达官网](https://bbb.jichang.best/#/register?code=o4I4kToe) | 无 | 8.25元 59GB/月 | ✅ | [TG](https://t.me/VPNfq1) | [前往](#_2-瞬云机场) |
-| **寰宇云** | [直达官网](https://dashboard.huanyuyunvip.com/#/register?code=K6h5VWw2) | 无 | 89元/年 60GB/月 | ✅ | [TG](https://t.me/+Ssz3hVgH65o2Yjgx) | [前往](#_3-寰宇云机场) |
-| **光年梯** | [直达官网](https://gnt001.gntvipaff.cc/#/?code=j1ufpE44) | 无 | 7.5元 50GB/月（年付） | ✅ | [TG](https://t.me/guangnianti) | [前往](#_4-光年梯) |
-| **极速云机场** | [直达官网](https://ask.xsccusm.com:8888/#/register?code=RENHYxqv) | 无 | 8.25元 800GB/月（年付） | ✅ | [TG](https://t.me/jisuyunchat8) | [前往](#_5-极速云机场) |
-| **隐云** | [直达官网](https://airportgo.org/go.php) | 无 | 25元 150GB/月 | ❌ | 暂无 | [前往](#_6-隐云) |
-| **Edge-X机场** | [直达官网](https://edge-invite.com/#/register?code=73ienU2h) | 无 | 16.8元 100GB/月 | ✅ | 暂无 | [前往](#_7-edge-x机场) |
-| **奈云** | [直达官网](https://airportgo.org/go.php) | 无 | 10.6元 168GB/月 | ✅ | [TG](https://t.me/v2naiun) | [前往](#_8-奈云) |
-| **山海机场** | [直达官网](https://shanhai.sbs/#/register?code=qVTbPfWP) | 无 | 6元 45GB/月 | ✅ | [TG](https://t.me/shanhai_me) | [前往](#_9-山海机场) |
-| **LiZione** | [直达官网](https://lizione.vip?path=register&code=Wmf3jYMy) | 无 | 10元 100GB/月 | ❌ | [TG](https://t.me/LiZione_Chat) | [前往](#_10-lizione) |
-| **光速云** | [直达官网](https://kjlq01.gsyvipaff.cc/#/?code=b1OTkTeL) | 无 | 8.25元 59GB/月 | ✅ | [TG](https://t.me/LightspeedCloud) | [前往](#_11-光速云) |
-| **全球云** | [直达官网](https://haozevpn.gcvipaff.cc/#/?code=WRQJc2v4) | 无 | 20元 120GB/月 | ✅ | [TG](https://t.me/quanqiuyun001) | [前往](#_12-全球云) |
-| **星岛梦** | [直达官网](https://wuyou202001.xdmvipaff.cc/#/?code=olWCiAhj) | 无 | 16元 100GB/月 | ✅ | [TG](https://t.me/XDM6666666) | [前往](#_13-星岛梦) |
-| **哆啦A梦** | [直达官网](https://store.yyds2-doraemon.site/login/register?invite_code=5VxQMw0k) | 无 | 10元 100GB/月 | ✅ | 暂无 | [前往](#_14-哆啦a梦) |
-| **大哥云** | [直达官网](https://airportgo.org/go.php) | 有 | 19.9元 100GB/月 | ❌ | [TG](https://t.me/dageyun) | [前往](#_15-大哥云) |
-| **龙猫云** | [直达官网](https://airportgo.org/go.php) | 无 | 15元 150GB/月 | ❌ | [TG](https://t.me/totoro_clouds) | [前往](#_16-龙猫云) |
-| **飞鸟机场** | [直达官网](https://airportgo.org/go.php) | 无 | 15元 100GB/月 | ✅ | [TG](https://t.me/feiniaocloud) | [前往](#_17-飞鸟机场) |
-| **青云梯** | [直达官网](https://airportgo.org/go.php) | 无 | 8元 60GB/月 | ✅ | 暂无 | [前往](#_18-青云梯) |
-| **花云 (FlowerCloud)** | [直达官网](https://api-flowercloud.com/aff.php?aff=16018) | 无 | 128元/年 20GB/月 | ❌ | [TG](https://t.me/FlowerCloud_News) | [前往](#_19-花云机场-flowercloud) |
+| **极连云** | [直达官网](https://haozevpn.jlyvipaff.com/#/?code=KUKfOY13) | 无 | 8元 60GB/月 | ✅ | [TG](https://t.me/JLYCloud) | [前往](#1-极连云) |
+| **瞬云机场** | [直达官网](https://bbb.jichang.best/#/register?code=o4I4kToe) | 无 | 8.25元 59GB/月 | ✅ | [TG](https://t.me/VPNfq1) | [前往](#2-瞬云机场) |
+| **寰宇云** | [直达官网](https://dashboard.huanyuyunvip.com/#/register?code=K6h5VWw2) | 无 | 89元/年 60GB/月 | ✅ | [TG](https://t.me/+Ssz3hVgH65o2Yjgx) | [前往](#3-寰宇云机场) |
+| **光年梯** | [直达官网](https://gnt001.gntvipaff.cc/#/?code=j1ufpE44) | 无 | 7.5元 50GB/月（年付） | ✅ | [TG](https://t.me/guangnianti) | [前往](#4-光年梯) |
+| **极速云机场** | [直达官网](https://ask.xsccusm.com:8888/#/register?code=RENHYxqv) | 无 | 8.25元 800GB/月（年付） | ✅ | [TG](https://t.me/jisuyunchat8) | [前往](#5-极速云机场) |
+| **隐云** | [直达官网](https://airportgo.org/go.php) | 无 | 25元 150GB/月 | ❌ | 暂无 | [前往](#6-隐云) |
+| **Edge-X机场** | [直达官网](https://edge-invite.com/#/register?code=73ienU2h) | 无 | 16.8元 100GB/月 | ✅ | 暂无 | [前往](#7-edge-x机场) |
+| **奈云** | [直达官网](https://airportgo.org/go.php) | 无 | 10.6元 168GB/月 | ✅ | [TG](https://t.me/v2naiun) | [前往](#8-奈云) |
+| **山海机场** | [直达官网](https://shanhai.sbs/#/register?code=qVTbPfWP) | 无 | 6元 45GB/月 | ✅ | [TG](https://t.me/shanhai_me) | [前往](#9-山海机场) |
+| **LiZione** | [直达官网](https://lizione.vip?path=register&code=Wmf3jYMy) | 无 | 10元 100GB/月 | ❌ | [TG](https://t.me/LiZione_Chat) | [前往](#10-lizione) |
+| **光速云** | [直达官网](https://kjlq01.gsyvipaff.cc/#/?code=b1OTkTeL) | 无 | 8.25元 59GB/月 | ✅ | [TG](https://t.me/LightspeedCloud) | [前往](#11-光速云) |
+| **全球云** | [直达官网](https://haozevpn.gcvipaff.cc/#/?code=WRQJc2v4) | 无 | 20元 120GB/月 | ✅ | [TG](https://t.me/quanqiuyun001) | [前往](#12-全球云) |
+| **星岛梦** | [直达官网](https://wuyou202001.xdmvipaff.cc/#/?code=olWCiAhj) | 无 | 16元 100GB/月 | ✅ | [TG](https://t.me/XDM6666666) | [前往](#13-星岛梦) |
+| **哆啦A梦** | [直达官网](https://store.yyds2-doraemon.site/login/register?invite_code=5VxQMw0k) | 无 | 10元 100GB/月 | ✅ | 暂无 | [前往](#14-哆啦a梦) |
+| **大哥云** | [直达官网](https://airportgo.org/go.php) | 有 | 19.9元 100GB/月 | ❌ | [TG](https://t.me/dageyun) | [前往](#15-大哥云) |
+| **龙猫云** | [直达官网](https://airportgo.org/go.php) | 无 | 15元 150GB/月 | ❌ | [TG](https://t.me/totoro_clouds) | [前往](#16-龙猫云) |
+| **飞鸟机场** | [直达官网](https://airportgo.org/go.php) | 无 | 15元 100GB/月 | ✅ | [TG](https://t.me/feiniaocloud) | [前往](#17-飞鸟机场) |
+| **青云梯** | [直达官网](https://airportgo.org/go.php) | 无 | 8元 60GB/月 | ✅ | 暂无 | [前往](#18-青云梯) |
+| **花云 (FlowerCloud)** | [直达官网](https://api-flowercloud.com/aff.php?aff=16018) | 无 | 128元/年 20GB/月 | ❌ | [TG](https://t.me/FlowerCloud_News) | [前往](#19-花云-flowercloud) |
 
 ---
 
