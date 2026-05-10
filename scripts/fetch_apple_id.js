@@ -105,12 +105,158 @@ head:
 | :--- | :--- | :--- | :--- | :--- |
 `;
 
+        content += `<div class="accounts-grid">\n`;
+
         cards.forEach(card => {
-            // 使用反引号包裹账号密码方便复制
-            content += `| ${card.region} | \`${card.email}\` | \`${card.password}\` | ${card.status} | ${card.time} |\n`;
+            const cleanRegion = card.region.replace(/【|】/g, ''); // 移除原有的括号
+            content += `
+  <div class="account-card">
+    <div class="card-header">
+      <div class="card-email">${card.email}</div>
+      <div class="card-status">${card.status}</div>
+    </div>
+    <div class="card-meta">
+      <span class="region-badge">【${cleanRegion}】</span>
+      <span class="update-time">检测: ${card.time.replace('2026-05-10', '').trim()}</span>
+    </div>
+    <div class="card-actions">
+      <button class="btn-copy" onclick="copyToClipboard('${card.email}', this)">复制账号</button>
+      <button class="btn-copy" onclick="copyToClipboard('${card.password}', this)">复制密码</button>
+    </div>
+  </div>`;
         });
 
         content += `
+</div>
+
+<style>
+.accounts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.account-card {
+    border: 1px solid var(--c-border);
+    border-radius: 12px;
+    padding: 16px;
+    background: var(--c-bg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+html[data-theme='dark'] .account-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.account-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+html[data-theme='dark'] .account-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-email {
+    font-size: 1.05em;
+    font-weight: 600;
+    color: var(--c-text);
+}
+.card-status {
+    font-size: 0.85em;
+    color: #10b981;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.card-status::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #10b981;
+}
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85em;
+}
+.region-badge {
+    background-color: #2563eb;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+.update-time {
+    color: var(--c-text-light);
+}
+.card-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+}
+.btn-copy {
+    flex: 1;
+    padding: 8px 0;
+    border: 1px solid var(--c-border);
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: var(--c-text);
+    transition: all 0.2s;
+}
+.btn-copy:hover {
+    background: var(--c-bg-mute);
+    border-color: #2563eb;
+    color: #2563eb;
+}
+</style>
+
+<script>
+function copyToClipboard(text, btn) {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+            showSuccess(btn);
+        });
+    } else {
+        // Fallback
+        let textArea = document.createElement("textarea");
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            showSuccess(btn);
+        } catch (err) {
+            console.error('Fallback: Oops, unable to copy', err);
+        }
+        document.body.removeChild(textArea);
+    }
+}
+function showSuccess(btn) {
+    const originalText = btn.innerText;
+    btn.innerText = '已复制!';
+    btn.style.color = '#10b981';
+    btn.style.borderColor = '#10b981';
+    setTimeout(() => {
+        btn.innerText = originalText;
+        btn.style.color = '';
+        btn.style.borderColor = '';
+    }, 2000);
+}
+</script>
+
 ---
 
 [回到首页](/) | [更多工具](/proxy/)
