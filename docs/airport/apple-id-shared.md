@@ -60,8 +60,8 @@ head:
       <span class="update-time">检测: 12:50:08</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('EarlSinghdIP@outlook.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('9EuwsZ28gH', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="EarlSinghdIP@outlook.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="9EuwsZ28gH">复制密码</button>
     </div>
   </div>
 
@@ -75,8 +75,8 @@ head:
       <span class="update-time">检测: 12:50:08</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('JillOrtizvJ@outlook.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('xJhg6gA85H', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="JillOrtizvJ@outlook.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="xJhg6gA85H">复制密码</button>
     </div>
   </div>
 
@@ -90,8 +90,8 @@ head:
       <span class="update-time">检测: 12:50:08</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('ctqjohnmoore526@gmail.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('th5EBaKGqu', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="ctqjohnmoore526@gmail.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="th5EBaKGqu">复制密码</button>
     </div>
   </div>
 
@@ -105,8 +105,8 @@ head:
       <span class="update-time">检测: 12:50:08</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('murphylangworthck@outlook.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('g9S9TtV3QZ', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="murphylangworthck@outlook.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="g9S9TtV3QZ">复制密码</button>
     </div>
   </div>
 
@@ -120,8 +120,8 @@ head:
       <span class="update-time">检测: 12:50:08</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('buehxklhb103@hotmail.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('RgR1SM1A5W', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="buehxklhb103@hotmail.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="RgR1SM1A5W">复制密码</button>
     </div>
   </div>
 
@@ -135,8 +135,8 @@ head:
       <span class="update-time">检测: 12:50:08</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('cassianschulke473@hotmail.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('E4P6QS2Tf5', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="cassianschulke473@hotmail.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="E4P6QS2Tf5">复制密码</button>
     </div>
   </div>
 
@@ -150,8 +150,8 @@ head:
       <span class="update-time">检测: 12:50:08</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('RebmySstone56439@icloud.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('G8ZA92UJuR', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="RebmySstone56439@icloud.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="G8ZA92UJuR">复制密码</button>
     </div>
   </div>
 
@@ -165,8 +165,8 @@ head:
       <span class="update-time">检测: 12:50:08</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('ZasraRnowe85589@icloud.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('udkJUjBgw6', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="ZasraRnowe85589@icloud.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="udkJUjBgw6">复制密码</button>
     </div>
   </div>
 
@@ -180,8 +180,8 @@ head:
       <span class="update-time">检测: 12:50:08</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('oi9c73am6y@hotmail.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('bTNfVhJV31', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="oi9c73am6y@hotmail.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="bTNfVhJV31">复制密码</button>
     </div>
   </div>
 
@@ -195,8 +195,8 @@ head:
       <span class="update-time">检测: 12:50:08</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('TtinaYporrk65705@icloud.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('zaZum9b9uB', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="TtinaYporrk65705@icloud.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="zaZum9b9uB">复制密码</button>
     </div>
   </div>
 
@@ -210,8 +210,8 @@ head:
       <span class="update-time">检测: 12:50:12</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('quodonnell@gmail.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('Dd10096da', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="quodonnell@gmail.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="Dd10096da">复制密码</button>
     </div>
   </div>
 
@@ -225,8 +225,8 @@ head:
       <span class="update-time">检测: 12:50:12</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('DeborazpiHarr967@icloud.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('x5Qt9ch9m9', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="DeborazpiHarr967@icloud.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="x5Qt9ch9m9">复制密码</button>
     </div>
   </div>
 
@@ -240,8 +240,8 @@ head:
       <span class="update-time">检测: 12:50:12</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('jarvarisrivetteuf3409@gmail.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('VG7j2eeg4C', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="jarvarisrivetteuf3409@gmail.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="VG7j2eeg4C">复制密码</button>
     </div>
   </div>
 
@@ -255,8 +255,8 @@ head:
       <span class="update-time">检测: 12:50:12</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('AllenMilliepyl879@gmail.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('44s41NP3MD5pf3', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="AllenMilliepyl879@gmail.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="44s41NP3MD5pf3">复制密码</button>
     </div>
   </div>
 
@@ -270,8 +270,8 @@ head:
       <span class="update-time">检测: 12:50:12</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('BettyGarcia5be56@gmail.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('44s4nrRa3yZnJ5', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="BettyGarcia5be56@gmail.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="44s4nrRa3yZnJ5">复制密码</button>
     </div>
   </div>
 
@@ -285,8 +285,8 @@ head:
       <span class="update-time">检测: 12:50:12</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('ZcoeMaresh16560@icloud.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('c5KYxbB2G7', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="ZcoeMaresh16560@icloud.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="c5KYxbB2G7">复制密码</button>
     </div>
   </div>
 
@@ -300,8 +300,8 @@ head:
       <span class="update-time">检测: 12:50:12</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('IgrrisDqrake11699@icloud.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('XfmN7fdFqf', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="IgrrisDqrake11699@icloud.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="XfmN7fdFqf">复制密码</button>
     </div>
   </div>
 
@@ -315,8 +315,8 @@ head:
       <span class="update-time">检测: 12:50:12</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('EzmmaRnowe36194@icloud.com', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('HgRU9m2JpY', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="EzmmaRnowe36194@icloud.com">复制账号</button>
+      <button class="btn-copy" data-copy-text="HgRU9m2JpY">复制密码</button>
     </div>
   </div>
 
@@ -415,39 +415,61 @@ html[data-theme='dark'] .account-card:hover {
 }
 </style>
 
-<script>
-function copyToClipboard(text, btn) {
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(() => {
-            showSuccess(btn);
-        });
+<script setup>
+import { onMounted, onUnmounted } from 'vue';
+
+const clickHandler = (e) => {
+  if (e.target && e.target.matches('.btn-copy')) {
+    const text = e.target.getAttribute('data-copy-text');
+    if (!text) return;
+    
+    const btn = e.target;
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(() => showSuccess(btn));
     } else {
-        // Fallback
-        let textArea = document.createElement("textarea");
-        textArea.value = text;
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        try {
-            document.execCommand('copy');
-            showSuccess(btn);
-        } catch (err) {
-            console.error('Fallback: Oops, unable to copy', err);
-        }
-        document.body.removeChild(textArea);
+      let textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-999999px";
+      textArea.style.top = "-999999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showSuccess(btn);
+      } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+      }
+      textArea.remove();
     }
-}
-function showSuccess(btn) {
-    const originalText = btn.innerText;
-    btn.innerText = '已复制!';
-    btn.style.color = '#10b981';
-    btn.style.borderColor = '#10b981';
-    setTimeout(() => {
-        btn.innerText = originalText;
-        btn.style.color = '';
-        btn.style.borderColor = '';
-    }, 2000);
-}
+  }
+};
+
+const showSuccess = (btn) => {
+  const originalText = btn.innerText;
+  if (originalText === '已复制!') return;
+  btn.innerText = '已复制!';
+  btn.style.color = '#10b981';
+  btn.style.borderColor = '#10b981';
+  setTimeout(() => {
+      btn.innerText = originalText;
+      btn.style.color = '';
+      btn.style.borderColor = '';
+  }, 2000);
+};
+
+onMounted(() => {
+  if (typeof document !== 'undefined') {
+    document.addEventListener('click', clickHandler);
+  }
+});
+
+onUnmounted(() => {
+  if (typeof document !== 'undefined') {
+    document.removeEventListener('click', clickHandler);
+  }
+});
 </script>
 
 ---
