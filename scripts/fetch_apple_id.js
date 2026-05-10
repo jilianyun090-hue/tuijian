@@ -69,6 +69,19 @@ async function fetchAppleId() {
         let content = `---
 title: "【免费】2026 小火箭共享账号 | 美区ID / 苹果ID共享 (已购Shadowrocket) - 每日更新"
 description: "2026年最新苹果 Apple ID 共享账号，包含美区、日区、港区等已购 Shadowrocket (小火箭) 的账号，每30分钟自动更新，确保稳定可用。免费下载小火箭 VPN 必备。"
+category:
+  - 客户端下载
+  - 机场工具
+tag:
+  - 小火箭共享账号
+  - 美区ID共享
+  - 苹果ID共享
+  - Shadowrocket
+  - 免费Apple ID
+  - 小火箭下载
+  - 科学上网
+  - 2026苹果ID
+  - 免费节点
 head:
   - - meta
     - name: keywords
@@ -85,6 +98,8 @@ head:
 ---
 
 # 2026 免费苹果ID (支持Shadowrocket下载) 与小火箭共享账号
+
+![Apple ID](https://i.ibb.co/V0QLjfy5/apple-ID.jpg)
 
 提供每30分钟自动更新的 **日区/港/台/美区苹果ID** 与免费 **小火箭VPN节点**。可用于 **Shadowrocket下载（小火箭下载）** 无需充值。账号稳定更新维护，内容一键复制。
 
