@@ -135,8 +135,8 @@ head:
       <span class="update-time">检测: ${card.time.replace('2026-05-10', '').trim()}</span>
     </div>
     <div class="card-actions">
-      <button class="btn-copy" onclick="copyToClipboard('${card.email}', this)">复制账号</button>
-      <button class="btn-copy" onclick="copyToClipboard('${card.password}', this)">复制密码</button>
+      <button class="btn-copy" data-copy-text="${card.email}">复制账号</button>
+      <button class="btn-copy" data-copy-text="${card.password}">复制密码</button>
     </div>
   </div>`;
         });
@@ -237,39 +237,61 @@ html[data-theme='dark'] .account-card:hover {
 }
 </style>
 
-<script>
-function copyToClipboard(text, btn) {
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(() => {
-            showSuccess(btn);
-        });
+<script setup>
+import { onMounted, onUnmounted } from 'vue';
+
+const clickHandler = (e) => {
+  if (e.target && e.target.matches('.btn-copy')) {
+    const text = e.target.getAttribute('data-copy-text');
+    if (!text) return;
+    
+    const btn = e.target;
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(() => showSuccess(btn));
     } else {
-        // Fallback
-        let textArea = document.createElement("textarea");
-        textArea.value = text;
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        try {
-            document.execCommand('copy');
-            showSuccess(btn);
-        } catch (err) {
-            console.error('Fallback: Oops, unable to copy', err);
-        }
-        document.body.removeChild(textArea);
+      let textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-999999px";
+      textArea.style.top = "-999999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showSuccess(btn);
+      } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+      }
+      textArea.remove();
     }
-}
-function showSuccess(btn) {
-    const originalText = btn.innerText;
-    btn.innerText = '已复制!';
-    btn.style.color = '#10b981';
-    btn.style.borderColor = '#10b981';
-    setTimeout(() => {
-        btn.innerText = originalText;
-        btn.style.color = '';
-        btn.style.borderColor = '';
-    }, 2000);
-}
+  }
+};
+
+const showSuccess = (btn) => {
+  const originalText = btn.innerText;
+  if (originalText === '已复制!') return;
+  btn.innerText = '已复制!';
+  btn.style.color = '#10b981';
+  btn.style.borderColor = '#10b981';
+  setTimeout(() => {
+      btn.innerText = originalText;
+      btn.style.color = '';
+      btn.style.borderColor = '';
+  }, 2000);
+};
+
+onMounted(() => {
+  if (typeof document !== 'undefined') {
+    document.addEventListener('click', clickHandler);
+  }
+});
+
+onUnmounted(() => {
+  if (typeof document !== 'undefined') {
+    document.removeEventListener('click', clickHandler);
+  }
+});
 </script>
 
 ---
