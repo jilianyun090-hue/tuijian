@@ -15,26 +15,12 @@ async function fetchAppleId() {
         });
         const html = response.data;
 
-        // 提取共享账号区域
-        // 根据分析，区域开始于 🎁 Apple ID与小火箭共享账号，结束于 id="nodeSharingSection"
-        const sectionMatch = html.match(/🎁 Apple ID与小火箭共享账号[\s\S]*?<div class="accounts-grid" id="accountsGrid">([\s\S]*?)<\/div>\s*<div[^>]*id="nodeSharingSection"/);
-        
-        if (!sectionMatch) {
-            console.error('未找到账号区域。请检查目标网站结构是否发生变化。');
-            return;
-        }
-
-        const gridHtml = sectionMatch[1];
-        
-        // 改进的正则匹配每个 account-card
-        // 每个 card 内部有多个 div，我们需要匹配到闭合的那个
-        // 观察发现每个 card 结束于 <div class="update-time">...</div> 之后的第一个 </div>
-        const cardRegex = /<div class="account-card">([\s\S]*?<div class="update-time">[\s\S]*?<\/div>\s*<\/div>)/g;
-        
+        // 改进的提取逻辑：直接按 card 分割并提取，避免依赖可能变化的父容器结构
+        const parts = html.split('<div class="account-card">');
         const cards = [];
-        let match;
-        while ((match = cardRegex.exec(gridHtml)) !== null) {
-            const cardHtml = match[1];
+        
+        for (let i = 1; i < parts.length; i++) {
+            const cardHtml = parts[i];
             
             // 提取账号 (从 copyText 提取)
             const emailMatch = cardHtml.match(/copyText\('([^']+)', this\)">复制账号/);
@@ -59,9 +45,7 @@ async function fetchAppleId() {
         }
 
         if (cards.length === 0) {
-            console.warn('未解析到任何账号，请检查正则表达式。');
-            // 输出一小段 HTML 供调试
-            // console.log('DEBUG HTML:', gridHtml.substring(0, 500));
+            console.error('未解析到任何账号，请检查目标网站结构是否发生变化。');
             return;
         }
 
