@@ -22,9 +22,6 @@ rem )
 echo 构建已跳过
 echo.
 
-echo 第一步: 获取最新的 Apple ID 共享账号...
-node scripts/fetch_apple_id.js
-echo.
 
 echo 第二步: 检查文件变更并暂存...
 git status --short
