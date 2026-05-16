@@ -6,7 +6,7 @@ export default defineUserConfig({
     base: "/",
     lang: "zh-CN",
     title: "道一博客",
-    description: "2026年科学上网机场推荐指南，精选翻墙机场评测、流媒体解锁教程、AI工具使用攻略与账号合租方案",
+    description: "2026年最新科学上网机场推荐与翻墙指南。我们为您精选稳定高速的翻墙机场评测，提供 Netflix、Disney+、YouTube Premium 等流媒体解锁教程与合租方案，并分享 ChatGPT、Claude、Midjourney 等前沿 AI 工具使用攻略。致力于帮助用户突破网络封锁，畅享全球互联网自由，获取最前沿的数字技术资讯与资源共享服务。",
     head: [
         ["link", { rel: "icon", href: "/favicon.png" }],
         // Umami 实时统计

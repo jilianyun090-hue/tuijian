@@ -7,17 +7,17 @@ export default hopeTheme({
     locales: {
         "/": {
             blogLocales: {
-                article: "2026 科学上网机场推荐与流媒体账号合租全部文章列表",
-                articleList: "科学上网机场推荐与使用教程资讯文章完整索引",
-                category: "文章分类导航：机场推荐、AI工具、流媒体与账号合租完整指南",
-                categoryList: "科学上网相关文章全部分类导航 - 翻墙机场知识库",
-                tag: "科学上网与机场推荐完整标签分类索引 - 快速查找相关技巧教程",
-                tagList: "2026年科学上网全部文章标签索引 - 机场、翻墙、AI工具标签汇总",
-                timeline: "科学上网机场推荐最新发布时间轴 - 2026年持续更新的翻墙方案集合",
-                timelineList: "2026 最新科学上网与机场推荐文章发布时间线完整索引",
-                star: "精选推荐文章合集 - 科学上网与翻墙机场最佳实战指南与进阶技巧",
-                slides: "技术分享与培训幻灯片展示",
-                encrypt: "需要授权查看的加密保护内容",
+                article: "2026 科学上网机场推荐与流媒体账号合租全部文章列表 - 提供最新最全的翻墙节点、流媒体解锁方案及AI工具使用教程",
+                articleList: "科学上网机场推荐与使用教程资讯文章完整索引 - 收录2026年最新稳定翻墙机场评测、Netflix/Disney+流媒体解锁指南与人工智能工具实战攻略",
+                category: "文章分类导航：机场推荐、AI工具、流媒体与账号合租完整指南 - 按照主题精细分类，助您快速找到最适合的翻墙方案与数字服务资源",
+                categoryList: "科学上网相关文章全部分类导航 - 翻墙机场知识库 - 涵盖节点推荐、网络代理知识、流媒体解锁、AI工具实操等各大核心板块",
+                tag: "科学上网与机场推荐完整标签分类索引 - 快速查找相关技巧教程 - 通过标签精准定位您需要的翻墙节点类型、流媒体平台或AI人工智能工具",
+                tagList: "2026年科学上网全部文章标签索引 - 机场、翻墙、AI工具标签汇总 - 快速索引全站所有热门标签内容，助您高效检索所需技术指南",
+                timeline: "科学上网机场推荐最新发布时间轴 - 2026年持续更新的翻墙方案集合 - 按时间线记录我们发布的每一次机场评测、网络代理教程与优质资源分享",
+                timelineList: "2026 最新科学上网与机场推荐文章发布时间线完整索引 - 跟随时间线回顾历次更新的顶级机场推荐、流媒体解锁技术及AI工具实操案例",
+                star: "精选推荐文章合集 - 科学上网与翻墙机场最佳实战指南与进阶技巧 - 为您精选年度最具价值的高性价比机场评测、流媒体合租避坑指南及干货",
+                slides: "技术分享与培训幻灯片展示 - 关于科学上网、网络代理配置及流媒体解锁的技术演示文稿",
+                encrypt: "需要授权查看的加密保护内容 - 包含专属的节点福利、深度机场评测数据及高级翻墙进阶教程",
             },
         },
     },
@@ -186,6 +186,28 @@ export default hopeTheme({
     // 关闭不必要的图标插件
     plugins: {
         blog: true,
+        seo: {
+            customHead: (head, page, app) => {
+                // 为自动生成的博客聚合页面（标签、分类、文章列表等）提供独特且足够长的 meta description
+                if (page.path.startsWith('/tag/') || page.path.startsWith('/category/') || page.path.startsWith('/article/') || page.path.startsWith('/timeline/') || page.path.startsWith('/star/')) {
+                    const desc = `这是【${page.title}】的相关内容归档。2026年最新科学上网机场推荐与翻墙指南，为您精选稳定高速的翻墙机场评测，提供 Netflix、Disney+ 等流媒体解锁教程与合租方案，分享 ChatGPT 等前沿 AI 工具使用攻略。`;
+                    
+                    const metaIndex = head.findIndex(item => item[0] === 'meta' && item[1].name === 'description');
+                    if (metaIndex !== -1) {
+                        head[metaIndex][1].content = desc;
+                    } else {
+                        head.push(['meta', { name: 'description', content: desc }]);
+                    }
+                    
+                    const ogIndex = head.findIndex(item => item[0] === 'meta' && item[1].property === 'og:description');
+                    if (ogIndex !== -1) {
+                        head[ogIndex][1].content = desc;
+                    } else {
+                        head.push(['meta', { property: 'og:description', content: desc }]);
+                    }
+                }
+            }
+        },
         mdEnhance: {
             container: true,
         },
