@@ -6,7 +6,7 @@ head:
   - - meta
     - name: keywords
       content: 机场推荐, 科学上网, 翻墙机场, 高性价比机场, IEPL专线, IPLC专线, 3元机场, 学生党机场, AI工具教程, 流媒体合租, 2026机场推荐, VPN推荐, 翻墙教程, Clash Verge, V2Ray, 节点购买, Netflix解锁, 代理软件, 科学上网工具, 路由器翻墙, 流媒体解锁, ChatGPT, 翻墙指南, 最新机场测评, 免费节点
-heroImage: /globe.png
+heroImage: /globe-transparent.png
 heroText: 科学上网机场推荐
 tagline: 精选稳定专线机场，为新手与 AI 研究者提供可靠的翻墙解决方案。全线解锁流媒体，拒绝跑路，畅享无界网络。
 actions:
@@ -37,13 +37,9 @@ footer: '<a href=”/airport/”>机场推荐</a> | <a href=”/ai/”>AI指南<
 
 ## 如何选择靠谱的科学上网机场？
 
-很多新手在选择翻墙机场时，容易被虚假测速图和夸张宣传误导。作为深耕多年的用户，我们总结了以下核心要点：
-
----
+很多新手在选择翻墙机场时,容易被虚假测速图和夸张宣传误导。作为深耕多年的用户,我们总结了以下核心要点：
 
 <AirportComparison />
-
----
 
 ### 机场线路类型对比
 
@@ -57,11 +53,12 @@ footer: '<a href=”/airport/”>机场推荐</a> | <a href=”/ai/”>AI指南<
 
 ### 防跑路避坑指南
 
-- **首选月付** — 初次使用先月付测试，满意后再年付
+- **首选月付** — 初次使用先月付测试,满意后再年付
 - **多订阅备份** — 准备一个备用机场应急
 - **选老牌商家** — 优先2年以上运营时间的稳定商家
+
+<NewbieFloatButton />
 
 <SchemaOrg />
 <!-- 暂时禁用新手引导浮窗 -->
 <!-- <NewbieGuide /> -->
-<NewbieFloatButton />

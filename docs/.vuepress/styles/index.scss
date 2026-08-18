@@ -75,6 +75,28 @@ body {
   background: var(--bg-cream);
 }
 
+/* 减少分割线周围的空白间距 */
+hr {
+  margin: 1.5rem 0 !important;
+}
+
+/* 减少标题下方间距 */
+.theme-hope-content h2,
+.vp-page h2 {
+  margin-bottom: 0.875rem !important;
+}
+
+.theme-hope-content h3,
+.vp-page h3 {
+  margin-bottom: 0.625rem !important;
+}
+
+/* 减少段落间距 */
+.theme-hope-content p,
+.vp-page p {
+  margin-bottom: 0.875rem !important;
+}
+
 /* 强制背景为温暖奶油色 */
 .theme-container,
 .vp-page,
@@ -203,6 +225,35 @@ nav a.route-link-active::after,
    强制覆盖所有品牌色元素
    ============================================================ */
 
+/* 全站减少分隔线下方空白 */
+hr,
+.divider,
+.theme-hope-content hr,
+.vp-page hr {
+  margin: 1.5rem 0 1.5rem 0 !important;
+  border: none !important;
+  border-top: 1px solid var(--border-color) !important;
+}
+
+/* 标题上方间距优化 */
+.theme-hope-content h2,
+.vp-page h2 {
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.theme-hope-content h3,
+.vp-page h3 {
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.8rem !important;
+}
+
+/* 首页 Hero 图标透明背景适配 */
+.vp-hero-image img {
+  background: transparent !important;
+  mix-blend-mode: normal !important;
+}
+
 /* 首页英雄按钮（科学上网）— 完全圆角胶囊样式 */
 a.vp-hero-action.primary,
 .vp-hero-action.primary,
@@ -329,20 +380,20 @@ a.route-link-active {
       font-weight: 300 !important;
       line-height: 1.7 !important;
       max-width: 560px !important;
-      margin: 0 auto 2.5rem !important;
+      margin: 0 auto 2rem !important;
     }
   }
 }
 
 /* Hero 区域整体 */
 .vp-hero {
-  padding-top: 4rem !important;
-  padding-bottom: 5rem !important;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
 }
 
 /* 首页按钮容器 */
 .vp-hero-actions {
-  margin-top: 2.5rem !important;
+  margin-top: 2rem !important;
   gap: 1rem !important;
 
   .vp-button {
@@ -361,7 +412,7 @@ a.route-link-active {
 
 /* --- Features 卡片（极简卡片风格）--- */
 .vp-feature-wrapper {
-  padding: 3rem 0 !important;
+  padding: 2rem 0 !important;
 }
 
 .vp-feature-item,
@@ -452,42 +503,50 @@ a.route-link-active {
 
   h2 {
     font-size: 1.875rem !important;
-    margin-top: 3.5rem !important;
-    margin-bottom: 1.5rem !important;
-    padding-bottom: 0.625rem !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+    padding-bottom: 0.5rem !important;
     border-bottom: 1px solid var(--border-color) !important;
     line-height: 1.3 !important;
   }
 
   h3 {
     font-size: 1.5rem !important;
-    margin-top: 2.5rem !important;
-    margin-bottom: 1.25rem !important;
+    margin-top: 1.25rem !important;
+    margin-bottom: 0.625rem !important;
     line-height: 1.35 !important;
+  }
+
+  /* 分隔线样式优化 - 减少上下间距 */
+  hr {
+    margin: 1rem 0 !important;
+    border: none !important;
+    border-top: 1px solid var(--border-color) !important;
+    opacity: 0.6 !important;
   }
 
   h4 {
     font-size: 1.25rem !important;
-    margin-top: 2rem !important;
-    margin-bottom: 1rem !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.875rem !important;
   }
 
   p {
     font-weight: 300 !important;
     line-height: 1.85 !important;
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 1.25rem !important;
     font-size: 1rem !important;
     color: var(--text-main) !important;
   }
 
   ul, ol {
-    margin: 1.5rem 0 !important;
+    margin: 1.25rem 0 !important;
     padding-left: 1.75rem !important;
 
     li {
       font-weight: 300 !important;
       line-height: 1.85 !important;
-      margin-bottom: 0.75rem !important;
+      margin-bottom: 0.625rem !important;
       color: var(--text-main) !important;
     }
   }
@@ -516,13 +575,13 @@ a.route-link-active {
   }
 
   pre {
-    margin: 2rem 0 !important;
+    margin: 1.5rem 0 !important;
     border-radius: 12px !important;
     border: 1px solid var(--border-color) !important;
   }
 
   table {
-    margin: 2rem 0 !important;
+    margin: 1.5rem 0 !important;
     border-collapse: collapse !important;
     width: 100% !important;
     border: 1px solid var(--border-color) !important;
@@ -563,7 +622,7 @@ a.route-link-active {
   /* 图片优化 */
   img {
     border-radius: 12px !important;
-    margin: 2rem 0 !important;
+    margin: 1.5rem 0 !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
   }
 
@@ -571,7 +630,7 @@ a.route-link-active {
   hr {
     border: none !important;
     border-top: 1px solid var(--border-color) !important;
-    margin: 3rem 0 !important;
+    margin: 1rem 0 !important;
   }
 }
 
@@ -946,7 +1005,7 @@ a.route-link-active {
   line-height: 1.3 !important;
   letter-spacing: -0.3px !important;
   margin: 2rem 0 1.25rem !important;
-  padding-top: 1.5rem !important;
+  padding-top: 0.75rem !important;
   border-top: 1px solid var(--border-color) !important;
 }
 
@@ -1020,7 +1079,7 @@ a.route-link-active {
   border-left: 3px solid var(--brand-color) !important;
   background: var(--brand-light) !important;
   padding: 1.25rem 1.5rem !important;
-  margin: 2rem 0 !important;
+  margin: 1.5rem 0 !important;
   border-radius: 0 8px 8px 0 !important;
   font-style: italic !important;
   color: var(--text-muted) !important;
@@ -1047,7 +1106,7 @@ a.route-link-active {
   background: #1F2421 !important;
   border-radius: 8px !important;
   padding: 1.5rem !important;
-  margin: 1.75rem 0 !important;
+  margin: 1.5rem 0 !important;
   overflow-x: auto !important;
   border: 1px solid var(--border-color) !important;
 }
@@ -1057,7 +1116,7 @@ a.route-link-active {
 .vp-page hr {
   border: none !important;
   border-top: 1px solid var(--border-color) !important;
-  margin: 3rem 0 !important;
+  margin: 1rem 0 !important;
 }
 
 /* 图片优化 */
@@ -1065,7 +1124,7 @@ a.route-link-active {
 .vp-page img {
   border-radius: 12px !important;
   box-shadow: 0 4px 16px rgba(31, 36, 33, 0.08) !important;
-  margin: 2rem 0 !important;
+  margin: 1.5rem 0 !important;
   max-width: 100% !important;
   height: auto !important;
 }
