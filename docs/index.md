@@ -62,5 +62,6 @@ footer: '<a href=”/airport/”>机场推荐</a> | <a href=”/ai/”>AI指南<
 - **选老牌商家** — 优先2年以上运营时间的稳定商家
 
 <SchemaOrg />
-<NewbieGuide />
+<!-- 暂时禁用新手引导浮窗 -->
+<!-- <NewbieGuide /> -->
 <NewbieFloatButton />
