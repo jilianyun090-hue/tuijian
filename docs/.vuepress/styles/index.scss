@@ -86,14 +86,32 @@ main {
 /* --- 导航栏（极简毛玻璃效果）--- */
 .vp-navbar {
   border-bottom: 1px solid var(--border-color) !important;
-  box-shadow: none !important;
-  background: rgba(255, 255, 255, 0.85) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.02) !important;
+  background: rgba(251, 249, 245, 0.88) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  padding: 0.75rem 0 !important;
+  transition: all 0.3s ease !important;
 }
 
 [data-theme="dark"] .vp-navbar {
-  background: rgba(31, 36, 33, 0.85) !important;
+  background: rgba(31, 36, 33, 0.88) !important;
+}
+
+/* 导航栏链接精细调整 */
+.vp-navbar .vp-nav-link {
+  font-weight: 400 !important;
+  font-size: 0.9375rem !important;
+  color: var(--text-muted) !important;
+  transition: all 0.2s ease !important;
+  padding: 0.5rem 0.875rem !important;
+  border-radius: 999px !important;
+  letter-spacing: 0.2px !important;
+
+  &:hover {
+    color: var(--brand-color) !important;
+    background: var(--brand-light) !important;
+  }
 }
 
 /* 导航栏激活项颜色强制覆盖 */
@@ -104,6 +122,9 @@ main {
 .vp-navbar a.route-link-active,
 .vp-navbar a.router-link-active {
   color: var(--brand-color) !important;
+  background: var(--brand-light) !important;
+  font-weight: 500 !important;
+  border-radius: 999px !important;
 }
 
 /* 导航激活下划线 */
@@ -345,17 +366,37 @@ a.route-link-active {
 
 .vp-feature-item,
 .vp-features .vp-feature-item {
-  background: var(--bg-soft) !important;
+  background: #FFFFFF !important;
   border: 1px solid var(--border-color) !important;
-  border-radius: 12px !important;
-  padding: 2rem !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-radius: 16px !important;
+  padding: 2rem 1.75rem !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
   box-shadow: none !important;
+  position: relative;
+  overflow: hidden;
+
+  /* 顶部装饰线 */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--brand-color), #D4956C);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
 
   &:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 8px 24px rgba(31, 36, 33, 0.08) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 32px rgba(196, 97, 47, 0.12), 0 2px 8px rgba(196, 97, 47, 0.06) !important;
     border-color: var(--brand-color) !important;
+    background: #FFFFFF !important;
+
+    &::before {
+      opacity: 1;
+    }
   }
 
   .vp-feature-icon,
@@ -363,31 +404,38 @@ a.route-link-active {
   .icon {
     color: var(--brand-color) !important;
     font-size: 2rem !important;
-    margin-bottom: 1rem !important;
+    margin-bottom: 1.125rem !important;
   }
 
   h2,
   .vp-feature-title {
+    font-family: 'Fraunces', 'Noto Serif SC', serif !important;
     color: var(--text-main) !important;
     font-weight: 500 !important;
     font-size: 1.125rem !important;
-    margin-bottom: 0.75rem !important;
+    margin-bottom: 0.625rem !important;
     border: none !important;
     padding: 0 !important;
+    letter-spacing: -0.01em !important;
   }
 
   p,
   .vp-feature-details {
     color: var(--text-muted) !important;
     font-weight: 300 !important;
-    line-height: 1.6 !important;
+    line-height: 1.65 !important;
     margin: 0 !important;
+    font-size: 0.9375rem !important;
   }
 }
 
-/* --- 内容页面排版优化 --- */
+/* --- 内容页面排版优化（增加呼吸感）--- */
 .theme-hope-content,
 .vp-page-content {
+  max-width: 760px !important;
+  margin: 0 auto !important;
+  padding: 0 1.5rem !important;
+
   h1, h2, h3, h4, h5, h6 {
     font-family: "Fraunces", "Noto Serif SC", Georgia, serif !important;
     font-weight: 400 !important;
@@ -398,196 +446,391 @@ a.route-link-active {
   h1 {
     font-size: 2.5rem !important;
     margin-top: 0 !important;
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 2rem !important;
+    line-height: 1.25 !important;
   }
 
   h2 {
-    font-size: 2rem !important;
-    margin-top: 3rem !important;
-    margin-bottom: 1.25rem !important;
-    padding-bottom: 0.5rem !important;
+    font-size: 1.875rem !important;
+    margin-top: 3.5rem !important;
+    margin-bottom: 1.5rem !important;
+    padding-bottom: 0.625rem !important;
     border-bottom: 1px solid var(--border-color) !important;
+    line-height: 1.3 !important;
   }
 
   h3 {
     font-size: 1.5rem !important;
-    margin-top: 2rem !important;
-    margin-bottom: 1rem !important;
+    margin-top: 2.5rem !important;
+    margin-bottom: 1.25rem !important;
+    line-height: 1.35 !important;
   }
 
   h4 {
     font-size: 1.25rem !important;
-    margin-top: 1.5rem !important;
-    margin-bottom: 0.75rem !important;
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
   }
 
   p {
     font-weight: 300 !important;
-    line-height: 1.8 !important;
-    margin-bottom: 1.25rem !important;
-    color: var(--text-main) !important;
-  }
-
-  strong {
-    font-weight: 500 !important;
+    line-height: 1.85 !important;
+    margin-bottom: 1.5rem !important;
+    font-size: 1rem !important;
     color: var(--text-main) !important;
   }
 
   ul, ol {
-    padding-left: 1.5rem !important;
-    margin-bottom: 1.25rem !important;
+    margin: 1.5rem 0 !important;
+    padding-left: 1.75rem !important;
 
     li {
-      margin-bottom: 0.5rem !important;
-      line-height: 1.7 !important;
+      font-weight: 300 !important;
+      line-height: 1.85 !important;
+      margin-bottom: 0.75rem !important;
+      color: var(--text-main) !important;
     }
   }
 
   blockquote {
-    border-left: 3px solid var(--brand-color) !important;
     background: var(--bg-soft) !important;
-    padding: 1rem 1.5rem !important;
-    margin: 1.5rem 0 !important;
+    border-left: 3px solid var(--brand-color) !important;
     border-radius: 0 8px 8px 0 !important;
+    padding: 1.25rem 1.5rem !important;
+    margin: 2rem 0 !important;
+    font-style: italic;
     color: var(--text-muted) !important;
+
+    p {
+      margin-bottom: 0 !important;
+    }
   }
 
-  code {
+  code:not(pre code) {
     background: var(--bg-soft) !important;
     color: var(--brand-color) !important;
-    padding: 0.2rem 0.4rem !important;
+    padding: 0.25rem 0.5rem !important;
     border-radius: 4px !important;
-    font-size: 0.9em !important;
+    font-size: 0.875em !important;
+    font-weight: 400 !important;
   }
 
   pre {
-    background: var(--bg-soft) !important;
+    margin: 2rem 0 !important;
+    border-radius: 12px !important;
     border: 1px solid var(--border-color) !important;
-    border-radius: 8px !important;
-    padding: 1.5rem !important;
-    margin: 1.5rem 0 !important;
-    overflow-x: auto !important;
-
-    code {
-      background: transparent !important;
-      color: inherit !important;
-      padding: 0 !important;
-    }
   }
-}
 
-/* --- 表格样式（极简）--- */
-.theme-hope-content table,
-.vp-page-content table,
-table {
-  border-collapse: collapse !important;
-  width: 100% !important;
-  margin: 1.5rem 0 !important;
-  background: var(--bg-soft) !important;
-  border-radius: 8px !important;
-  overflow: hidden !important;
+  table {
+    margin: 2rem 0 !important;
+    border-collapse: collapse !important;
+    width: 100% !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
 
-  thead {
-    background: var(--brand-light) !important;
+    thead {
+      background: var(--bg-soft) !important;
+    }
 
     th {
-      padding: 1rem !important;
-      text-align: left !important;
       font-weight: 500 !important;
-      color: var(--text-main) !important;
+      padding: 1rem 1.25rem !important;
+      text-align: left !important;
       border-bottom: 2px solid var(--border-color) !important;
-    }
-
-    tr {
-      border-top: 1px solid var(--border-color);
-    }
-  }
-
-  tbody {
-    tr {
-      border-bottom: 1px solid var(--border-color) !important;
-      transition: background 0.2s !important;
-
-      &:hover {
-        background: rgba(196, 97, 47, 0.03) !important;
-      }
-
-      &:last-child {
-        border-bottom: none !important;
-      }
+      color: var(--text-main) !important;
+      font-size: 0.9375rem !important;
     }
 
     td {
-      padding: 0.875rem 1rem !important;
+      padding: 1rem 1.25rem !important;
+      border-bottom: 1px solid var(--border-color) !important;
       color: var(--text-main) !important;
-      line-height: 1.7;
+      line-height: 1.7 !important;
+      font-size: 0.9375rem !important;
+      font-weight: 300 !important;
     }
+
+    tr:last-child td {
+      border-bottom: none !important;
+    }
+
+    tr:hover {
+      background: var(--bg-soft) !important;
+    }
+  }
+
+  /* 图片优化 */
+  img {
+    border-radius: 12px !important;
+    margin: 2rem 0 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+  }
+
+  /* 分隔线 */
+  hr {
+    border: none !important;
+    border-top: 1px solid var(--border-color) !important;
+    margin: 3rem 0 !important;
   }
 }
 
-/* 机场推荐彩色行*/
+/* --- 机场卡片样式重设（极简温暖风格）--- */
+
+/* 机场推荐表格整体样式 */
+.theme-hope-content table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 12px rgba(31, 36, 33, 0.06) !important;
+  background: var(--bg-card) !important;
+}
+
+.theme-hope-content thead {
+  background: linear-gradient(135deg, #F7F4EF 0%, #FBF9F5 100%) !important;
+}
+
+.theme-hope-content thead th {
+  color: var(--text-main) !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  letter-spacing: 0.5px !important;
+  padding: 1rem 1.25rem !important;
+  border-bottom: 2px solid var(--border-color) !important;
+  text-transform: uppercase !important;
+}
+
+.theme-hope-content tbody tr {
+  transition: all 0.25s ease !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+.theme-hope-content tbody tr:hover {
+  background: var(--brand-light) !important;
+  transform: translateX(2px) !important;
+}
+
+.theme-hope-content tbody td {
+  padding: 1rem 1.25rem !important;
+  color: var(--text-main) !important;
+  font-size: 0.9375rem !important;
+  vertical-align: middle !important;
+}
+
+/* 高亮推荐行（温暖陶土色强调）*/
 .airport-row-hot {
-  background: linear-gradient(90deg, var(--brand-light) 0%, transparent 100%);
-  font-weight: 500;
+  background: linear-gradient(90deg, var(--brand-light) 0%, transparent 100%) !important;
+  font-weight: 500 !important;
+  position: relative !important;
 }
 
 .airport-row-hot td:first-child {
-  border-left: 3px solid var(--brand-color);
+  border-left: 3px solid var(--brand-color) !important;
+  padding-left: 1rem !important;
 }
 
-/* 机场推荐徽章系统 */
+.airport-row-hot:hover {
+  background: linear-gradient(90deg, rgba(196, 97, 47, 0.12) 0%, transparent 100%) !important;
+}
+
+/* 机场徽章系统 - 温暖胶囊设计 */
 .airport-badge {
-  display: inline-block;
-  padding: 0.125rem 0.5rem;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  border-radius: 999px;
-  margin-left: 0.375rem;
-  white-space: nowrap;
-  vertical-align: middle;
+  display: inline-block !important;
+  padding: 0.35rem 0.875rem !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  border-radius: 999px !important;
+  margin-left: 0.5rem !important;
+  white-space: nowrap !important;
+  vertical-align: middle !important;
+  transition: all 0.2s ease !important;
+  letter-spacing: 0.3px !important;
 }
 
+/* 推荐徽章 - 陶土色 */
 .badge-recommend {
-  background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
-  color: #fff;
-  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+  background: var(--brand-color) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 6px rgba(196, 97, 47, 0.25) !important;
 }
 
-.badge-hot {
-  background: linear-gradient(135deg, #f59e0b, #f97316);
-  color: #fff;
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+.badge-recommend:hover {
+  background: var(--brand-hover) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 10px rgba(196, 97, 47, 0.3) !important;
 }
 
-.badge-value {
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: #fff;
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+/* IPLC/IEPL 专线徽章 - 温暖琥珀色 */
+.badge-iplc,
+.badge-iepl {
+  background: linear-gradient(135deg, #D4A574 0%, #C4955E 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 6px rgba(212, 165, 116, 0.25) !important;
 }
 
+/* 原生IP徽章 - 柔和绿松石 */
+.badge-native-ip {
+  background: linear-gradient(135deg, #6B9B7F 0%, #5A8A6E 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 6px rgba(107, 155, 127, 0.25) !important;
+}
+
+/* 流媒体解锁徽章 - 温暖珊瑚粉 */
+.badge-streaming {
+  background: linear-gradient(135deg, #E89B8A 0%, #D88A79 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 6px rgba(232, 155, 138, 0.25) !important;
+}
+
+/* AI解锁徽章 - 深暖灰蓝 */
+.badge-ai {
+  background: linear-gradient(135deg, #7A8FA3 0%, #697E92 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 6px rgba(122, 143, 163, 0.25) !important;
+}
+
+/* 跑路警告徽章 - 温暖砖红色（更强警示）*/
+.badge-warning,
+.badge-paolu {
+  background: linear-gradient(135deg, #D93636 0%, #C42E2E 100%) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 3px 10px rgba(217, 54, 54, 0.35) !important;
+  animation: pulse-warning 2s ease-in-out infinite !important;
+}
+
+@keyframes pulse-warning {
+  0%, 100% {
+    box-shadow: 0 3px 10px rgba(217, 54, 54, 0.35);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(217, 54, 54, 0.5);
+    transform: scale(1.02);
+  }
+}
+
+/* 新机场徽章 - 淡雅薰衣草 */
 .badge-new {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-  color: #fff;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+  background: linear-gradient(135deg, #A393BF 0%, #9282AE 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 6px rgba(163, 147, 191, 0.25) !important;
 }
 
-.badge-stable {
-  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-  color: #fff;
-  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+/* 高性价比徽章 - 温暖金色 */
+.badge-value {
+  background: linear-gradient(135deg, #D4A868 0%, #C4985A 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 6px rgba(212, 168, 104, 0.25) !important;
 }
 
-.badge-danger {
-  background: linear-gradient(135deg, #dc2626, #b91c1c);
-  color: #fff;
-  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
-  animation: danger-blink 1.5s ease-in-out infinite;
+/* 机场套餐表格优化 */
+.theme-hope-content table tbody tr:last-child {
+  border-bottom: none !important;
 }
 
-@keyframes danger-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
+.theme-hope-content table a {
+  color: var(--brand-color) !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  border-bottom: 1px solid transparent !important;
 }
+
+.theme-hope-content table a:hover {
+  color: var(--brand-hover) !important;
+  border-bottom-color: var(--brand-hover) !important;
+}
+
+/* 机场对比组件样式优化 */
+.airport-comparison {
+  margin: 2.5rem 0 !important;
+  padding: 2rem !important;
+  background: var(--bg-card) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 2px 16px rgba(31, 36, 33, 0.06) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.airport-comparison h3 {
+  color: var(--text-main) !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1.5rem !important;
+  font-family: 'Fraunces', 'Noto Serif SC', serif !important;
+}
+
+/* 机场卡片列表（如果存在）*/
+.airport-card {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px !important;
+  padding: 1.75rem !important;
+  margin-bottom: 1.5rem !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 8px rgba(31, 36, 33, 0.04) !important;
+}
+
+.airport-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 24px rgba(31, 36, 33, 0.1) !important;
+  border-color: var(--brand-color) !important;
+}
+
+.airport-card h3 {
+  color: var(--text-main) !important;
+  font-family: 'Fraunces', 'Noto Serif SC', serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 1rem !important;
+}
+
+.airport-card .price {
+  color: var(--brand-color) !important;
+  font-size: 1.75rem !important;
+  font-weight: 700 !important;
+  margin: 0.75rem 0 !important;
+}
+
+.airport-card .features {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 1rem 0 !important;
+}
+
+.airport-card .features li {
+  padding: 0.5rem 0 !important;
+  color: var(--text-muted) !important;
+  font-size: 0.9375rem !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+.airport-card .features li:last-child {
+  border-bottom: none !important;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .theme-hope-content table {
+    font-size: 0.875rem !important;
+  }
+
+  .theme-hope-content tbody td,
+  .theme-hope-content thead th {
+    padding: 0.75rem 0.875rem !important;
+  }
+
+  .airport-badge {
+    font-size: 0.6875rem !important;
+    padding: 0.25rem 0.625rem !important;
+  }
+
+  .airport-card {
+    padding: 1.25rem !important;
+  }
+}
+
+/* --- 旧样式清理完成 --- */
 
 /* --- 自定义容器 --- */
 .hint-container,
@@ -645,25 +888,215 @@ table {
   }
 }
 
-/* --- 页脚（极简）--- */
+/* --- 页脚（极简温暖风格）--- */
 .vp-footer,
 .vp-footer-wrapper {
-  background: var(--bg-soft) !important;
+  background: linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-soft) 100%) !important;
   border-top: 1px solid var(--border-color) !important;
-  padding: 2.5rem 0 !important;
-  margin-top: 4rem !important;
+  padding: 3rem 0 2rem !important;
+  margin-top: 5rem !important;
   color: var(--text-muted) !important;
   font-weight: 300 !important;
-  font-size: 0.8125rem !important;
+  font-size: 0.875rem !important;
+  text-align: center !important;
 
   a {
     color: var(--brand-color) !important;
     text-decoration: none !important;
-    transition: color 0.2s !important;
+    transition: all 0.2s ease !important;
+    border-bottom: 1px solid transparent !important;
 
     &:hover {
       color: var(--brand-hover) !important;
+      border-bottom-color: var(--brand-hover) !important;
     }
+  }
+
+  p {
+    margin: 0.5rem 0 !important;
+    line-height: 1.8 !important;
+  }
+}
+
+[data-theme="dark"] .vp-footer,
+[data-theme="dark"] .vp-footer-wrapper {
+  background: linear-gradient(180deg, #1F2421 0%, #161917 100%) !important;
+}
+
+/* --- 全局排版优化（增加呼吸感）--- */
+
+/* 标题层级 - Editorial Serif 风格 */
+.theme-hope-content h1,
+.vp-page h1 {
+  font-family: 'Fraunces', 'Noto Serif SC', serif !important;
+  font-weight: 700 !important;
+  font-size: 2.5rem !important;
+  color: var(--text-main) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.5px !important;
+  margin: 2.5rem 0 1.5rem !important;
+}
+
+.theme-hope-content h2,
+.vp-page h2 {
+  font-family: 'Fraunces', 'Noto Serif SC', serif !important;
+  font-weight: 600 !important;
+  font-size: 2rem !important;
+  color: var(--text-main) !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.3px !important;
+  margin: 2rem 0 1.25rem !important;
+  padding-top: 1.5rem !important;
+  border-top: 1px solid var(--border-color) !important;
+}
+
+.theme-hope-content h3,
+.vp-page h3 {
+  font-family: 'Fraunces', 'Noto Serif SC', serif !important;
+  font-weight: 600 !important;
+  font-size: 1.5rem !important;
+  color: var(--text-main) !important;
+  line-height: 1.4 !important;
+  margin: 1.75rem 0 1rem !important;
+}
+
+.theme-hope-content h4,
+.vp-page h4 {
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  color: var(--text-main) !important;
+  line-height: 1.5 !important;
+  margin: 1.5rem 0 0.875rem !important;
+}
+
+/* 段落间距优化 */
+.theme-hope-content p,
+.vp-page p {
+  margin: 1.25rem 0 !important;
+  line-height: 1.8 !important;
+  color: var(--text-main) !important;
+  font-size: 1rem !important;
+  font-weight: 300 !important;
+}
+
+/* 列表间距优化 */
+.theme-hope-content ul,
+.theme-hope-content ol,
+.vp-page ul,
+.vp-page ol {
+  margin: 1.5rem 0 !important;
+  padding-left: 1.75rem !important;
+}
+
+.theme-hope-content li,
+.vp-page li {
+  margin: 0.75rem 0 !important;
+  line-height: 1.8 !important;
+  color: var(--text-main) !important;
+}
+
+/* 列表嵌套优化 */
+.theme-hope-content li > ul,
+.theme-hope-content li > ol {
+  margin: 0.5rem 0 !important;
+}
+
+/* 强调文本 */
+.theme-hope-content strong,
+.vp-page strong {
+  font-weight: 600 !important;
+  color: var(--text-main) !important;
+}
+
+.theme-hope-content em,
+.vp-page em {
+  font-style: italic !important;
+  color: var(--brand-color) !important;
+}
+
+/* 引用块优化 */
+.theme-hope-content blockquote,
+.vp-page blockquote {
+  border-left: 3px solid var(--brand-color) !important;
+  background: var(--brand-light) !important;
+  padding: 1.25rem 1.5rem !important;
+  margin: 2rem 0 !important;
+  border-radius: 0 8px 8px 0 !important;
+  font-style: italic !important;
+  color: var(--text-muted) !important;
+}
+
+/* 代码块优化 */
+.theme-hope-content pre,
+.theme-hope-content code,
+.vp-page pre,
+.vp-page code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace !important;
+}
+
+.theme-hope-content :not(pre) > code {
+  background: var(--bg-soft) !important;
+  color: var(--brand-color) !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 4px !important;
+  font-size: 0.875em !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.theme-hope-content pre {
+  background: #1F2421 !important;
+  border-radius: 8px !important;
+  padding: 1.5rem !important;
+  margin: 1.75rem 0 !important;
+  overflow-x: auto !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* 水平分隔线 */
+.theme-hope-content hr,
+.vp-page hr {
+  border: none !important;
+  border-top: 1px solid var(--border-color) !important;
+  margin: 3rem 0 !important;
+}
+
+/* 图片优化 */
+.theme-hope-content img,
+.vp-page img {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 16px rgba(31, 36, 33, 0.08) !important;
+  margin: 2rem 0 !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* 页面内容区域整体间距 */
+.theme-hope-content,
+.vp-page-content {
+  max-width: 800px !important;
+  margin: 0 auto !important;
+  padding: 2rem 1.5rem !important;
+}
+
+@media (max-width: 768px) {
+  .theme-hope-content,
+  .vp-page-content {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .theme-hope-content h1,
+  .vp-page h1 {
+    font-size: 2rem !important;
+  }
+
+  .theme-hope-content h2,
+  .vp-page h2 {
+    font-size: 1.65rem !important;
+  }
+
+  .theme-hope-content h3,
+  .vp-page h3 {
+    font-size: 1.35rem !important;
   }
 }
 
@@ -721,6 +1154,207 @@ a.vp-sidebar-link[href*="paolu.html"] {
   font-weight: bold !important;
   animation: danger-pulse 2s ease-in-out infinite;
 }
+
+/* ============================================
+   P2: 微交互动效（极简温暖风格）
+   ============================================ */
+
+/* 按钮悬停微提升动效 */
+.vp-button,
+.airport-card,
+.hint-container,
+.custom-container {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.vp-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(196, 97, 47, 0.2) !important;
+}
+
+.vp-button:active {
+  transform: translateY(0) !important;
+  transition: all 0.1s !important;
+}
+
+/* 机场卡片悬停动效 */
+.airport-card {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.airport-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 32px rgba(31, 36, 33, 0.12) !important;
+}
+
+.airport-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(196, 97, 47, 0.08), transparent) !important;
+  transition: left 0.6s ease !important;
+}
+
+.airport-card:hover::before {
+  left: 100% !important;
+}
+
+/* 导航栏链接悬停动效 */
+.vp-navbar .vp-nav-link {
+  position: relative !important;
+}
+
+.vp-navbar .vp-nav-link::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) scaleX(0) !important;
+  width: 80% !important;
+  height: 2px !important;
+  background: var(--brand-color) !important;
+  border-radius: 2px !important;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.vp-navbar .vp-nav-link:hover::after,
+.vp-navbar .vp-nav-link.active::after {
+  transform: translateX(-50%) scaleX(1) !important;
+}
+
+/* 侧边栏链接悬停动效 */
+.vp-sidebar .vp-sidebar-link {
+  position: relative !important;
+}
+
+.vp-sidebar .vp-sidebar-link::before {
+  content: '' !important;
+  position: absolute !important;
+  left: -2px !important;
+  top: 50% !important;
+  transform: translateY(-50%) scaleY(0) !important;
+  width: 2px !important;
+  height: 70% !important;
+  background: var(--brand-color) !important;
+  border-radius: 2px !important;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.vp-sidebar .vp-sidebar-link:hover::before {
+  transform: translateY(-50%) scaleY(1) !important;
+}
+
+/* 链接悬停微动效 */
+.theme-hope-content a:not(.vp-hero-action):not(.vp-button),
+.vp-page a:not(.vp-hero-action) {
+  position: relative !important;
+  transition: all 0.2s ease !important;
+}
+
+.theme-hope-content a:not(.vp-hero-action):not(.vp-button)::after,
+.vp-page a:not(.vp-hero-action)::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 1px !important;
+  background: var(--brand-color) !important;
+  transform: scaleX(0) !important;
+  transform-origin: right !important;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.theme-hope-content a:not(.vp-hero-action):not(.vp-button):hover::after,
+.vp-page a:not(.vp-hero-action):hover::after {
+  transform: scaleX(1) !important;
+  transform-origin: left !important;
+}
+
+/* 图片悬停微放大 */
+.theme-hope-content img,
+.vp-page img {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease !important;
+  cursor: zoom-in !important;
+}
+
+.theme-hope-content img:hover,
+.vp-page img:hover {
+  transform: scale(1.02) !important;
+  box-shadow: 0 8px 24px rgba(31, 36, 33, 0.15) !important;
+}
+
+/* 返回顶部按钮动效 */
+.vp-back-to-top-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.vp-back-to-top-button:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 20px rgba(196, 97, 47, 0.3) !important;
+}
+
+.vp-back-to-top-button:active {
+  transform: translateY(-2px) !important;
+}
+
+/* 容器悬停动效 */
+.hint-container:hover,
+.custom-container:hover {
+  box-shadow: 0 4px 16px rgba(31, 36, 33, 0.08) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* 页面加载淡入动效 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.theme-hope-content,
+.vp-page-content {
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* 危险警告脉冲动画 */
+@keyframes danger-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+/* 减少动效（尊重用户偏好）*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 
 .vp-sidebar-link[href*="paolu"]:hover,
 a.vp-sidebar-link[href*="paolu.html"]:hover {
@@ -816,8 +1450,8 @@ a.vp-sidebar-link[href*="paolu.html"].active {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin: 1.5rem 0;
+  gap: 1.25rem;
+  margin: 2rem 0;
 }
 
 .card-grid.col-3 {
@@ -826,33 +1460,55 @@ a.vp-sidebar-link[href*="paolu.html"].active {
 
 .card-grid .card-item {
   display: block;
-  background: var(--bg-soft) !important;
+  background: #FFFFFF !important;
   border: 1px solid var(--border-color) !important;
-  border-radius: 12px;
-  padding: 1.375rem 1.5rem;
+  border-radius: 16px;
+  padding: 1.75rem 1.75rem;
   text-decoration: none !important;
-  transition: all 0.3s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--text-main);
+  position: relative;
+  overflow: hidden;
+
+  /* 温暖渐变背景 */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--brand-color), #D4956C);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
 
   &:hover {
-    background: #fff !important;
-    border-color: var(--brand-color);
-    box-shadow: 0 8px 24px rgba(196, 97, 47, 0.12);
-    transform: translateY(-3px);
+    background: #FFFFFF !important;
+    border-color: var(--brand-color) !important;
+    box-shadow: 0 12px 32px rgba(196, 97, 47, 0.15), 0 2px 8px rgba(196, 97, 47, 0.08);
+    transform: translateY(-4px);
+
+    &::before {
+      opacity: 1;
+    }
   }
 
   .card-title {
-    font-size: 1rem;
+    font-family: 'Fraunces', 'Noto Serif SC', serif;
+    font-size: 1.125rem;
     font-weight: 600;
-    color: var(--brand-color);
-    margin-bottom: 0.75rem;
-    line-height: 1.4;
+    color: var(--text-main);
+    margin-bottom: 0.625rem;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
   }
 
   .card-desc {
     font-size: 0.875rem;
+    font-weight: 300;
     color: var(--text-muted);
-    line-height: 1.7;
+    line-height: 1.65;
   }
 }
 
@@ -911,7 +1567,53 @@ a.vp-sidebar-link[href*="paolu.html"].active {
   color: #991b1b;
 }
 
-/* --- 响应式优化 --- */
+/* --- 页脚样式（极简温暖风格）--- */
+.vp-footer {
+  background: var(--bg-soft) !important;
+  border-top: 1px solid var(--border-color) !important;
+  padding: 2.5rem 1.5rem 2rem !important;
+  margin-top: 4rem !important;
+
+  a {
+    color: var(--text-main) !important;
+    font-weight: 400 !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+
+    &:hover {
+      color: var(--brand-color) !important;
+    }
+  }
+
+  /* 页脚分隔符改为温暖的点号 */
+  a + a::before {
+    content: ' · ' !important;
+    color: var(--text-muted) !important;
+  }
+}
+
+.vp-footer-wrapper {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+  color: var(--text-muted) !important;
+  font-size: 0.875rem !important;
+  font-weight: 300 !important;
+  line-height: 1.7 !important;
+}
+
+.vp-copyright {
+  margin-top: 1rem !important;
+  color: var(--text-muted) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 300 !important;
+}
+
+[data-theme="dark"] .vp-footer {
+  background: rgba(31, 36, 33, 0.5) !important;
+}
+
+
 @media (max-width: 768px) {
   .vp-hero-info-wrapper .vp-hero-info h1 {
     font-size: 2.25rem !important;

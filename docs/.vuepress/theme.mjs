@@ -25,15 +25,19 @@ export default hopeTheme({
     // 主题色：深蓝色
     themeColor: "#1565c0",
 
+    // 面包屑导航
+    breadcrumb: true,
+    breadcrumbIcon: true,
+
     // 网站 Logo
     logo: "/globe.png",
     logoAlt: "2026年科学上网VPN机场推荐 - clash-jichang.com",
     
     docsDir: "docs",
 
-    footer: '<a href="/airport/">机场推荐</a> | <a href="/ai/">AI指南</a> | <a href="/proxy/">知识库</a> | <a href="/faq/">常见问题</a> | <a href="/links">友链</a><br/>📧 联系我们：haozevpn@gmail.com<br/>优质资源共享 · 助你畅享全球互联网自由',
+    footer: '<a href="/airport/">机场推荐</a> · <a href="/ai/">AI指南</a> · <a href="/proxy/">知识库</a> · <a href="/faq/">常见问题</a><br/>优质资源共享 · 助你畅享全球互联网',
     displayFooter: true,
-    copyright: "Copyright © 2026 clash-jichang.com · All Rights Reserved",
+    copyright: "© 2026 clash-jichang.com",
 
     // 导航栏 (机场推荐突出放前面)
     navbar: [
