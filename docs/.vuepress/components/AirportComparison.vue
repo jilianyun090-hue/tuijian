@@ -255,11 +255,11 @@ const getCheckClass = (value) => {
 
 <style scoped>
 .airport-comparison-tool {
-  margin: 40px 0;
+  margin: 0 0 48px 0;
   padding: 32px;
-  background: linear-gradient(135deg, #f0f9ff 0%, #f0f4fa 100%);
+  background: linear-gradient(135deg, #FBF9F5 0%, #F7F4EF 100%);
   border-radius: 16px;
-  border: 1px solid #e4e8f0;
+  border: 1px solid #E7E1D7;
 }
 
 .tool-header {
@@ -270,13 +270,13 @@ const getCheckClass = (value) => {
 .tool-title {
   font-size: 28px;
   font-weight: 700;
-  color: #1e2433;
+  color: #1F2421;
   margin: 0 0 8px 0;
 }
 
 .tool-desc {
   font-size: 15px;
-  color: #596580;
+  color: #5C635D;
   margin: 0;
 }
 
@@ -299,31 +299,31 @@ const getCheckClass = (value) => {
   width: 100%;
   padding: 12px 16px;
   font-size: 15px;
-  border: 2px solid #e4e8f0;
+  border: 2px solid #E7E1D7;
   border-radius: 8px;
-  background: #fff;
-  color: #1e2433;
+  background: #FFFFFF;
+  color: #1F2421;
   cursor: pointer;
   transition: all 0.2s;
   outline: none;
 }
 
 .airport-select:hover {
-  border-color: #1565c0;
+  border-color: #C4612F;
 }
 
 .airport-select:focus {
-  border-color: #1565c0;
-  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.1);
+  border-color: #C4612F;
+  box-shadow: 0 0 0 3px rgba(196, 97, 47, 0.1);
 }
 
 .add-slot-btn {
   padding: 12px 24px;
   font-size: 15px;
   font-weight: 600;
-  color: #1565c0;
-  background: #fff;
-  border: 2px dashed #1565c0;
+  color: #C4612F;
+  background: #FFFFFF;
+  border: 2px dashed #C4612F;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
@@ -331,7 +331,7 @@ const getCheckClass = (value) => {
 }
 
 .add-slot-btn:hover {
-  background: rgba(21, 101, 192, 0.05);
+  background: rgba(196, 97, 47, 0.05);
   border-style: solid;
 }
 
@@ -339,7 +339,7 @@ const getCheckClass = (value) => {
 .comparison-table-wrapper {
   overflow-x: auto;
   border-radius: 12px;
-  background: #fff;
+  background: #FFFFFF;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
@@ -350,7 +350,7 @@ const getCheckClass = (value) => {
 }
 
 .comparison-table thead {
-  background: linear-gradient(135deg, #1565c0, #1976d2);
+  background: linear-gradient(135deg, #C4612F, #A94E22);
   color: #fff;
 }
 
@@ -371,12 +371,12 @@ const getCheckClass = (value) => {
 }
 
 .comparison-table tbody tr {
-  border-bottom: 1px solid #e4e8f0;
+  border-bottom: 1px solid #E7E1D7;
   transition: background 0.2s;
 }
 
 .comparison-table tbody tr:hover {
-  background: rgba(21, 101, 192, 0.02);
+  background: rgba(196, 97, 47, 0.02);
 }
 
 .comparison-table tbody tr:last-child {
@@ -391,9 +391,9 @@ const getCheckClass = (value) => {
 
 .feature-name {
   font-weight: 600;
-  color: #1e2433;
+  color: #1F2421;
   text-align: left !important;
-  background: #f9fafb;
+  background: #FBF9F5;
 }
 
 .best-value {
@@ -425,7 +425,7 @@ const getCheckClass = (value) => {
 }
 
 .link-row {
-  background: #f9fafb;
+  background: #FBF9F5;
 }
 
 .visit-btn {
@@ -434,23 +434,23 @@ const getCheckClass = (value) => {
   font-size: 14px;
   font-weight: 600;
   color: #fff;
-  background: #1565c0;
-  border-radius: 6px;
+  background: #C4612F;
+  border-radius: 999px;
   text-decoration: none;
   transition: all 0.2s;
 }
 
 .visit-btn:hover {
-  background: #0d47a1;
+  background: #A94E22;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(21, 101, 192, 0.3);
+  box-shadow: 0 4px 12px rgba(196, 97, 47, 0.3);
 }
 
 /* 空状态 */
 .empty-state {
   text-align: center;
   padding: 60px 20px;
-  color: #596580;
+  color: #5C635D;
 }
 
 .empty-icon {
