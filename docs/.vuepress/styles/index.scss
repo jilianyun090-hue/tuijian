@@ -75,26 +75,24 @@ body {
   background: var(--bg-cream);
 }
 
-/* 减少分割线周围的空白间距 */
+/* 紧凑间距系统 */
 hr {
-  margin: 1.5rem 0 !important;
+  margin: 0.75rem 0 !important;
 }
 
-/* 减少标题下方间距 */
 .theme-hope-content h2,
 .vp-page h2 {
-  margin-bottom: 0.875rem !important;
+  margin-bottom: 0.5rem !important;
 }
 
 .theme-hope-content h3,
 .vp-page h3 {
-  margin-bottom: 0.625rem !important;
+  margin-bottom: 0.375rem !important;
 }
 
-/* 减少段落间距 */
 .theme-hope-content p,
 .vp-page p {
-  margin-bottom: 0.875rem !important;
+  margin-bottom: 0.5rem !important;
 }
 
 /* 强制背景为温暖奶油色 */
@@ -230,28 +228,61 @@ hr,
 .divider,
 .theme-hope-content hr,
 .vp-page hr {
-  margin: 1.5rem 0 1.5rem 0 !important;
+  margin: 0.75rem 0 !important;
   border: none !important;
   border-top: 1px solid var(--border-color) !important;
 }
 
-/* 标题上方间距优化 */
+/* 标题上方间距优化 (使用 scroll-margin-top 解决锚点跳转，消除视觉上超大 top 留白) */
 .theme-hope-content h2,
-.vp-page h2 {
-  margin-top: 2rem !important;
-  margin-bottom: 1rem !important;
+.vp-page h2,
+h2 {
+  margin-top: 1.25rem !important;
+  margin-bottom: 0.5rem !important;
+  padding-top: 0.35rem !important;
+  scroll-margin-top: 4.25rem !important;
 }
 
 .theme-hope-content h3,
-.vp-page h3 {
-  margin-top: 1.5rem !important;
-  margin-bottom: 0.8rem !important;
+.vp-page h3,
+h3 {
+  margin-top: 1rem !important;
+  margin-bottom: 0.375rem !important;
+  padding-top: 0 !important;
+  scroll-margin-top: 4.25rem !important;
 }
 
-/* 首页 Hero 图标透明背景适配 */
-.vp-hero-image img {
+/* 首页 Hero 地球 Logo 透明背景与无阴影适配 */
+.vp-page .vp-hero-image,
+.vp-page .vp-hero-image img,
+.vp-hero img,
+.vp-project-home .vp-hero-image,
+.vp-project-home img.vp-hero-image,
+header.vp-hero-info-wrapper img,
+.vp-hero-image-wrapper img {
   background: transparent !important;
+  background-color: transparent !important;
   mix-blend-mode: normal !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  border: none !important;
+  margin: 0 auto !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  max-height: 290px !important;
+  max-width: 340px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+.vp-page .vp-hero-image:hover,
+.vp-page .vp-hero-image img:hover,
+.vp-hero img:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  cursor: default !important;
+  filter: none !important;
 }
 
 /* 首页英雄按钮（科学上网）— 完全圆角胶囊样式 */
@@ -387,14 +418,14 @@ a.route-link-active {
 
 /* Hero 区域整体 */
 .vp-hero {
-  padding-top: 3rem !important;
-  padding-bottom: 3rem !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
 }
 
 /* 首页按钮容器 */
 .vp-hero-actions {
-  margin-top: 2rem !important;
-  gap: 1rem !important;
+  margin-top: 1.25rem !important;
+  gap: 0.75rem !important;
 
   .vp-button {
     &:not(.primary) {
@@ -412,7 +443,7 @@ a.route-link-active {
 
 /* --- Features 卡片（极简卡片风格）--- */
 .vp-feature-wrapper {
-  padding: 2rem 0 !important;
+  padding: 1rem 0 !important;
 }
 
 .vp-feature-item,
@@ -480,73 +511,77 @@ a.route-link-active {
   }
 }
 
-/* --- 内容页面排版优化（增加呼吸感）--- */
+/* --- 内容页面排版优化（紧凑高亮风格）--- */
 .theme-hope-content,
 .vp-page-content {
-  max-width: 760px !important;
+  max-width: 820px !important;
   margin: 0 auto !important;
-  padding: 0 1.5rem !important;
+  padding: 0.25rem 1.25rem 1.5rem !important;
 
   h1, h2, h3, h4, h5, h6 {
     font-family: "Fraunces", "Noto Serif SC", Georgia, serif !important;
     font-weight: 400 !important;
     color: var(--text-main) !important;
     letter-spacing: -0.5px !important;
+    padding-top: 0 !important;
+    scroll-margin-top: 4.25rem !important;
   }
 
   h1 {
-    font-size: 2.5rem !important;
-    margin-top: 0 !important;
-    margin-bottom: 2rem !important;
+    font-size: 2.2rem !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.75rem !important;
     line-height: 1.25 !important;
   }
 
   h2 {
-    font-size: 1.875rem !important;
-    margin-top: 1.5rem !important;
-    margin-bottom: 0.75rem !important;
-    padding-bottom: 0.5rem !important;
+    font-size: 1.65rem !important;
+    margin-top: 1.25rem !important;
+    margin-bottom: 0.5rem !important;
+    padding-bottom: 0.35rem !important;
     border-bottom: 1px solid var(--border-color) !important;
     line-height: 1.3 !important;
   }
 
   h3 {
-    font-size: 1.5rem !important;
-    margin-top: 1.25rem !important;
-    margin-bottom: 0.625rem !important;
+    font-size: 1.35rem !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0.375rem !important;
     line-height: 1.35 !important;
   }
 
   /* 分隔线样式优化 - 减少上下间距 */
   hr {
-    margin: 1rem 0 !important;
+    margin: 0.75rem 0 !important;
     border: none !important;
     border-top: 1px solid var(--border-color) !important;
     opacity: 0.6 !important;
   }
 
   h4 {
-    font-size: 1.25rem !important;
-    margin-top: 1.5rem !important;
-    margin-bottom: 0.875rem !important;
+    font-size: 1.15rem !important;
+    margin-top: 0.875rem !important;
+    margin-bottom: 0.375rem !important;
   }
 
   p {
     font-weight: 300 !important;
-    line-height: 1.85 !important;
-    margin-bottom: 1.25rem !important;
-    font-size: 1rem !important;
+    line-height: 1.75 !important;
+    margin-bottom: 0.625rem !important;
+    margin-top: 0.375rem !important;
+    font-size: 0.98rem !important;
     color: var(--text-main) !important;
   }
 
   ul, ol {
-    margin: 1.25rem 0 !important;
-    padding-left: 1.75rem !important;
+    margin: 0.625rem 0 !important;
+    padding-left: 1.5rem !important;
 
     li {
       font-weight: 300 !important;
-      line-height: 1.85 !important;
-      margin-bottom: 0.625rem !important;
+      line-height: 1.7 !important;
+      margin-bottom: 0.25rem !important;
+      margin-top: 0.125rem !important;
       color: var(--text-main) !important;
     }
   }
@@ -555,8 +590,8 @@ a.route-link-active {
     background: var(--bg-soft) !important;
     border-left: 3px solid var(--brand-color) !important;
     border-radius: 0 8px 8px 0 !important;
-    padding: 1.25rem 1.5rem !important;
-    margin: 2rem 0 !important;
+    padding: 0.75rem 1rem !important;
+    margin: 0.875rem 0 !important;
     font-style: italic;
     color: var(--text-muted) !important;
 
@@ -568,20 +603,21 @@ a.route-link-active {
   code:not(pre code) {
     background: var(--bg-soft) !important;
     color: var(--brand-color) !important;
-    padding: 0.25rem 0.5rem !important;
+    padding: 0.2rem 0.4rem !important;
     border-radius: 4px !important;
     font-size: 0.875em !important;
     font-weight: 400 !important;
   }
 
   pre {
-    margin: 1.5rem 0 !important;
+    margin: 0.875rem 0 !important;
+    padding: 1rem !important;
     border-radius: 12px !important;
     border: 1px solid var(--border-color) !important;
   }
 
   table {
-    margin: 1.5rem 0 !important;
+    margin: 0.875rem 0 !important;
     border-collapse: collapse !important;
     width: 100% !important;
     border: 1px solid var(--border-color) !important;
@@ -594,7 +630,7 @@ a.route-link-active {
 
     th {
       font-weight: 500 !important;
-      padding: 1rem 1.25rem !important;
+      padding: 0.625rem 0.875rem !important;
       text-align: left !important;
       border-bottom: 2px solid var(--border-color) !important;
       color: var(--text-main) !important;
@@ -602,10 +638,10 @@ a.route-link-active {
     }
 
     td {
-      padding: 1rem 1.25rem !important;
+      padding: 0.625rem 0.875rem !important;
       border-bottom: 1px solid var(--border-color) !important;
       color: var(--text-main) !important;
-      line-height: 1.7 !important;
+      line-height: 1.65 !important;
       font-size: 0.9375rem !important;
       font-weight: 300 !important;
     }
@@ -622,7 +658,7 @@ a.route-link-active {
   /* 图片优化 */
   img {
     border-radius: 12px !important;
-    margin: 1.5rem 0 !important;
+    margin: 0.875rem 0 !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
   }
 
@@ -630,7 +666,7 @@ a.route-link-active {
   hr {
     border: none !important;
     border-top: 1px solid var(--border-color) !important;
-    margin: 1rem 0 !important;
+    margin: 0.75rem 0 !important;
   }
 }
 
@@ -982,59 +1018,70 @@ a.route-link-active {
   background: linear-gradient(180deg, #1F2421 0%, #161917 100%) !important;
 }
 
-/* --- 全局排版优化（增加呼吸感）--- */
+/* --- 全局排版优化（紧凑精致风格）--- */
 
 /* 标题层级 - Editorial Serif 风格 */
 .theme-hope-content h1,
-.vp-page h1 {
+.vp-page h1,
+h1 {
   font-family: 'Fraunces', 'Noto Serif SC', serif !important;
   font-weight: 700 !important;
-  font-size: 2.5rem !important;
+  font-size: 2.2rem !important;
   color: var(--text-main) !important;
-  line-height: 1.2 !important;
+  line-height: 1.25 !important;
   letter-spacing: -0.5px !important;
-  margin: 2.5rem 0 1.5rem !important;
+  margin: 0.5rem 0 0.75rem !important;
+  padding-top: 0 !important;
+  scroll-margin-top: 4.25rem !important;
 }
 
 .theme-hope-content h2,
-.vp-page h2 {
+.vp-page h2,
+h2 {
   font-family: 'Fraunces', 'Noto Serif SC', serif !important;
   font-weight: 600 !important;
-  font-size: 2rem !important;
+  font-size: 1.65rem !important;
   color: var(--text-main) !important;
   line-height: 1.3 !important;
   letter-spacing: -0.3px !important;
-  margin: 2rem 0 1.25rem !important;
-  padding-top: 0.75rem !important;
+  margin: 1.25rem 0 0.5rem !important;
+  padding-top: 0.35rem !important;
   border-top: 1px solid var(--border-color) !important;
+  scroll-margin-top: 4.25rem !important;
 }
 
 .theme-hope-content h3,
-.vp-page h3 {
+.vp-page h3,
+h3 {
   font-family: 'Fraunces', 'Noto Serif SC', serif !important;
   font-weight: 600 !important;
-  font-size: 1.5rem !important;
+  font-size: 1.35rem !important;
   color: var(--text-main) !important;
-  line-height: 1.4 !important;
-  margin: 1.75rem 0 1rem !important;
+  line-height: 1.35 !important;
+  margin: 1rem 0 0.375rem !important;
+  padding-top: 0 !important;
+  scroll-margin-top: 4.25rem !important;
 }
 
 .theme-hope-content h4,
-.vp-page h4 {
+.vp-page h4,
+h4 {
   font-weight: 600 !important;
-  font-size: 1.25rem !important;
+  font-size: 1.15rem !important;
   color: var(--text-main) !important;
-  line-height: 1.5 !important;
-  margin: 1.5rem 0 0.875rem !important;
+  line-height: 1.4 !important;
+  margin: 0.875rem 0 0.375rem !important;
+  padding-top: 0 !important;
+  scroll-margin-top: 4.25rem !important;
 }
 
 /* 段落间距优化 */
 .theme-hope-content p,
 .vp-page p {
-  margin: 1.25rem 0 !important;
-  line-height: 1.8 !important;
+  margin: 0.5rem 0 !important;
+  line-height: 1.75 !important;
   color: var(--text-main) !important;
-  font-size: 1rem !important;
+  font-size: 0.98rem !important;
   font-weight: 300 !important;
 }
 
@@ -1043,21 +1090,21 @@ a.route-link-active {
 .theme-hope-content ol,
 .vp-page ul,
 .vp-page ol {
-  margin: 1.5rem 0 !important;
-  padding-left: 1.75rem !important;
+  margin: 0.625rem 0 !important;
+  padding-left: 1.5rem !important;
 }
 
 .theme-hope-content li,
 .vp-page li {
-  margin: 0.75rem 0 !important;
-  line-height: 1.8 !important;
+  margin: 0.25rem 0 !important;
+  line-height: 1.7 !important;
   color: var(--text-main) !important;
 }
 
 /* 列表嵌套优化 */
 .theme-hope-content li > ul,
 .theme-hope-content li > ol {
-  margin: 0.5rem 0 !important;
+  margin: 0.25rem 0 !important;
 }
 
 /* 强调文本 */
@@ -1078,8 +1125,8 @@ a.route-link-active {
 .vp-page blockquote {
   border-left: 3px solid var(--brand-color) !important;
   background: var(--brand-light) !important;
-  padding: 1.25rem 1.5rem !important;
-  margin: 1.5rem 0 !important;
+  padding: 0.75rem 1rem !important;
+  margin: 0.875rem 0 !important;
   border-radius: 0 8px 8px 0 !important;
   font-style: italic !important;
   color: var(--text-muted) !important;
@@ -1096,7 +1143,7 @@ a.route-link-active {
 .theme-hope-content :not(pre) > code {
   background: var(--bg-soft) !important;
   color: var(--brand-color) !important;
-  padding: 0.25rem 0.5rem !important;
+  padding: 0.2rem 0.4rem !important;
   border-radius: 4px !important;
   font-size: 0.875em !important;
   border: 1px solid var(--border-color) !important;
@@ -1105,8 +1152,8 @@ a.route-link-active {
 .theme-hope-content pre {
   background: #1F2421 !important;
   border-radius: 8px !important;
-  padding: 1.5rem !important;
-  margin: 1.5rem 0 !important;
+  padding: 1rem !important;
+  margin: 0.875rem 0 !important;
   overflow-x: auto !important;
   border: 1px solid var(--border-color) !important;
 }
@@ -1116,7 +1163,7 @@ a.route-link-active {
 .vp-page hr {
   border: none !important;
   border-top: 1px solid var(--border-color) !important;
-  margin: 1rem 0 !important;
+  margin: 0.75rem 0 !important;
 }
 
 /* 图片优化 */
@@ -1124,7 +1171,7 @@ a.route-link-active {
 .vp-page img {
   border-radius: 12px !important;
   box-shadow: 0 4px 16px rgba(31, 36, 33, 0.08) !important;
-  margin: 1.5rem 0 !important;
+  margin: 0.875rem 0 !important;
   max-width: 100% !important;
   height: auto !important;
 }
@@ -1132,9 +1179,9 @@ a.route-link-active {
 /* 页面内容区域整体间距 */
 .theme-hope-content,
 .vp-page-content {
-  max-width: 800px !important;
+  max-width: 820px !important;
   margin: 0 auto !important;
-  padding: 2rem 1.5rem !important;
+  padding: 0.25rem 1.25rem 1.5rem !important;
 }
 
 @media (max-width: 768px) {
@@ -1434,7 +1481,9 @@ a.vp-sidebar-link[href*="paolu.html"].active {
 
 /* --- 面包屑导航 --- */
 .vp-breadcrumb {
-  padding: 1rem 0 !important;
+  padding: 0.25rem 0 !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
   font-size: 0.875rem !important;
   color: var(--text-muted) !important;
 
@@ -1449,22 +1498,22 @@ a.vp-sidebar-link[href*="paolu.html"].active {
   }
 
   .separator {
-    margin: 0 0.5rem !important;
+    margin: 0 0.35rem !important;
     color: var(--border-color) !important;
   }
 }
 
 /* --- 分页导航 --- */
 .vp-page-nav {
-  padding-top: 2rem !important;
-  margin-top: 3rem !important;
+  padding-top: 1rem !important;
+  margin-top: 1.5rem !important;
   border-top: 1px solid var(--border-color) !important;
 
   .vp-page-nav-link {
     background: var(--bg-soft) !important;
     border: 1px solid var(--border-color) !important;
     border-radius: 8px !important;
-    padding: 1rem 1.5rem !important;
+    padding: 0.75rem 1.25rem !important;
     transition: all 0.3s !important;
 
     &:hover {
@@ -1509,8 +1558,8 @@ a.vp-sidebar-link[href*="paolu.html"].active {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
-  margin: 2rem 0;
+  gap: 0.875rem;
+  margin: 1rem 0;
 }
 
 .card-grid.col-3 {
@@ -1521,8 +1570,8 @@ a.vp-sidebar-link[href*="paolu.html"].active {
   display: block;
   background: #FFFFFF !important;
   border: 1px solid var(--border-color) !important;
-  border-radius: 16px;
-  padding: 1.75rem 1.75rem;
+  border-radius: 12px;
+  padding: 1.125rem 1.25rem;
   text-decoration: none !important;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--text-main);
