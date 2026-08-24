@@ -20,6 +20,22 @@ description: "科学上网翻墙完整知识库（2026年持续更新）：涵�
     <div class="card-title">备用机场双订阅策略</div>
     <div class="card-desc">断网时连购买新机场的梯子都没了。老手必备的主力+备用双订阅策略，按量付费套餐最低成本防断网。</div>
   </a>
+  <a class="card-item" href="/proxy/mianfei-vpn-guide-2026.html">
+    <div class="card-title">免费VPN与免费梯子真相揭秘</div>
+    <div class="card-desc">为什么不推荐免费VPN？深度分析免费翻墙工具的安全隐患、隐私风险，提供安全替代方案。</div>
+  </a>
+  <a class="card-item" href="/proxy/vpn-download-guide-2026.html">
+    <div class="card-title">VPN下载与客户端完整指南</div>
+    <div class="card-desc">全平台VPN下载指南，Clash、V2Ray、Shadowrocket等主流客户端下载地址与配置教程。</div>
+  </a>
+  <a class="card-item" href="/proxy/tizi-guide-2026.html">
+    <div class="card-title">2026年梯子推荐与选购指南</div>
+    <div class="card-desc">梯子是什么？机场梯子、VPN梯子、小火箭梯子全解析，稳定高速翻墙梯子推荐，全平台配置教程。</div>
+  </a>
+  <a class="card-item" href="/proxy/xiaohuo-jian-guide-2026.html">
+    <div class="card-title">小火箭Shadowrocket完整教程</div>
+    <div class="card-desc">iOS最强翻墙工具小火箭完整使用指南，涵盖下载安装、订阅配置、共享账号获取、节点选择技巧。</div>
+  </a>
   <a class="card-item" href="/proxy/custom-client-guide.html">
     <div class="card-title">自研客户端 vs 开源软件怎么选</div>
     <div class="card-desc">不会配 Clash？深度对比机场自研客户端与传统开源软件，新手该怎么选一目了然。</div>
