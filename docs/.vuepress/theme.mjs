@@ -121,6 +121,10 @@ export default hopeTheme({
                 collapsible: true,
                 children: [
                     { text: "科学上网知识库首页", link: "" },
+                    { text: "2026年VPN推荐完整指南", link: "vpn-tuijian-2026" },
+                    { text: "2026年梯子推荐与选购", link: "tizi-guide-2026" },
+                    { text: "VPN下载与客户端安装", link: "vpn-download-guide-2026" },
+                    { text: "免费VPN真相揭秘", link: "mianfei-vpn-guide-2026" },
                     { text: "如何选购稳定VPN机场", link: "vpn-guide" },
                     { text: "什么是翻墙？Clash教程", link: "fanqiang-guide" },
                     { text: "备用机场与双订阅策略", link: "backup-airport-guide" },
