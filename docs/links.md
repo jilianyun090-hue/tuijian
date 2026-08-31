@@ -17,12 +17,12 @@ tag:
 | 站点名称 | 链接 | 说明 |
 | :--- | :--- | :--- |
 | 科学上网知识库 | [clashmac.cn.com](https://clashmac.cn.com) | Clash 教程与科学上网知识 |
-| 墙外有网 | [outsideweb.net](https://outsideweb.net) | 翻墙资讯与工具推荐 |
-| clash机场排行榜 | [clashvpns.com](https://clashvpns.com/) | Clash 机场测评与排行榜 |
-| 机场SEO | [jichangseo.cc](http://jichangseo.cc/) | 机场SEO资讯与推荐 |
-| 机场节点 | [jichangnode.com](http://jichangnode.com/) | 机场节点评测与推荐 |
-| 机场推荐 | [jichangtuijian.cloud](https://jichangtuijian.cloud) | 机场推荐与对比 |
-| 机场选 | [jichangxuan.com](http://jichangxuan.com/) | 机场选购指南 |
+| 机场365 | [jichang365.com](https://jichang365.com) | 机场推荐与评测资讯 |
+| 机场GO | [jichang-go.com](https://jichang-go.com) | 机场选购与使用指南 |
+| VPN推荐网 | [vpnstuijian.net](https://vpnstuijian.net) | VPN与机场专业推荐 |
+| 优质资源TOP | [yzrztop.com](https://yzrztop.com) | 科学上网优质资源分享 |
+| VPN推荐 | [vpnstuijian.com](https://vpnstuijian.com) | VPN工具与机场推荐 |
+| NodeHub168 | [nodehub168.com](https://nodehub168.com) | 节点与机场资源中心 |
 
 
 ## 申请友链
